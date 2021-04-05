@@ -3,10 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1D1B99D962164E1FF9A0C789 /* Pods_Jumbosouq.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C15B68E92518A3D861AF7EF /* Pods_Jumbosouq.framework */; };
+		35569D8E2614374500CFCD17 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35569D8D2614374500CFCD17 /* HomeViewController.swift */; };
 		358DFDC52611DD3B0037221F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358DFDC42611DD3B0037221F /* AppDelegate.swift */; };
 		358DFDC72611DD3B0037221F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358DFDC62611DD3B0037221F /* SceneDelegate.swift */; };
 		358DFDC92611DD3B0037221F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358DFDC82611DD3B0037221F /* ViewController.swift */; };
@@ -15,6 +17,16 @@
 		358DFDD12611DD3C0037221F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 358DFDCF2611DD3C0037221F /* LaunchScreen.storyboard */; };
 		358DFDDC2611DD3C0037221F /* JumbosouqTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358DFDDB2611DD3C0037221F /* JumbosouqTests.swift */; };
 		358DFDE72611DD3C0037221F /* JumbosouqUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358DFDE62611DD3C0037221F /* JumbosouqUITests.swift */; };
+		358DFDF82611E21A0037221F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358DFDF72611E21A0037221F /* LoginViewController.swift */; };
+		358DFDFD2611E2490037221F /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358DFDFC2611E2490037221F /* SignupViewController.swift */; };
+		358DFE022611E2810037221F /* ForgotPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358DFE012611E2810037221F /* ForgotPasswordVC.swift */; };
+		358DFE0B2611E9B40037221F /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358DFE0A2611E9B40037221F /* ViewExtension.swift */; };
+		358DFE142611ED0F0037221F /* Geomanist-ExtraLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 358DFE102611ED0F0037221F /* Geomanist-ExtraLight.otf */; };
+		358DFE152611ED0F0037221F /* Geomanist-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 358DFE112611ED0F0037221F /* Geomanist-Medium.otf */; };
+		358DFE162611ED0F0037221F /* Geomanist-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 358DFE122611ED0F0037221F /* Geomanist-Bold.otf */; };
+		358DFE172611ED0F0037221F /* Geomanist-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 358DFE132611ED0F0037221F /* Geomanist-Regular.otf */; };
+		6C9F4EBB1D386920A2EA551E /* Pods_Jumbosouq_JumbosouqUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DB8FF221D26357C0A52EEE3 /* Pods_Jumbosouq_JumbosouqUITests.framework */; };
+		AF8D3046178C619F464E20C7 /* Pods_JumbosouqTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23DD20956508BA9D6FE93256 /* Pods_JumbosouqTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +47,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		23DD20956508BA9D6FE93256 /* Pods_JumbosouqTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JumbosouqTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		35569D8D2614374500CFCD17 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		358DFDC12611DD3B0037221F /* Jumbosouq.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Jumbosouq.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		358DFDC42611DD3B0037221F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		358DFDC62611DD3B0037221F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -49,6 +63,22 @@
 		358DFDE22611DD3C0037221F /* JumbosouqUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JumbosouqUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		358DFDE62611DD3C0037221F /* JumbosouqUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JumbosouqUITests.swift; sourceTree = "<group>"; };
 		358DFDE82611DD3C0037221F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		358DFDF72611E21A0037221F /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		358DFDFC2611E2490037221F /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
+		358DFE012611E2810037221F /* ForgotPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordVC.swift; sourceTree = "<group>"; };
+		358DFE0A2611E9B40037221F /* ViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
+		358DFE102611ED0F0037221F /* Geomanist-ExtraLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Geomanist-ExtraLight.otf"; sourceTree = "<group>"; };
+		358DFE112611ED0F0037221F /* Geomanist-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Geomanist-Medium.otf"; sourceTree = "<group>"; };
+		358DFE122611ED0F0037221F /* Geomanist-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Geomanist-Bold.otf"; sourceTree = "<group>"; };
+		358DFE132611ED0F0037221F /* Geomanist-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Geomanist-Regular.otf"; sourceTree = "<group>"; };
+		3C15B68E92518A3D861AF7EF /* Pods_Jumbosouq.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Jumbosouq.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3DB8FF221D26357C0A52EEE3 /* Pods_Jumbosouq_JumbosouqUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Jumbosouq_JumbosouqUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		46E8AF089AB6D41822C12538 /* Pods-Jumbosouq-JumbosouqUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Jumbosouq-JumbosouqUITests.release.xcconfig"; path = "Target Support Files/Pods-Jumbosouq-JumbosouqUITests/Pods-Jumbosouq-JumbosouqUITests.release.xcconfig"; sourceTree = "<group>"; };
+		5FEE0AD3E68C262AA31C5D9F /* Pods-Jumbosouq.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Jumbosouq.release.xcconfig"; path = "Target Support Files/Pods-Jumbosouq/Pods-Jumbosouq.release.xcconfig"; sourceTree = "<group>"; };
+		73082ED7DEFF66FB1DB30655 /* Pods-JumbosouqTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JumbosouqTests.release.xcconfig"; path = "Target Support Files/Pods-JumbosouqTests/Pods-JumbosouqTests.release.xcconfig"; sourceTree = "<group>"; };
+		82366CB43B78CBF8E241EDD3 /* Pods-Jumbosouq-JumbosouqUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Jumbosouq-JumbosouqUITests.debug.xcconfig"; path = "Target Support Files/Pods-Jumbosouq-JumbosouqUITests/Pods-Jumbosouq-JumbosouqUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		A57728BD306E368BEFAE2774 /* Pods-Jumbosouq.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Jumbosouq.debug.xcconfig"; path = "Target Support Files/Pods-Jumbosouq/Pods-Jumbosouq.debug.xcconfig"; sourceTree = "<group>"; };
+		CC7CE8F2F61C46B9D00C5DA6 /* Pods-JumbosouqTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JumbosouqTests.debug.xcconfig"; path = "Target Support Files/Pods-JumbosouqTests/Pods-JumbosouqTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +86,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1D1B99D962164E1FF9A0C789 /* Pods_Jumbosouq.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +94,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF8D3046178C619F464E20C7 /* Pods_JumbosouqTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,19 +102,44 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6C9F4EBB1D386920A2EA551E /* Pods_Jumbosouq_JumbosouqUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2038F07BBB902517DFD78678 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A57728BD306E368BEFAE2774 /* Pods-Jumbosouq.debug.xcconfig */,
+				5FEE0AD3E68C262AA31C5D9F /* Pods-Jumbosouq.release.xcconfig */,
+				82366CB43B78CBF8E241EDD3 /* Pods-Jumbosouq-JumbosouqUITests.debug.xcconfig */,
+				46E8AF089AB6D41822C12538 /* Pods-Jumbosouq-JumbosouqUITests.release.xcconfig */,
+				CC7CE8F2F61C46B9D00C5DA6 /* Pods-JumbosouqTests.debug.xcconfig */,
+				73082ED7DEFF66FB1DB30655 /* Pods-JumbosouqTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		35569D8C2614373200CFCD17 /* HomeVC */ = {
+			isa = PBXGroup;
+			children = (
+				35569D8D2614374500CFCD17 /* HomeViewController.swift */,
+			);
+			path = HomeVC;
+			sourceTree = "<group>";
+		};
 		358DFDB82611DD3B0037221F = {
 			isa = PBXGroup;
 			children = (
+				358DFE0A2611E9B40037221F /* ViewExtension.swift */,
 				358DFDC32611DD3B0037221F /* Jumbosouq */,
 				358DFDDA2611DD3C0037221F /* JumbosouqTests */,
 				358DFDE52611DD3C0037221F /* JumbosouqUITests */,
 				358DFDC22611DD3B0037221F /* Products */,
+				2038F07BBB902517DFD78678 /* Pods */,
+				F561A47D4460D9E0DDC7C33C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -99,6 +156,8 @@
 		358DFDC32611DD3B0037221F /* Jumbosouq */ = {
 			isa = PBXGroup;
 			children = (
+				35569D8C2614373200CFCD17 /* HomeVC */,
+				358DFE0F2611ECFD0037221F /* Fonts */,
 				358DFDC42611DD3B0037221F /* AppDelegate.swift */,
 				358DFDC62611DD3B0037221F /* SceneDelegate.swift */,
 				358DFDC82611DD3B0037221F /* ViewController.swift */,
@@ -106,6 +165,7 @@
 				358DFDCD2611DD3C0037221F /* Assets.xcassets */,
 				358DFDCF2611DD3C0037221F /* LaunchScreen.storyboard */,
 				358DFDD22611DD3C0037221F /* Info.plist */,
+				358DFE062611E2890037221F /* LoginControllers */,
 			);
 			path = Jumbosouq;
 			sourceTree = "<group>";
@@ -128,6 +188,37 @@
 			path = JumbosouqUITests;
 			sourceTree = "<group>";
 		};
+		358DFE062611E2890037221F /* LoginControllers */ = {
+			isa = PBXGroup;
+			children = (
+				358DFDF72611E21A0037221F /* LoginViewController.swift */,
+				358DFDFC2611E2490037221F /* SignupViewController.swift */,
+				358DFE012611E2810037221F /* ForgotPasswordVC.swift */,
+			);
+			path = LoginControllers;
+			sourceTree = "<group>";
+		};
+		358DFE0F2611ECFD0037221F /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				358DFE122611ED0F0037221F /* Geomanist-Bold.otf */,
+				358DFE102611ED0F0037221F /* Geomanist-ExtraLight.otf */,
+				358DFE112611ED0F0037221F /* Geomanist-Medium.otf */,
+				358DFE132611ED0F0037221F /* Geomanist-Regular.otf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		F561A47D4460D9E0DDC7C33C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3C15B68E92518A3D861AF7EF /* Pods_Jumbosouq.framework */,
+				3DB8FF221D26357C0A52EEE3 /* Pods_Jumbosouq_JumbosouqUITests.framework */,
+				23DD20956508BA9D6FE93256 /* Pods_JumbosouqTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -135,9 +226,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 358DFDEB2611DD3C0037221F /* Build configuration list for PBXNativeTarget "Jumbosouq" */;
 			buildPhases = (
+				9E1EA2BFF1D933DAC44CAF6F /* [CP] Check Pods Manifest.lock */,
 				358DFDBD2611DD3B0037221F /* Sources */,
 				358DFDBE2611DD3B0037221F /* Frameworks */,
 				358DFDBF2611DD3B0037221F /* Resources */,
+				785BB94CE37C9D65D34A0C9B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -152,6 +245,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 358DFDEE2611DD3C0037221F /* Build configuration list for PBXNativeTarget "JumbosouqTests" */;
 			buildPhases = (
+				CC637C40DB01EE28E06E7A35 /* [CP] Check Pods Manifest.lock */,
 				358DFDD32611DD3C0037221F /* Sources */,
 				358DFDD42611DD3C0037221F /* Frameworks */,
 				358DFDD52611DD3C0037221F /* Resources */,
@@ -170,9 +264,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 358DFDF12611DD3C0037221F /* Build configuration list for PBXNativeTarget "JumbosouqUITests" */;
 			buildPhases = (
+				21448A638EE1793CA8EDD5FB /* [CP] Check Pods Manifest.lock */,
 				358DFDDE2611DD3C0037221F /* Sources */,
 				358DFDDF2611DD3C0037221F /* Frameworks */,
 				358DFDE02611DD3C0037221F /* Resources */,
+				DB2F0834A408F39365928D34 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -231,9 +327,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				358DFE162611ED0F0037221F /* Geomanist-Bold.otf in Resources */,
+				358DFE152611ED0F0037221F /* Geomanist-Medium.otf in Resources */,
 				358DFDD12611DD3C0037221F /* LaunchScreen.storyboard in Resources */,
 				358DFDCE2611DD3C0037221F /* Assets.xcassets in Resources */,
 				358DFDCC2611DD3B0037221F /* Main.storyboard in Resources */,
+				358DFE142611ED0F0037221F /* Geomanist-ExtraLight.otf in Resources */,
+				358DFE172611ED0F0037221F /* Geomanist-Regular.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -253,12 +353,120 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		21448A638EE1793CA8EDD5FB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Jumbosouq-JumbosouqUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		785BB94CE37C9D65D34A0C9B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Jumbosouq/Pods-Jumbosouq-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Jumbosouq/Pods-Jumbosouq-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Jumbosouq/Pods-Jumbosouq-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9E1EA2BFF1D933DAC44CAF6F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Jumbosouq-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CC637C40DB01EE28E06E7A35 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-JumbosouqTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DB2F0834A408F39365928D34 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Jumbosouq-JumbosouqUITests/Pods-Jumbosouq-JumbosouqUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Jumbosouq-JumbosouqUITests/Pods-Jumbosouq-JumbosouqUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Jumbosouq-JumbosouqUITests/Pods-Jumbosouq-JumbosouqUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		358DFDBD2611DD3B0037221F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				358DFDF82611E21A0037221F /* LoginViewController.swift in Sources */,
 				358DFDC92611DD3B0037221F /* ViewController.swift in Sources */,
+				358DFE022611E2810037221F /* ForgotPasswordVC.swift in Sources */,
+				35569D8E2614374500CFCD17 /* HomeViewController.swift in Sources */,
+				358DFE0B2611E9B40037221F /* ViewExtension.swift in Sources */,
+				358DFDFD2611E2490037221F /* SignupViewController.swift in Sources */,
 				358DFDC52611DD3B0037221F /* AppDelegate.swift in Sources */,
 				358DFDC72611DD3B0037221F /* SceneDelegate.swift in Sources */,
 			);
@@ -433,6 +641,7 @@
 		};
 		358DFDEC2611DD3C0037221F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A57728BD306E368BEFAE2774 /* Pods-Jumbosouq.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -451,6 +660,7 @@
 		};
 		358DFDED2611DD3C0037221F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5FEE0AD3E68C262AA31C5D9F /* Pods-Jumbosouq.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -469,6 +679,7 @@
 		};
 		358DFDEF2611DD3C0037221F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CC7CE8F2F61C46B9D00C5DA6 /* Pods-JumbosouqTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -490,6 +701,7 @@
 		};
 		358DFDF02611DD3C0037221F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 73082ED7DEFF66FB1DB30655 /* Pods-JumbosouqTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -511,6 +723,7 @@
 		};
 		358DFDF22611DD3C0037221F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 82366CB43B78CBF8E241EDD3 /* Pods-Jumbosouq-JumbosouqUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -530,6 +743,7 @@
 		};
 		358DFDF32611DD3C0037221F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 46E8AF089AB6D41822C12538 /* Pods-Jumbosouq-JumbosouqUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
