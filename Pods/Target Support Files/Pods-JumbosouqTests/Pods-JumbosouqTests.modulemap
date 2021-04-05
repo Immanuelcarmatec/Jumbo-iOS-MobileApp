@@ -1,0 +1,6 @@
+framework module Pods_JumbosouqTests {
+  umbrella header "Pods-JumbosouqTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
