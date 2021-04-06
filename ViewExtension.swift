@@ -88,8 +88,19 @@ extension UIButton {
         layer.borderWidth = 1.5
         layer.borderColor = UIColor.lightGray.cgColor
         clipsToBounds = true
-        titleLabel?.font = UIFont(name: "Geomanist-Bold", size: 20)
+        
+        let screenBounds = UIScreen.main.bounds
+        let width = screenBounds.width
+        let height = screenBounds.height
+        
+            
+            if height > 600 {
+                titleLabel?.font = UIFont(name: "Geomanist-Bold", size: 20)
+            }else{
+                titleLabel?.font = UIFont(name: "Geomanist-Bold", size: 14)
+            }
         titleLabel?.textColor = UIColor.black
+        titleLabel?.adjustsFontForContentSizeCategory = true
     }
 }
 
