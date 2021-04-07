@@ -20,6 +20,13 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Geomanist-Bold.otf</string>
+		<string>Geomanist-ExtraLight.otf</string>
+		<string>Geomanist-Medium.otf</string>
+		<string>Geomanist-Regular.otf</string>
+	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
@@ -61,13 +68,6 @@
 		<string>UIInterfaceOrientationPortraitUpsideDown</string>
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
-	</array>
-	<key>UIAppFonts</key>
-	<array>
-		<string>Geomanist-Bold.otf</string>
-		<string>Geomanist-ExtraLight.otf</string>
-		<string>Geomanist-Medium.otf</string>
-		<string>Geomanist-Regular.otf</string>
 	</array>
 </dict>
 </plist>

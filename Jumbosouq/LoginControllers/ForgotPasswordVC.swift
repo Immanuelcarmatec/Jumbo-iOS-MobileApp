@@ -46,13 +46,15 @@ class ForgotPasswordVC: UIViewController {
         let parameters: [String: Any] = [ "email":txtEmail.text!, "template":"email_reset"]
         let URLStr = baseURL + "customers/password"
         
-        AF.request(URLStr, method: .put, parameters:parameters)
+       
+        
+        AF.request(URLStr, method: .put, parameters:parameters, headers:headers)
                    .responseJSON { response in
                        if let data = response.data {
                            print("Result PUT Request:")
                            print(String(data: data, encoding: .utf8)!)
                         self.viewConfirmation.isHidden = false
-                        self.lblResetDescpn.text = "If there is an account associated with" + self.txtEmail.text! + "you will receive an email with the link to reset password"
+                        self.lblResetDescpn.text = "If there is an account associated with " + self.txtEmail.text! + " you will receive an email with the link to reset password"
                        }else{
 
                        }

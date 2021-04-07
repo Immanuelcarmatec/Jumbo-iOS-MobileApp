@@ -7,9 +7,14 @@
 
 import Foundation
 import UIKit
+import Alamofire
+
 
 //Constant Declarations
 let baseURL = "https://www.jumbosouq.com/rest/default/V1/"
+let headers:HTTPHeaders = [
+       "Content-Type": "application/json"
+   ]
 let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
 var validation = Validation()
 

@@ -71,7 +71,7 @@ class LoginViewController: UIViewController {
         let parameters: [String: Any] = [ "username":txtViewUserName.text!, "password":txtViewPassword.text!]
         let URLStr = baseURL + "integration/customer/token"
         
-        AF.request(URLStr, method: .post,  parameters: parameters, encoding: JSONEncoding.default)
+        AF.request(URLStr, method: .post,  parameters: parameters, encoding: JSONEncoding.default, headers:headers)
             .responseJSON { response in
                 switch response.result {
                 case .success:
@@ -80,6 +80,11 @@ class LoginViewController: UIViewController {
                            do{
                             let jsonDict:Dictionary = try (JSONSerialization.jsonObject(with: json) as? Dictionary<String, Any>)!
                              self.alert(message: jsonDict["message"] as! String)
+                            if (jsonDict["message"] as! String == "200"){
+                                 let newViewController = storyBoard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
+                                           self.present(newViewController, animated: true, completion: nil)
+                            }
+                            
                            }
                            catch{
                            print("JSON Error")

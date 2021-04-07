@@ -42,12 +42,8 @@ class ViewController: UIViewController {
     }
     
     @IBAction func didActionLogin(_ sender: Any) {
-      
-       /* let newViewController = storyBoard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
-                self.present(newViewController, animated: true, completion: nil)*/
-        
-        let newViewController = storyBoard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
-                 self.present(newViewController, animated: true, completion: nil)
+        let newViewController = storyBoard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+                self.present(newViewController, animated: true, completion: nil)
         
     }
     
