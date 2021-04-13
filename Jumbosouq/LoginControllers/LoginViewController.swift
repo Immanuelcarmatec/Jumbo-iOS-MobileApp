@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 import Alamofire
 
+@available(iOS 13.0, *)
 class LoginViewController: UIViewController {
     @IBOutlet weak var btnSignUp: UIButton!
     @IBOutlet weak var btnLogin: UIButton!
@@ -39,7 +40,7 @@ class LoginViewController: UIViewController {
            return
         }
         
-        let isValidateName = validation.validateName(name: name)
+       let isValidateName = validation.validateName(name: name)
               if (isValidateName == false) {
                 alert(message: "Enter valid Username")
                  return
@@ -49,7 +50,7 @@ class LoginViewController: UIViewController {
         if (isValidatePass == false) {
             alert(message: "Enter valid Password")
            return
-        }        
+        }
         doLogin()
         
     }
@@ -62,8 +63,11 @@ class LoginViewController: UIViewController {
     
     
     @IBAction func didActionSignUp(_ sender: Any) {
-        let newViewController = storyBoard.instantiateViewController(withIdentifier: "SignupViewController") as! SignupViewController
-        self.present(newViewController, animated: true, completion: nil)
+       /* let newViewController = storyBoard.instantiateViewController(withIdentifier: "SignupViewController") as! SignupViewController
+        self.present(newViewController, animated: true, completion: nil)*/
+        
+        let newViewController = storyBoard.instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
+                  self.present(newViewController, animated: true, completion: nil)
         
     }
     
@@ -81,7 +85,7 @@ class LoginViewController: UIViewController {
                             let jsonDict:Dictionary = try (JSONSerialization.jsonObject(with: json) as? Dictionary<String, Any>)!
                              self.alert(message: jsonDict["message"] as! String)
                             if (jsonDict["message"] as! String == "200"){
-                                 let newViewController = storyBoard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
+                                 let newViewController = storyBoard.instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
                                            self.present(newViewController, animated: true, completion: nil)
                             }
                             

@@ -7,7 +7,11 @@
 
 import UIKit
 
+@available(iOS 13.0, *)
 class ViewController: UIViewController {
+    
+    
+    
     @IBOutlet weak var btnFBlogin: UIButton!
     
     @IBOutlet weak var scrollViewContent: UIScrollView!
@@ -37,16 +41,17 @@ class ViewController: UIViewController {
         btnGoogleLogin.titleLabel?.autoresizesSubviews = true
         btnGueestLogin.titleLabel?.autoresizesSubviews = true
         
-
+        
 
     }
+    
+  
     
     @IBAction func didActionLogin(_ sender: Any) {
         let newViewController = storyBoard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
                 self.present(newViewController, animated: true, completion: nil)
         
     }
-    
 
 }
 

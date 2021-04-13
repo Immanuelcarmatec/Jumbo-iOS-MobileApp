@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		1D1B99D962164E1FF9A0C789 /* Pods_Jumbosouq.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C15B68E92518A3D861AF7EF /* Pods_Jumbosouq.framework */; };
 		3534DFC4261CAC7200A5A9CC /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3534DFC3261CAC7200A5A9CC /* HomeViewController.swift */; };
+		355B2A7D26209CA60032567B /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355B2A7826209CA60032567B /* SideMenuViewController.swift */; };
+		355B2A7E26209CA60032567B /* SideMenuModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355B2A7926209CA60032567B /* SideMenuModel.swift */; };
+		355B2A7F26209CA60032567B /* SideMenuCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 355B2A7B26209CA60032567B /* SideMenuCell.xib */; };
+		355B2A8026209CA60032567B /* SideMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355B2A7C26209CA60032567B /* SideMenuCell.swift */; };
+		355B2A852620A39F0032567B /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355B2A842620A39F0032567B /* MainViewController.swift */; };
 		358DFDC52611DD3B0037221F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358DFDC42611DD3B0037221F /* AppDelegate.swift */; };
 		358DFDC72611DD3B0037221F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358DFDC62611DD3B0037221F /* SceneDelegate.swift */; };
 		358DFDC92611DD3B0037221F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358DFDC82611DD3B0037221F /* ViewController.swift */; };
@@ -49,6 +54,11 @@
 /* Begin PBXFileReference section */
 		23DD20956508BA9D6FE93256 /* Pods_JumbosouqTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JumbosouqTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3534DFC3261CAC7200A5A9CC /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		355B2A7826209CA60032567B /* SideMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
+		355B2A7926209CA60032567B /* SideMenuModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuModel.swift; sourceTree = "<group>"; };
+		355B2A7B26209CA60032567B /* SideMenuCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SideMenuCell.xib; sourceTree = "<group>"; };
+		355B2A7C26209CA60032567B /* SideMenuCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuCell.swift; sourceTree = "<group>"; };
+		355B2A842620A39F0032567B /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		358DFDC12611DD3B0037221F /* Jumbosouq.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Jumbosouq.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		358DFDC42611DD3B0037221F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		358DFDC62611DD3B0037221F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -125,14 +135,34 @@
 		35569D8C2614373200CFCD17 /* HomeVC */ = {
 			isa = PBXGroup;
 			children = (
+				355B2A842620A39F0032567B /* MainViewController.swift */,
+				3534DFC3261CAC7200A5A9CC /* HomeViewController.swift */,
 			);
 			path = HomeVC;
+			sourceTree = "<group>";
+		};
+		355B2A7726209CA60032567B /* SideMenu */ = {
+			isa = PBXGroup;
+			children = (
+				355B2A7826209CA60032567B /* SideMenuViewController.swift */,
+				355B2A7926209CA60032567B /* SideMenuModel.swift */,
+				355B2A7A26209CA60032567B /* Cell */,
+			);
+			path = SideMenu;
+			sourceTree = "<group>";
+		};
+		355B2A7A26209CA60032567B /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				355B2A7B26209CA60032567B /* SideMenuCell.xib */,
+				355B2A7C26209CA60032567B /* SideMenuCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		358DFDB82611DD3B0037221F = {
 			isa = PBXGroup;
 			children = (
-				358DFE0A2611E9B40037221F /* ViewExtension.swift */,
 				358DFDC32611DD3B0037221F /* Jumbosouq */,
 				358DFDDA2611DD3C0037221F /* JumbosouqTests */,
 				358DFDE52611DD3C0037221F /* JumbosouqUITests */,
@@ -155,6 +185,8 @@
 		358DFDC32611DD3B0037221F /* Jumbosouq */ = {
 			isa = PBXGroup;
 			children = (
+				358DFE0A2611E9B40037221F /* ViewExtension.swift */,
+				355B2A7726209CA60032567B /* SideMenu */,
 				35569D8C2614373200CFCD17 /* HomeVC */,
 				358DFE0F2611ECFD0037221F /* Fonts */,
 				358DFDC42611DD3B0037221F /* AppDelegate.swift */,
@@ -165,7 +197,6 @@
 				358DFDCF2611DD3C0037221F /* LaunchScreen.storyboard */,
 				358DFDD22611DD3C0037221F /* Info.plist */,
 				358DFE062611E2890037221F /* LoginControllers */,
-				3534DFC3261CAC7200A5A9CC /* HomeViewController.swift */,
 			);
 			path = Jumbosouq;
 			sourceTree = "<group>";
@@ -330,6 +361,7 @@
 				358DFE162611ED0F0037221F /* Geomanist-Bold.otf in Resources */,
 				358DFE152611ED0F0037221F /* Geomanist-Medium.otf in Resources */,
 				358DFDD12611DD3C0037221F /* LaunchScreen.storyboard in Resources */,
+				355B2A7F26209CA60032567B /* SideMenuCell.xib in Resources */,
 				358DFDCE2611DD3C0037221F /* Assets.xcassets in Resources */,
 				358DFDCC2611DD3B0037221F /* Main.storyboard in Resources */,
 				358DFE142611ED0F0037221F /* Geomanist-ExtraLight.otf in Resources */,
@@ -464,11 +496,15 @@
 				358DFDF82611E21A0037221F /* LoginViewController.swift in Sources */,
 				358DFDC92611DD3B0037221F /* ViewController.swift in Sources */,
 				358DFE022611E2810037221F /* ForgotPasswordVC.swift in Sources */,
+				355B2A852620A39F0032567B /* MainViewController.swift in Sources */,
 				3534DFC4261CAC7200A5A9CC /* HomeViewController.swift in Sources */,
+				355B2A8026209CA60032567B /* SideMenuCell.swift in Sources */,
 				358DFE0B2611E9B40037221F /* ViewExtension.swift in Sources */,
 				358DFDFD2611E2490037221F /* SignupViewController.swift in Sources */,
 				358DFDC52611DD3B0037221F /* AppDelegate.swift in Sources */,
+				355B2A7D26209CA60032567B /* SideMenuViewController.swift in Sources */,
 				358DFDC72611DD3B0037221F /* SceneDelegate.swift in Sources */,
+				355B2A7E26209CA60032567B /* SideMenuModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
