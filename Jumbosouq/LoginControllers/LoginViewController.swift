@@ -40,7 +40,16 @@ class LoginViewController: UIViewController {
            return
         }
         
-       let isValidateName = validation.validateName(name: name)
+        if (name.isEmpty) {
+          alert(message: "Enter valid Username")
+           return
+        }
+        if (password.isEmpty) {
+          alert(message: "Enter valid Password")
+           return
+        }
+        
+      /* let isValidateName = validation.validateName(name: name)
               if (isValidateName == false) {
                 alert(message: "Enter valid Username")
                  return
@@ -50,7 +59,7 @@ class LoginViewController: UIViewController {
         if (isValidatePass == false) {
             alert(message: "Enter valid Password")
            return
-        }
+        }*/
         doLogin()
         
     }

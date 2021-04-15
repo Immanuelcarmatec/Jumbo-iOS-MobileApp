@@ -30,6 +30,12 @@
 		358DFE152611ED0F0037221F /* Geomanist-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 358DFE112611ED0F0037221F /* Geomanist-Medium.otf */; };
 		358DFE162611ED0F0037221F /* Geomanist-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 358DFE122611ED0F0037221F /* Geomanist-Bold.otf */; };
 		358DFE172611ED0F0037221F /* Geomanist-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 358DFE132611ED0F0037221F /* Geomanist-Regular.otf */; };
+		35D6089F2628853700E8A066 /* FirstTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D6089D2628853700E8A066 /* FirstTableViewCell.swift */; };
+		35D608A02628853700E8A066 /* FirstTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 35D6089E2628853700E8A066 /* FirstTableViewCell.xib */; };
+		35D608A7262891EA00E8A066 /* WeekDealTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D608A5262891EA00E8A066 /* WeekDealTableViewCell.swift */; };
+		35D608A8262891EA00E8A066 /* WeekDealTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 35D608A6262891EA00E8A066 /* WeekDealTableViewCell.xib */; };
+		35D608AE2628924E00E8A066 /* WeekDealCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D608AC2628924E00E8A066 /* WeekDealCollectionViewCell.swift */; };
+		35D608AF2628924E00E8A066 /* WeekDealCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 35D608AD2628924E00E8A066 /* WeekDealCollectionViewCell.xib */; };
 		6C9F4EBB1D386920A2EA551E /* Pods_Jumbosouq_JumbosouqUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DB8FF221D26357C0A52EEE3 /* Pods_Jumbosouq_JumbosouqUITests.framework */; };
 		AF8D3046178C619F464E20C7 /* Pods_JumbosouqTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23DD20956508BA9D6FE93256 /* Pods_JumbosouqTests.framework */; };
 /* End PBXBuildFile section */
@@ -81,6 +87,12 @@
 		358DFE112611ED0F0037221F /* Geomanist-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Geomanist-Medium.otf"; sourceTree = "<group>"; };
 		358DFE122611ED0F0037221F /* Geomanist-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Geomanist-Bold.otf"; sourceTree = "<group>"; };
 		358DFE132611ED0F0037221F /* Geomanist-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Geomanist-Regular.otf"; sourceTree = "<group>"; };
+		35D6089D2628853700E8A066 /* FirstTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstTableViewCell.swift; sourceTree = "<group>"; };
+		35D6089E2628853700E8A066 /* FirstTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FirstTableViewCell.xib; sourceTree = "<group>"; };
+		35D608A5262891EA00E8A066 /* WeekDealTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekDealTableViewCell.swift; sourceTree = "<group>"; };
+		35D608A6262891EA00E8A066 /* WeekDealTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WeekDealTableViewCell.xib; sourceTree = "<group>"; };
+		35D608AC2628924E00E8A066 /* WeekDealCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekDealCollectionViewCell.swift; sourceTree = "<group>"; };
+		35D608AD2628924E00E8A066 /* WeekDealCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WeekDealCollectionViewCell.xib; sourceTree = "<group>"; };
 		3C15B68E92518A3D861AF7EF /* Pods_Jumbosouq.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Jumbosouq.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DB8FF221D26357C0A52EEE3 /* Pods_Jumbosouq_JumbosouqUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Jumbosouq_JumbosouqUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		46E8AF089AB6D41822C12538 /* Pods-Jumbosouq-JumbosouqUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Jumbosouq-JumbosouqUITests.release.xcconfig"; path = "Target Support Files/Pods-Jumbosouq-JumbosouqUITests/Pods-Jumbosouq-JumbosouqUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -135,6 +147,7 @@
 		35569D8C2614373200CFCD17 /* HomeVC */ = {
 			isa = PBXGroup;
 			children = (
+				35D6089C262884F800E8A066 /*  HomeCells */,
 				355B2A842620A39F0032567B /* MainViewController.swift */,
 				3534DFC3261CAC7200A5A9CC /* HomeViewController.swift */,
 			);
@@ -238,6 +251,27 @@
 				358DFE132611ED0F0037221F /* Geomanist-Regular.otf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		35D6089C262884F800E8A066 /*  HomeCells */ = {
+			isa = PBXGroup;
+			children = (
+				35D608A4262891C900E8A066 /* WeeklyDealsView */,
+				35D6089D2628853700E8A066 /* FirstTableViewCell.swift */,
+				35D6089E2628853700E8A066 /* FirstTableViewCell.xib */,
+			);
+			path = " HomeCells";
+			sourceTree = "<group>";
+		};
+		35D608A4262891C900E8A066 /* WeeklyDealsView */ = {
+			isa = PBXGroup;
+			children = (
+				35D608A5262891EA00E8A066 /* WeekDealTableViewCell.swift */,
+				35D608A6262891EA00E8A066 /* WeekDealTableViewCell.xib */,
+				35D608AC2628924E00E8A066 /* WeekDealCollectionViewCell.swift */,
+				35D608AD2628924E00E8A066 /* WeekDealCollectionViewCell.xib */,
+			);
+			path = WeeklyDealsView;
 			sourceTree = "<group>";
 		};
 		F561A47D4460D9E0DDC7C33C /* Frameworks */ = {
@@ -359,13 +393,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				358DFE162611ED0F0037221F /* Geomanist-Bold.otf in Resources */,
+				35D608A02628853700E8A066 /* FirstTableViewCell.xib in Resources */,
 				358DFE152611ED0F0037221F /* Geomanist-Medium.otf in Resources */,
+				35D608A8262891EA00E8A066 /* WeekDealTableViewCell.xib in Resources */,
 				358DFDD12611DD3C0037221F /* LaunchScreen.storyboard in Resources */,
 				355B2A7F26209CA60032567B /* SideMenuCell.xib in Resources */,
 				358DFDCE2611DD3C0037221F /* Assets.xcassets in Resources */,
 				358DFDCC2611DD3B0037221F /* Main.storyboard in Resources */,
 				358DFE142611ED0F0037221F /* Geomanist-ExtraLight.otf in Resources */,
 				358DFE172611ED0F0037221F /* Geomanist-Regular.otf in Resources */,
+				35D608AF2628924E00E8A066 /* WeekDealCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -497,12 +534,15 @@
 				358DFDC92611DD3B0037221F /* ViewController.swift in Sources */,
 				358DFE022611E2810037221F /* ForgotPasswordVC.swift in Sources */,
 				355B2A852620A39F0032567B /* MainViewController.swift in Sources */,
+				35D608AE2628924E00E8A066 /* WeekDealCollectionViewCell.swift in Sources */,
 				3534DFC4261CAC7200A5A9CC /* HomeViewController.swift in Sources */,
+				35D6089F2628853700E8A066 /* FirstTableViewCell.swift in Sources */,
 				355B2A8026209CA60032567B /* SideMenuCell.swift in Sources */,
 				358DFE0B2611E9B40037221F /* ViewExtension.swift in Sources */,
 				358DFDFD2611E2490037221F /* SignupViewController.swift in Sources */,
 				358DFDC52611DD3B0037221F /* AppDelegate.swift in Sources */,
 				355B2A7D26209CA60032567B /* SideMenuViewController.swift in Sources */,
+				35D608A7262891EA00E8A066 /* WeekDealTableViewCell.swift in Sources */,
 				358DFDC72611DD3B0037221F /* SceneDelegate.swift in Sources */,
 				355B2A7E26209CA60032567B /* SideMenuModel.swift in Sources */,
 			);

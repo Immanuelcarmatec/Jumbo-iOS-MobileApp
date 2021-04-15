@@ -7,6 +7,8 @@
 
 import Foundation
 import UIKit
+import Alamofire
+
 
 class SignupViewController: UIViewController {
 
@@ -59,12 +61,7 @@ class SignupViewController: UIViewController {
                  return
               }
         
-        let isValidatePhoneNum = validation.validaPhoneNumber(phoneNumber: phonenum)
-              if (isValidatePhoneNum == false) {
-                alert(message: "Enter valid Phone number")
-                 return
-              }
-        
+
         let isValidateEmail = validation.validateEmailId(emailID: email)
               if (isValidateEmail == false) {
                 alert(message: "Enter valid Email ID")
@@ -86,6 +83,41 @@ class SignupViewController: UIViewController {
     }
     
     func doSignUP(){
+        
+        let parameters: [String: Any] = [ "email":txtEmail.text!, "password":txtPassword.text!,"firstname":txtFirstName.text!,"lastname":txtLastName.text!]
+        let URLStr = baseURL + "customers"
+        let dic:[String: Any] = ["customer":parameters]
+        
+        AF.request(URLStr, method: .post,  parameters: dic, encoding: JSONEncoding.default, headers:headers)
+            .responseJSON { response in
+                switch response.result {
+                case .success:
+                    
+                    if let json = response.data {
+                           do{
+                            let jsonDict:Dictionary = try (JSONSerialization.jsonObject(with: json) as? Dictionary<String, Any>)!
+                             self.alert(message: jsonDict["message"] as! String)
+                            if (jsonDict["message"] as! String == "200"){
+                                 let newViewController = storyBoard.instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
+                                           self.present(newViewController, animated: true, completion: nil)
+                            }
+                            
+                           }
+                           catch{
+                           print("JSON Error")
+
+                           }
+
+                       }
+                
+                case .failure(let error):
+                  print(error)
+                    
+                }
+
+               
+
+        }
         
     }
     
