@@ -17,6 +17,17 @@ let headers:HTTPHeaders = [
    ]
 let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
 var validation = Validation()
+let defaults = UserDefaults.standard
+
+//Chck existing user
+func userAlreadyExist() -> Bool {
+
+    if (defaults.object(forKey: "username") != nil) {
+        return true
+    }
+
+    return false
+}
 
 
 //Input Validation
@@ -119,6 +130,13 @@ extension UITextField {
         clipsToBounds = true
         font = UIFont(name: "Geomanist-Regular", size: 20)
         textColor = UIColor.gray
+        
+        let leftView = UILabel(frame: CGRect(x: 50, y: 0, width: 7, height: 26))
+        leftView.backgroundColor = .clear
+
+        self.leftView = leftView
+        self.leftViewMode = .always
+        self.contentVerticalAlignment = .center
     }
 }
 

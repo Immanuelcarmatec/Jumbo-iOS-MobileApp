@@ -61,7 +61,7 @@ class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataS
     
     // number of rows in table view
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return 3
     }
     
     // create a cell for each table view row
@@ -70,16 +70,24 @@ class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataS
         let identifier = "FirstTableViewCell"
         let cell: FirstTableViewCell! = tableView.dequeueReusableCell(withIdentifier: identifier) as? FirstTableViewCell
         
-        if indexPath.row == 0 {
-            let cell: FirstTableViewCell = UITableViewCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: "FirstTableViewCell") as! FirstTableViewCell
-                    //set the data here
-                    return cell
+       if indexPath.row == 0 {
+                   tableView.register(UINib(nibName: "FirstTableViewCell", bundle: nil), forCellReuseIdentifier: identifier)
+                   let firstcell = tableView.dequeueReusableCell(withIdentifier: "FirstTableViewCell") as? FirstTableViewCell
+                   return firstcell!
                 }
         else if indexPath.row == 1 {
-                    let cell: WeekDealTableViewCell = UITableViewCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: "WeekDealTableViewCell") as! WeekDealTableViewCell
-                    //set the data here
-                    return cell
-                }
+            let identifier = "WeekDealTableViewCell"
+            var weekdealcell: WeekDealTableViewCell! = tableView.dequeueReusableCell(withIdentifier: identifier) as? WeekDealTableViewCell
+          tableView.register(UINib(nibName: "WeekDealTableViewCell", bundle: nil), forCellReuseIdentifier: identifier)
+            weekdealcell = tableView.dequeueReusableCell(withIdentifier: "WeekDealTableViewCell") as? WeekDealTableViewCell
+            return weekdealcell!
+        }else if indexPath.row == 2 {
+            let identifier = "WeekDealTableViewCell"
+            var weekdealcell: WeekDealTableViewCell! = tableView.dequeueReusableCell(withIdentifier: identifier) as? WeekDealTableViewCell
+          tableView.register(UINib(nibName: "WeekDealTableViewCell", bundle: nil), forCellReuseIdentifier: identifier)
+            weekdealcell = tableView.dequeueReusableCell(withIdentifier: "WeekDealTableViewCell") as? WeekDealTableViewCell
+            return weekdealcell!
+        }
         
     
      return cell
@@ -91,7 +99,13 @@ class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataS
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 150.0;//Choose your custom row height
+        
+        if indexPath.row == 0 {
+            return 200.0;//Choose your custom row height
+        }
+        
+        return 250.0;//Choose your custom row height
+
     }
     
     

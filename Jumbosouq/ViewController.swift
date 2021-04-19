@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import Alamofire
+
 
 @available(iOS 13.0, *)
 class ViewController: UIViewController {
@@ -21,6 +23,15 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        if userAlreadyExist() {
+            for view in self.view.subviews{
+                view.removeFromSuperview()
+            }
+            let username:String = defaults.object(forKey: "username")! as! String
+            let password:String = defaults.object(forKey: "password") as! String
+            doLogin(username: username, password: password)
+        }
      
        btnLoginSignup.addShadow()
         btnFBlogin.addShadow()
@@ -41,10 +52,37 @@ class ViewController: UIViewController {
         btnGoogleLogin.titleLabel?.autoresizesSubviews = true
         btnGueestLogin.titleLabel?.autoresizesSubviews = true
         
+       
         
-
     }
     
+    func doLogin(username: String, password:String) {
+        let parameters: [String: Any] = [ "username":username, "password":password]
+        let URLStr = baseURL + "integration/customer/token"
+        
+        CustomActivityIndicator.shared.show(uiView: self.view, labelText: "Authenticating  existing credentials...")
+        
+        AF.request(URLStr, method: .post,  parameters: parameters, encoding: JSONEncoding.default, headers:headers)
+            .responseJSON { response in
+                switch response.result {
+                case .success:
+                    CustomActivityIndicator.shared.hide(uiView: self.view, delay: 1.5)
+                    if (response.response?.statusCode  == 200){
+                        
+                        defaults.set(username, forKey: "username")
+                        defaults.set(password, forKey: "password")
+
+                         let newViewController = storyBoard.instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
+                                   self.present(newViewController, animated: true, completion: nil)
+                    }
+                case .failure(let error):
+                 CustomActivityIndicator.shared.hide(uiView: self.view, delay: 1.5)
+                  print(error)
+                    
+                }
+
+        }
+    }
   
     
     @IBAction func didActionLogin(_ sender: Any) {

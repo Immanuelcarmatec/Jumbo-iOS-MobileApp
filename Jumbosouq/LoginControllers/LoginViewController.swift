@@ -30,7 +30,7 @@ class LoginViewController: UIViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
-        
+    
     }
     
     
@@ -60,7 +60,7 @@ class LoginViewController: UIViewController {
             alert(message: "Enter valid Password")
            return
         }*/
-        doLogin()
+        doLogin(username: name, password:password)
         
     }
     
@@ -72,46 +72,38 @@ class LoginViewController: UIViewController {
     
     
     @IBAction func didActionSignUp(_ sender: Any) {
-       /* let newViewController = storyBoard.instantiateViewController(withIdentifier: "SignupViewController") as! SignupViewController
-        self.present(newViewController, animated: true, completion: nil)*/
+       let newViewController = storyBoard.instantiateViewController(withIdentifier: "SignupViewController") as! SignupViewController
+        self.present(newViewController, animated: true, completion: nil)
         
-        let newViewController = storyBoard.instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
-                  self.present(newViewController, animated: true, completion: nil)
+        /*  let newViewController = storyBoard.instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
+                  self.present(newViewController, animated: true, completion: nil)*/
         
     }
     
-    func doLogin(){
-        let parameters: [String: Any] = [ "username":txtViewUserName.text!, "password":txtViewPassword.text!]
+    func doLogin(username: String, password:String) {
+        let parameters: [String: Any] = [ "username":username, "password":password]
         let URLStr = baseURL + "integration/customer/token"
+        
+        CustomActivityIndicator.shared.show(uiView: self.view, labelText: "Logging in...")
         
         AF.request(URLStr, method: .post,  parameters: parameters, encoding: JSONEncoding.default, headers:headers)
             .responseJSON { response in
                 switch response.result {
                 case .success:
-                    
-                    if let json = response.data {
-                           do{
-                            let jsonDict:Dictionary = try (JSONSerialization.jsonObject(with: json) as? Dictionary<String, Any>)!
-                             self.alert(message: jsonDict["message"] as! String)
-                            if (jsonDict["message"] as! String == "200"){
-                                 let newViewController = storyBoard.instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
-                                           self.present(newViewController, animated: true, completion: nil)
-                            }
-                            
-                           }
-                           catch{
-                           print("JSON Error")
+                    CustomActivityIndicator.shared.hide(uiView: self.view, delay: 1.5)
+                    if (response.response?.statusCode  == 200){
+                        
+                        defaults.set(username, forKey: "username")
+                        defaults.set(password, forKey: "password")
 
-                           }
-
-                       }
-                
+                         let newViewController = storyBoard.instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
+                                   self.present(newViewController, animated: true, completion: nil)
+                    }
                 case .failure(let error):
+                 CustomActivityIndicator.shared.hide(uiView: self.view, delay: 1.5)
                   print(error)
                     
                 }
-
-               
 
         }
     }

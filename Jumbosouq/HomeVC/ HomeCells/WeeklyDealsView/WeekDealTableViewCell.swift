@@ -14,6 +14,11 @@ class WeekDealTableViewCell: UITableViewCell, UICollectionViewDataSource, UIColl
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
+        self.collectionViewShowProducts.register(UINib(nibName: "WeekDealCollectionViewCell", bundle: .main), forCellWithReuseIdentifier: "WeekDealCollectionViewCell")
+        self.collectionViewShowProducts.dataSource = self
+        self.collectionViewShowProducts.delegate = self
+        self.collectionViewShowProducts.alwaysBounceHorizontal = true
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -26,7 +31,10 @@ class WeekDealTableViewCell: UITableViewCell, UICollectionViewDataSource, UIColl
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+
         let cell: WeekDealCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "WeekDealCollectionViewCell", for: indexPath) as! WeekDealCollectionViewCell
+        
         return cell
 
     }

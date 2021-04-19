@@ -84,39 +84,23 @@ class SignupViewController: UIViewController {
     
     func doSignUP(){
         
-        let parameters: [String: Any] = [ "email":txtEmail.text!, "password":txtPassword.text!,"firstname":txtFirstName.text!,"lastname":txtLastName.text!]
+        let parameters: [String: Any] = [ "email":txtEmail.text!,"firstname":txtFirstName.text!,"lastname":txtLastName.text!]
         let URLStr = baseURL + "customers"
-        let dic:[String: Any] = ["customer":parameters]
+        let dic:[String: Any] = ["customer":parameters,"password":txtPassword.text!]
         
         AF.request(URLStr, method: .post,  parameters: dic, encoding: JSONEncoding.default, headers:headers)
             .responseJSON { response in
                 switch response.result {
                 case .success:
-                    
-                    if let json = response.data {
-                           do{
-                            let jsonDict:Dictionary = try (JSONSerialization.jsonObject(with: json) as? Dictionary<String, Any>)!
-                             self.alert(message: jsonDict["message"] as! String)
-                            if (jsonDict["message"] as! String == "200"){
-                                 let newViewController = storyBoard.instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
-                                           self.present(newViewController, animated: true, completion: nil)
-                            }
-                            
-                           }
-                           catch{
-                           print("JSON Error")
-
-                           }
-
-                       }
-                
+                    self.alert(message: response.description )
+                    if (response.response?.statusCode  == 200){
+                         let newViewController = storyBoard.instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
+                                   self.present(newViewController, animated: true, completion: nil)
+                    }
                 case .failure(let error):
                   print(error)
                     
                 }
-
-               
-
         }
         
     }
