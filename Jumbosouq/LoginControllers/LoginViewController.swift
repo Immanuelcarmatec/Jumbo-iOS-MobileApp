@@ -95,6 +95,10 @@ class LoginViewController: UIViewController {
                         
                         defaults.set(username, forKey: "username")
                         defaults.set(password, forKey: "password")
+                        
+                        print(response)
+                        
+                      //  User.init(id: <#T##Int?#>, name: <#T##String?#>)
 
                          let newViewController = storyBoard.instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
                                    self.present(newViewController, animated: true, completion: nil)

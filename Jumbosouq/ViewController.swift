@@ -7,6 +7,8 @@
 
 import UIKit
 import Alamofire
+import SwiftyJSON
+
 
 
 @available(iOS 13.0, *)
@@ -20,20 +22,25 @@ class ViewController: UIViewController {
     @IBOutlet weak var btnGueestLogin: UIButton!
     @IBOutlet weak var btnLoginSignup: UIButton!
     @IBOutlet weak var btnGoogleLogin: UIButton!
+    @IBOutlet weak var lblOR: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
         if userAlreadyExist() {
-            for view in self.view.subviews{
-                view.removeFromSuperview()
-            }
+            
+            btnFBlogin.isHidden = true
+            btnLoginSignup.isHidden = true
+            btnGoogleLogin.isHidden = true
+            btnGueestLogin.isHidden = true
+            lblOR.isHidden = true
+            
             let username:String = defaults.object(forKey: "username")! as! String
             let password:String = defaults.object(forKey: "password") as! String
             doLogin(username: username, password: password)
         }
      
-       btnLoginSignup.addShadow()
+        btnLoginSignup.addShadow()
         btnFBlogin.addShadow()
         btnGoogleLogin.addShadow()
         btnGueestLogin.addShadow()
@@ -65,15 +72,22 @@ class ViewController: UIViewController {
         AF.request(URLStr, method: .post,  parameters: parameters, encoding: JSONEncoding.default, headers:headers)
             .responseJSON { response in
                 switch response.result {
-                case .success:
+                case .success(let value):
                     CustomActivityIndicator.shared.hide(uiView: self.view, delay: 1.5)
                     if (response.response?.statusCode  == 200){
                         
                         defaults.set(username, forKey: "username")
                         defaults.set(password, forKey: "password")
-
-                         let newViewController = storyBoard.instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
-                                   self.present(newViewController, animated: true, completion: nil)
+                        
+                        do {
+                            // make sure this JSON is in the format we expect
+                            let json = JSON(value)
+                          //  defaults.set(json, forKey: "uid")
+                            
+                                let newViewController = storyBoard.instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
+                                           self.present(newViewController, animated: true, completion: nil)
+                                
+                        }
                     }
                 case .failure(let error):
                  CustomActivityIndicator.shared.hide(uiView: self.view, delay: 1.5)

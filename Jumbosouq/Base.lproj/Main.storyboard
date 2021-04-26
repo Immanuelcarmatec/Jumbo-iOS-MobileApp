@@ -132,6 +132,7 @@
                         <outlet property="btnGoogleLogin" destination="N21-ae-LA2" id="fIg-BT-1fA"/>
                         <outlet property="btnGueestLogin" destination="YkN-CW-ohs" id="EkR-hx-eHm"/>
                         <outlet property="btnLoginSignup" destination="gaF-Ms-teE" id="myV-KM-RTI"/>
+                        <outlet property="lblOR" destination="lJ6-dJ-t0D" id="YeO-rV-TgN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

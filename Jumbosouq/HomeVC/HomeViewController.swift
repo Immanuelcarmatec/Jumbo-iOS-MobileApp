@@ -27,10 +27,11 @@ class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataS
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //getAuthorisationToken()
+        
         self.navigationController!.navigationBar.barTintColor = UIColor.systemBackground
         sideMenuBtn.target = revealViewController()
         sideMenuBtn.action = #selector(revealViewController()?.revealSideMenu)
-     //   scrollViewMainContent.contentSize = CGSize(width: self.view.frame.size.width, height: 2000)
         txtFieldSearch.addShadow()
         lblShowAddress.addFont18()
         self.addNavBarImage()
@@ -82,10 +83,10 @@ class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataS
             weekdealcell = tableView.dequeueReusableCell(withIdentifier: "WeekDealTableViewCell") as? WeekDealTableViewCell
             return weekdealcell!
         }else if indexPath.row == 2 {
-            let identifier = "WeekDealTableViewCell"
-            var weekdealcell: WeekDealTableViewCell! = tableView.dequeueReusableCell(withIdentifier: identifier) as? WeekDealTableViewCell
-          tableView.register(UINib(nibName: "WeekDealTableViewCell", bundle: nil), forCellReuseIdentifier: identifier)
-            weekdealcell = tableView.dequeueReusableCell(withIdentifier: "WeekDealTableViewCell") as? WeekDealTableViewCell
+            let identifier = "NewArrivalTableViewCell"
+            var weekdealcell: NewArrivalTableViewCell! = tableView.dequeueReusableCell(withIdentifier: identifier) as? NewArrivalTableViewCell
+           tableView.register(UINib(nibName: "NewArrivalTableViewCell", bundle: nil), forCellReuseIdentifier: identifier)
+            weekdealcell = tableView.dequeueReusableCell(withIdentifier: "NewArrivalTableViewCell") as? NewArrivalTableViewCell
             return weekdealcell!
         }
         

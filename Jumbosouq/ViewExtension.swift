@@ -8,13 +8,73 @@
 import Foundation
 import UIKit
 import Alamofire
+import SwiftyJSON
 
 
 //Constant Declarations
 let baseURL = "https://www.jumbosouq.com/rest/default/V1/"
+
 let headers:HTTPHeaders = [
-       "Content-Type": "application/json"
+    "Content-Type": "application/json",
+    "Authorization": "gyqkm36xhtq6q6hkqm4dcgz2rw5h3vqp"
    ]
+
+func getAuthorisationToken(){
+    
+    //AF.request(baseURL, method: .post).authenticate(user: "username", password: "pwd").responseJSON{
+    let parameters: [String: Any] = [ "username":"carmatec", "password":"ABCD@1234"]
+    let URLStr = baseURL + "integration/admin/token"
+    
+    AF.request(URLStr, method: .post).authenticate(username: "carmatec", password: "ABCD@1234")
+        .responseJSON{
+        response in
+            print(response.result)
+    }
+
+    /*
+    let request = AF.request(URLStr, method: .post,parameters: parameters, headers: headers).authenticate(username: "carmatec", password: "ABCD@1234")
+     request.responseJSON { response in
+      switch response.result {
+      case .success:
+        if let json = response.data {
+               do{
+                  let data = try JSON(data: json)
+                  print(data)
+                //  CustomActivityIndicator.shared.hide(uiView: self.view, delay: 1.5)
+
+                  let jsonData: Data = response.data!
+                  let jsonDict = try JSONSerialization.jsonObject(with: jsonData) as? NSArray
+                  
+                  if((jsonDict) != nil){
+                      //self.tableViewArray = jsonDict?.mutableCopy() as! NSMutableArray
+                     // self.tableView.reloadData()
+                  }
+                   
+               }
+               catch{
+               print("JSON Error")
+                  //CustomActivityIndicator.shared.hide(uiView: self.view, delay: 1.5)
+
+               }
+
+           }
+      
+      case .failure(let error):
+        print(error)
+          //CustomActivityIndicator.shared.hide(uiView: self.view, delay: 1.5)
+
+      }
+
+  }*/
+    
+}
+    
+
+
+
+
+
+
 let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
 var validation = Validation()
 let defaults = UserDefaults.standard

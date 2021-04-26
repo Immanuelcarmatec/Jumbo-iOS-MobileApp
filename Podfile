@@ -6,6 +6,7 @@ target 'Jumbosouq' do
   use_frameworks!
 
   # Pods for Jumbosouq
+   pod "SwiftyJSON"
    pod “Alamofire”
 
   target 'JumbosouqTests' do
