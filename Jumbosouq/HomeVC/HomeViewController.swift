@@ -104,6 +104,9 @@ class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataS
         if indexPath.row == 0 {
             return 200.0;//Choose your custom row height
         }
+        if indexPath.row == 2 {
+            return 280.0;//Choose your custom row height
+        }
         
         return 250.0;//Choose your custom row height
 
