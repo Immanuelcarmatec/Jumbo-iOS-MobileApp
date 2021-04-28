@@ -16,7 +16,7 @@ let baseURL = "https://www.jumbosouq.com/rest/default/V1/"
 
 let headers:HTTPHeaders = [
     "Content-Type": "application/json",
-    "Authorization": "gyqkm36xhtq6q6hkqm4dcgz2rw5h3vqp"
+    "Authorization": "Bearer j2paxdqw9hnwqc4h9d3ufy53a805ck55"
    ]
 
 func getAuthorisationToken(){

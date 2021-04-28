@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import Alamofire
+import SwiftyJSON
 
 class NewArrivalTableViewCell: UITableViewCell, UICollectionViewDataSource, UICollectionViewDelegate,UICollectionViewDelegateFlowLayout {
     
@@ -19,6 +21,9 @@ class NewArrivalTableViewCell: UITableViewCell, UICollectionViewDataSource, UICo
         self.collectionViewShowProducts.dataSource = self
         self.collectionViewShowProducts.delegate = self
         self.collectionViewShowProducts.alwaysBounceHorizontal = true
+        
+        self.callProducts()
+
     
     }
 
@@ -40,9 +45,57 @@ class NewArrivalTableViewCell: UITableViewCell, UICollectionViewDataSource, UICo
 
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize
-       {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize{
         return CGSize(width: 140.0, height: 230.0)
        }
     
+    
+    func callProducts() {
+        
+        let parameters: [String: Any] = [ "searchCriteria[filter_groups][0][filters][0][field]":"category_id",
+            "searchCriteria[filter_groups][0][filters][0][value]":"417",
+            "searchCriteria[filter_groups][0][filters][0][condition_type]":"eq"]
+        let URLStr = baseURL + "products"
+        
+        
+        DispatchQueue.global(qos: .background).async {
+            let request = AF.request(URLStr, parameters: parameters, headers: headers)
+            request.responseJSON { response in
+             switch response.result {
+             case .success:
+               if let json = response.data {
+                      do{
+                         let data = try JSON(data: json)
+                         print(data)
+                         let jsonData: Data = response.data!
+                         let jsonDict = try JSONSerialization.jsonObject(with: jsonData) as? NSArray
+                        DispatchQueue.main.async {
+                            if((jsonDict) != nil){
+                                
+                            }
+                        }
+                       
+                      }
+                      catch{
+                      print("JSON Error")
+                         //CustomActivityIndicator.shared.hide(uiView: self.view, delay: 1.5)
+                      }
+
+                  }
+             
+             case .failure(let error):
+               print(error)
+                 //CustomActivityIndicator.shared.hide(uiView: self.view, delay: 1.5)
+
+             }
+
+         }
+        }
+        
+        
+    
+      
+         
+        
+    }
 }

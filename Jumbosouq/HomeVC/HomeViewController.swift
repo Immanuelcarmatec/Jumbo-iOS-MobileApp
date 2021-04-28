@@ -13,6 +13,7 @@ import Alamofire
 class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataSource  {
     @IBOutlet var sideMenuBtn: UIBarButtonItem!
 
+    @IBOutlet var viewSearchbar: UIView!
     @IBOutlet weak var tblViewListProducts: UITableView!
     @IBOutlet weak var navigationHomeItem: UINavigationItem!
     @IBOutlet weak var scrollViewMainContent: UIScrollView!
@@ -33,7 +34,6 @@ class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataS
         sideMenuBtn.target = revealViewController()
         sideMenuBtn.action = #selector(revealViewController()?.revealSideMenu)
         txtFieldSearch.addShadow()
-        lblShowAddress.addFont18()
         self.addNavBarImage()
         
         self.tblViewListProducts.backgroundColor = UIColor.white
@@ -62,7 +62,15 @@ class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataS
     
     // number of rows in table view
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return 4
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat{
+               return 50
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView?{
+        return viewSearchbar
     }
     
     // create a cell for each table view row
@@ -84,9 +92,15 @@ class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataS
             return weekdealcell!
         }else if indexPath.row == 2 {
             let identifier = "NewArrivalTableViewCell"
-            var weekdealcell: NewArrivalTableViewCell! = tableView.dequeueReusableCell(withIdentifier: identifier) as? NewArrivalTableViewCell
+            var newarrivalcell: NewArrivalTableViewCell! = tableView.dequeueReusableCell(withIdentifier: identifier) as? NewArrivalTableViewCell
            tableView.register(UINib(nibName: "NewArrivalTableViewCell", bundle: nil), forCellReuseIdentifier: identifier)
-            weekdealcell = tableView.dequeueReusableCell(withIdentifier: "NewArrivalTableViewCell") as? NewArrivalTableViewCell
+            newarrivalcell = tableView.dequeueReusableCell(withIdentifier: "NewArrivalTableViewCell") as? NewArrivalTableViewCell
+            return newarrivalcell!
+        }else if indexPath.row == 3{
+            let identifier = "CategoriesTableViewCell"
+            var weekdealcell: CategoriesTableViewCell! = tableView.dequeueReusableCell(withIdentifier: identifier) as? CategoriesTableViewCell
+           tableView.register(UINib(nibName: "CategoriesTableViewCell", bundle: nil), forCellReuseIdentifier: identifier)
+            weekdealcell = tableView.dequeueReusableCell(withIdentifier: "CategoriesTableViewCell") as? CategoriesTableViewCell
             return weekdealcell!
         }
         
@@ -104,8 +118,17 @@ class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataS
         if indexPath.row == 0 {
             return 200.0;//Choose your custom row height
         }
+        
+        if indexPath.row == 1 {
+            return 120.0;//Choose your custom row height
+        }
+        
         if indexPath.row == 2 {
             return 280.0;//Choose your custom row height
+        }
+        
+        if indexPath.row == 3 {
+            return 320.0;//Choose your custom row height
         }
         
         return 250.0;//Choose your custom row height

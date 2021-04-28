@@ -23,7 +23,7 @@ class WeekDealTableViewCell: UITableViewCell, UICollectionViewDataSource, UIColl
         self.collectionViewShowProducts.alwaysBounceHorizontal = true
 
         
-        self.callProducts()
+        //self.callProducts()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -34,7 +34,9 @@ class WeekDealTableViewCell: UITableViewCell, UICollectionViewDataSource, UIColl
     
     func callProducts() {
     
-        let parameters: [String: Any] = [ "id":"494", "name":"Sale"]
+        let parameters: [String: Any] = [ "searchCriteria[filter_groups][0][filters][0][field]":"category_id",
+            "searchCriteria[filter_groups][0][filters][0][value]":"494",
+            "searchCriteria[filter_groups][0][filters][0][condition_type]":"eq"]
         let URLStr = baseURL + "products"
          let request = AF.request(URLStr, parameters: parameters, headers: headers)
          request.responseJSON { response in
