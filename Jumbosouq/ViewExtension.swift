@@ -166,7 +166,6 @@ extension UIButton {
         clipsToBounds = true
         
         let screenBounds = UIScreen.main.bounds
-        let width = screenBounds.width
         let height = screenBounds.height
         
             
@@ -184,7 +183,7 @@ extension UITextField {
 
     func addShadow() {
         backgroundColor = .clear
-        layer.cornerRadius = 10
+        layer.cornerRadius = 15
         layer.borderWidth = 1.0
         layer.borderColor = UIColor.systemGray.cgColor
         clipsToBounds = true

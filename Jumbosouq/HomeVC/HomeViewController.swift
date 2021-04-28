@@ -14,6 +14,8 @@ class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataS
     @IBOutlet var sideMenuBtn: UIBarButtonItem!
 
     @IBOutlet var viewSearchbar: UIView!
+    @IBOutlet var footerView: UIView!
+    
     @IBOutlet weak var tblViewListProducts: UITableView!
     @IBOutlet weak var navigationHomeItem: UINavigationItem!
     @IBOutlet weak var scrollViewMainContent: UIScrollView!
@@ -133,6 +135,14 @@ class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataS
         
         return 250.0;//Choose your custom row height
 
+    }
+    
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        return footerView
+    }
+
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 80
     }
     
     

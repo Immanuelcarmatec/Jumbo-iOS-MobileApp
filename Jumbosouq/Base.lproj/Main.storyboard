@@ -183,6 +183,7 @@
                     </navigationItem>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
+                        <outlet property="footerView" destination="QoQ-qH-HBT" id="dc7-M5-vUp"/>
                         <outlet property="navigationHomeItem" destination="uDx-us-f4M" id="PI2-Am-vbo"/>
                         <outlet property="sideMenuBtn" destination="dd5-Gy-1rD" id="bCf-VR-WHd"/>
                         <outlet property="tblViewListProducts" destination="V6G-9l-QNx" id="xGk-gA-qic"/>
@@ -192,6 +193,38 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6cl-se-G6D" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <view contentMode="scaleToFill" id="QoQ-qH-HBT">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="80"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="img_bottom_2" translatesAutoresizingMaskIntoConstraints="NO" id="abe-ks-RKg">
+                            <rect key="frame" x="73" y="0.0" width="80" height="70"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="img_bottom_3" translatesAutoresizingMaskIntoConstraints="NO" id="r1e-Ow-UD2">
+                            <rect key="frame" x="137" y="0.0" width="80" height="70"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="img_bottom_4" translatesAutoresizingMaskIntoConstraints="NO" id="Vl8-n0-WuX">
+                            <rect key="frame" x="202" y="1" width="80" height="70"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="img_bottom_5" translatesAutoresizingMaskIntoConstraints="NO" id="Bt6-6Y-ekz">
+                            <rect key="frame" x="270" y="0.0" width="80" height="70"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="img_bottom_6" translatesAutoresizingMaskIntoConstraints="NO" id="htK-dH-5jf">
+                            <rect key="frame" x="335" y="0.0" width="80" height="70"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="img_bottom_1" translatesAutoresizingMaskIntoConstraints="NO" id="ro2-bM-UNl">
+                            <rect key="frame" x="2" y="0.0" width="80" height="70"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
+                    </subviews>
+                    <viewLayoutGuide key="safeArea" id="JKU-ec-VVX"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </view>
                 <view contentMode="scaleToFill" id="twg-dC-Y0i">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -753,6 +786,12 @@
     </scenes>
     <resources>
         <image name="img_banner" width="400" height="278"/>
+        <image name="img_bottom_1" width="472" height="472"/>
+        <image name="img_bottom_2" width="472" height="472"/>
+        <image name="img_bottom_3" width="472" height="472"/>
+        <image name="img_bottom_4" width="472" height="472"/>
+        <image name="img_bottom_5" width="472" height="472"/>
+        <image name="img_bottom_6" width="472" height="472"/>
         <image name="img_correct" width="380" height="380"/>
         <image name="img_logo" width="800" height="556"/>
         <image name="img_splash1" width="400" height="226"/>
