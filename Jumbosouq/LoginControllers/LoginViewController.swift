@@ -23,7 +23,9 @@ class LoginViewController: UIViewController {
         txtViewUserName.addShadow()
         txtViewPassword.addShadow()
         btnLogin.addShadow()
+        btnLogin.backgroundColor = BluethemeColor()
         btnSignUp.addShadow()
+        btnSignUp.backgroundColor = themeColor()
         lblLogin.addFont20()
         self.hideKeyboardWhenTappedAround()
 

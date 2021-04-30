@@ -36,6 +36,7 @@ class SignupViewController: UIViewController {
         txtPassword.addShadow()
         txtEmail.addShadow()
         btnContinue.addShadow()
+        btnContinue.backgroundColor = BluethemeColor()
         self.hideKeyboardWhenTappedAround()
 
         

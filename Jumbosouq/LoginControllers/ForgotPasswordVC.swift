@@ -22,6 +22,7 @@ class ForgotPasswordVC: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         btnReset.addShadow()
+        btnReset.backgroundColor = BluethemeColor()
         txtEmail.addShadow()
         lblDescpn.addFont18()
         lblFPwd.addFont20()

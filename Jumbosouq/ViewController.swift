@@ -35,6 +35,7 @@ class ViewController: UIViewController {
             btnGueestLogin.isHidden = true
             lblOR.isHidden = true
             
+            
             let username:String = defaults.object(forKey: "username")! as! String
             let password:String = defaults.object(forKey: "password") as! String
             doLogin(username: username, password: password)
@@ -51,13 +52,16 @@ class ViewController: UIViewController {
         btnGoogleLogin.setImage(UIImage(named: "img_google_small"), for: .normal)
         btnGoogleLogin.imageEdgeInsets.left = -50
         
-        btnGueestLogin.setImage(UIImage(named: "img_google_small"), for: .normal)
+        btnGueestLogin.setImage(UIImage(named: "img_guest_icon.png"), for: .normal)
         btnGueestLogin.imageEdgeInsets.left = -50
         
         btnFBlogin.titleLabel?.autoresizesSubviews = true
         btnLoginSignup.titleLabel?.autoresizesSubviews = true
         btnGoogleLogin.titleLabel?.autoresizesSubviews = true
         btnGueestLogin.titleLabel?.autoresizesSubviews = true
+        
+        btnLoginSignup.backgroundColor = themeColor()
+
         
        
         

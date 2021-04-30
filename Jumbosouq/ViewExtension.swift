@@ -11,6 +11,16 @@ import Alamofire
 import SwiftyJSON
 
 
+func themeColor() -> UIColor {
+        //198 6 81
+        UIColor(red: 198/255, green: 6/255, blue: 81/255, alpha: 1)
+}
+
+func BluethemeColor() -> UIColor {
+        //198 6 81
+        UIColor(red: 28/255, green: 63/255, blue: 148/255, alpha: 1)
+}
+
 //Constant Declarations
 let baseURL = "https://www.jumbosouq.com/rest/default/V1/"
 
@@ -190,12 +200,9 @@ extension UITextField {
         font = UIFont(name: "Geomanist-Regular", size: 20)
         textColor = UIColor.gray
         
-        let leftView = UILabel(frame: CGRect(x: 50, y: 0, width: 7, height: 26))
-        leftView.backgroundColor = .clear
-
-        self.leftView = leftView
+        let paddingView : UIView = UIView(frame: CGRect(x: 0, y: 0, width: 25, height: 20))
+        self.leftView = paddingView
         self.leftViewMode = .always
-        self.contentVerticalAlignment = .center
     }
 }
 
