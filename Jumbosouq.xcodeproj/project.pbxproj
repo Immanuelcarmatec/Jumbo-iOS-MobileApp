@@ -40,6 +40,7 @@
 		358DFE152611ED0F0037221F /* Geomanist-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 358DFE112611ED0F0037221F /* Geomanist-Medium.otf */; };
 		358DFE162611ED0F0037221F /* Geomanist-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 358DFE122611ED0F0037221F /* Geomanist-Bold.otf */; };
 		358DFE172611ED0F0037221F /* Geomanist-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 358DFE132611ED0F0037221F /* Geomanist-Regular.otf */; };
+		35A8CA41264BE7BD000A2632 /* Singleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A8CA40264BE7BD000A2632 /* Singleton.swift */; };
 		35D6089F2628853700E8A066 /* FirstTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D6089D2628853700E8A066 /* FirstTableViewCell.swift */; };
 		35D608A02628853700E8A066 /* FirstTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 35D6089E2628853700E8A066 /* FirstTableViewCell.xib */; };
 		35D608A7262891EA00E8A066 /* WeekDealTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D608A5262891EA00E8A066 /* WeekDealTableViewCell.swift */; };
@@ -107,6 +108,7 @@
 		358DFE112611ED0F0037221F /* Geomanist-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Geomanist-Medium.otf"; sourceTree = "<group>"; };
 		358DFE122611ED0F0037221F /* Geomanist-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Geomanist-Bold.otf"; sourceTree = "<group>"; };
 		358DFE132611ED0F0037221F /* Geomanist-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Geomanist-Regular.otf"; sourceTree = "<group>"; };
+		35A8CA40264BE7BD000A2632 /* Singleton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Singleton.swift; sourceTree = "<group>"; };
 		35D6089D2628853700E8A066 /* FirstTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstTableViewCell.swift; sourceTree = "<group>"; };
 		35D6089E2628853700E8A066 /* FirstTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FirstTableViewCell.xib; sourceTree = "<group>"; };
 		35D608A5262891EA00E8A066 /* WeekDealTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekDealTableViewCell.swift; sourceTree = "<group>"; };
@@ -242,6 +244,9 @@
 			children = (
 				35735A7B262DCFB4001C2971 /* CustomActivityIndicator.swift */,
 				358DFE0A2611E9B40037221F /* ViewExtension.swift */,
+				35A8CA40264BE7BD000A2632 /* Singleton.swift */,
+				35674DBC2631C84D004D648B /* User.swift */,
+				358DFE062611E2890037221F /* LoginControllers */,
 				355B2A7726209CA60032567B /* SideMenu */,
 				35569D8C2614373200CFCD17 /* HomeVC */,
 				358DFE0F2611ECFD0037221F /* Fonts */,
@@ -252,8 +257,6 @@
 				358DFDCD2611DD3C0037221F /* Assets.xcassets */,
 				358DFDCF2611DD3C0037221F /* LaunchScreen.storyboard */,
 				358DFDD22611DD3C0037221F /* Info.plist */,
-				358DFE062611E2890037221F /* LoginControllers */,
-				35674DBC2631C84D004D648B /* User.swift */,
 			);
 			path = Jumbosouq;
 			sourceTree = "<group>";
@@ -342,6 +345,7 @@
 				358DFDBE2611DD3B0037221F /* Frameworks */,
 				358DFDBF2611DD3B0037221F /* Resources */,
 				785BB94CE37C9D65D34A0C9B /* [CP] Embed Pods Frameworks */,
+				D895DBD57319B7304A05D112 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -380,6 +384,7 @@
 				358DFDDF2611DD3C0037221F /* Frameworks */,
 				358DFDE02611DD3C0037221F /* Resources */,
 				DB2F0834A408F39365928D34 /* [CP] Embed Pods Frameworks */,
+				053C6E7FE0DBF0314B147FEE /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -473,6 +478,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		053C6E7FE0DBF0314B147FEE /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Jumbosouq-JumbosouqUITests/Pods-Jumbosouq-JumbosouqUITests-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Jumbosouq-JumbosouqUITests/Pods-Jumbosouq-JumbosouqUITests-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Jumbosouq-JumbosouqUITests/Pods-Jumbosouq-JumbosouqUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		21448A638EE1793CA8EDD5FB /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -556,6 +578,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		D895DBD57319B7304A05D112 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Jumbosouq/Pods-Jumbosouq-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Jumbosouq/Pods-Jumbosouq-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Jumbosouq/Pods-Jumbosouq-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		DB2F0834A408F39365928D34 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -597,6 +636,7 @@
 				358DFDC52611DD3B0037221F /* AppDelegate.swift in Sources */,
 				3571B6E326396AF7007D12F6 /* CategoriesCollectionViewCell.swift in Sources */,
 				355B2A7D26209CA60032567B /* SideMenuViewController.swift in Sources */,
+				35A8CA41264BE7BD000A2632 /* Singleton.swift in Sources */,
 				35D608A7262891EA00E8A066 /* WeekDealTableViewCell.swift in Sources */,
 				358DFDC72611DD3B0037221F /* SceneDelegate.swift in Sources */,
 				355B2A7E26209CA60032567B /* SideMenuModel.swift in Sources */,
@@ -785,6 +825,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.01;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jumbosouq.shop;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "Jumbosouq Shop";
@@ -807,6 +848,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.01;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jumbosouq.shop;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "Jumbosouq Shop";

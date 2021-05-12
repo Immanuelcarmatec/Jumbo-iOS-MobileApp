@@ -13,6 +13,8 @@ import Alamofire
 class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataSource  {
     @IBOutlet var sideMenuBtn: UIBarButtonItem!
 
+    @IBOutlet weak var btnCart: UIBarButtonItem!
+    @IBOutlet weak var btnFavourite: UIBarButtonItem!
     @IBOutlet var viewSearchbar: UIView!
     @IBOutlet var footerView: UIView!
     
@@ -38,28 +40,47 @@ class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataS
         txtFieldSearch.addShadow()
         self.addNavBarImage()
         
+        let button = UIButton(type: .custom)
+       // button.setImage(UIImage(named: "img_search"), for: .normal)
+        let imageView = UIImageView(frame: CGRect(x: txtFieldSearch.frame.size.width - 80 , y: 0, width: 60, height: txtFieldSearch.frame.size.height))
+        imageView.backgroundColor = themeColor()
+        
+      //  let image = UIImage(named: imageName)
+     //   imageView.image = image
+        
+        button.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        button.frame = CGRect(x: txtFieldSearch.frame.size.width - 100 , y: 0, width: 100, height: 30)
+        button.addTarget(self, action: #selector(self.search), for: .touchUpInside)
+        button.backgroundColor = themeColor()
+        txtFieldSearch.rightView = button
+        txtFieldSearch.rightViewMode = .always
+        txtFieldSearch .addSubview(imageView)
+                
         self.tblViewListProducts.backgroundColor = UIColor.white
         self.tblViewListProducts.delegate = self
         self.tblViewListProducts.dataSource = self
+        
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(named: ""), for: UIBarMetrics.default)
+        self.navigationController?.navigationBar.shadowImage = UIImage(named: "")
     }
     
+    @objc func search() {
+        
+    }
+    
+    @IBAction func didActionCart(_ sender: Any) {
+    }
+    
+    @IBAction func didActionFavourite(_ sender: Any) {
+    }
+    
+    
     func addNavBarImage() {
-
-            let navController = navigationController!
-
             let image = UIImage(named: "img_logo") //Your logo url here
             let imageView = UIImageView(image: image)
-
-            let bannerWidth = navController.navigationBar.frame.size.width
-            let bannerHeight = navController.navigationBar.frame.size.height
-
-            let bannerX = bannerWidth / 2  - (image?.size.width)! / 2
-            let bannerY = bannerHeight / 2 - (image?.size.height)! / 2
-
-            imageView.frame = CGRect(x: bannerX, y: bannerY, width: bannerWidth, height: bannerHeight)
-            imageView.contentMode = .scaleAspectFit
-
-            navigationItem.titleView = imageView
+            imageView.contentMode = .scaleAspectFill
+           navigationItem.titleView = imageView
+        
         }
     
     // number of rows in table view

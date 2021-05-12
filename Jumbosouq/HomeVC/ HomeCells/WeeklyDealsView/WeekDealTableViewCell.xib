@@ -11,45 +11,45 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="WeekDealTableViewCell" rowHeight="333" id="KGk-i7-Jjw" customClass="WeekDealTableViewCell" customModule="Jumbosouq" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="334" height="333"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="150" id="aka-jz-18M" customClass="WeekDealTableViewCell" customModule="Jumbosouq" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="334" height="280"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="334" height="333"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="aka-jz-18M" id="sQ5-3Y-yKG">
+                <rect key="frame" x="0.0" y="0.0" width="334" height="280"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="CiP-kP-zzZ">
-                        <rect key="frame" x="0.0" y="55" width="334" height="278"/>
+                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="rKx-55-5Vl">
+                        <rect key="frame" x="0.0" y="40" width="334" height="240"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" sectionInsetReference="safeArea" id="YCa-me-PGA">
-                            <size key="itemSize" width="120" height="150"/>
-                            <size key="headerReferenceSize" width="50" height="50"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="6Ed-26-jYt">
+                            <size key="itemSize" width="128" height="120"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                     </collectionView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weekly Deals" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1ot-Dd-ADW">
-                        <rect key="frame" x="10" y="20" width="103" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weekly Deals" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JUo-Gx-S3q">
+                        <rect key="frame" x="10" y="10" width="102.5" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
-                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
-                    <constraint firstItem="CiP-kP-zzZ" firstAttribute="top" secondItem="1ot-Dd-ADW" secondAttribute="bottom" constant="14" id="9Hd-Dc-g7f"/>
-                    <constraint firstAttribute="bottom" secondItem="CiP-kP-zzZ" secondAttribute="bottom" id="DK6-aQ-chK"/>
-                    <constraint firstItem="1ot-Dd-ADW" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" symbolic="YES" id="ExZ-HQ-suQ"/>
-                    <constraint firstItem="CiP-kP-zzZ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="LvI-tF-AzJ"/>
-                    <constraint firstAttribute="trailing" secondItem="CiP-kP-zzZ" secondAttribute="trailing" id="OJk-w7-N5z"/>
-                    <constraint firstItem="1ot-Dd-ADW" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-10" id="qzf-4J-txV"/>
+                    <constraint firstItem="JUo-Gx-S3q" firstAttribute="leading" secondItem="sQ5-3Y-yKG" secondAttribute="leadingMargin" constant="-10" id="SKg-g7-Vqw"/>
+                    <constraint firstItem="rKx-55-5Vl" firstAttribute="top" secondItem="JUo-Gx-S3q" secondAttribute="bottom" constant="9" id="Svh-Ig-Zc9"/>
+                    <constraint firstItem="JUo-Gx-S3q" firstAttribute="top" secondItem="sQ5-3Y-yKG" secondAttribute="top" constant="10" id="WQq-Pk-iuM"/>
+                    <constraint firstItem="rKx-55-5Vl" firstAttribute="centerX" secondItem="sQ5-3Y-yKG" secondAttribute="centerX" id="Yao-Jf-5cL"/>
+                    <constraint firstItem="rKx-55-5Vl" firstAttribute="leading" secondItem="sQ5-3Y-yKG" secondAttribute="leadingMargin" constant="-20" id="Zlr-Tr-AoR"/>
+                    <constraint firstItem="rKx-55-5Vl" firstAttribute="top" secondItem="sQ5-3Y-yKG" secondAttribute="top" constant="40" id="hBc-hd-fu9"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="rKx-55-5Vl" secondAttribute="bottom" constant="-11" id="qxD-2e-BUI"/>
                 </constraints>
             </tableViewCellContentView>
-            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <viewLayoutGuide key="safeArea" id="Btz-dd-5gl"/>
             <connections>
-                <outlet property="collectionViewShowProducts" destination="CiP-kP-zzZ" id="yaJ-kZ-q2d"/>
+                <outlet property="collectionViewShowProducts" destination="rKx-55-5Vl" id="Sob-qQ-Ua8"/>
             </connections>
-            <point key="canvasLocation" x="86.956521739130437" y="156.36160714285714"/>
+            <point key="canvasLocation" x="-922" y="-293"/>
         </tableViewCell>
     </objects>
     <resources>

@@ -37,19 +37,20 @@ class SideMenuViewController: UIViewController {
         // TableView
         self.sideMenuTableView.delegate = self
         self.sideMenuTableView.dataSource = self
-        self.sideMenuTableView.backgroundColor = #colorLiteral(red: 0.737254902, green: 0.1294117647, blue: 0.2941176471, alpha: 1)
+        self.sideMenuTableView.backgroundColor = UIColor.white
         self.sideMenuTableView.separatorStyle = .none
 
         // Set Highlighted Cell
-        DispatchQueue.main.async {
+       /* DispatchQueue.main.async {
             let defaultRow = IndexPath(row: self.defaultHighlightedCell, section: 0)
             self.sideMenuTableView.selectRow(at: defaultRow, animated: false, scrollPosition: .none)
-        }
+        }*/
 
         // Footer
-        self.footerLabel.textColor = UIColor.white
+       // self.footerLabel.textColor = UIColor.white
         self.footerLabel.font = UIFont.systemFont(ofSize: 12, weight: .bold)
         self.footerLabel.text = "App Version 1.01 Beta"
+       // self.footerLabel.superview?.backgroundColor = UIColor.white
 
         // Register TableView Cell
         self.sideMenuTableView.register(SideMenuCell.nib, forCellReuseIdentifier: SideMenuCell.identifier)
@@ -81,11 +82,13 @@ extension SideMenuViewController: UITableViewDataSource {
 
         //cell.iconImageView.image = self.menu[indexPath.row].icon
         cell.titleLabel.text = self.menu[indexPath.row].title
+        cell.titleLabel.textColor = UIColor.black
 
         // Highlighted color
         let myCustomSelectionColorView = UIView()
         myCustomSelectionColorView.backgroundColor = #colorLiteral(red: 0.6196078431, green: 0.1098039216, blue: 0.2509803922, alpha: 1)
         cell.selectedBackgroundView = myCustomSelectionColorView
+        cell.titleLabel.highlightedTextColor = UIColor.white
         return cell
     }
 

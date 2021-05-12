@@ -16,6 +16,11 @@ func themeColor() -> UIColor {
         UIColor(red: 198/255, green: 6/255, blue: 81/255, alpha: 1)
 }
 
+func fbColor() -> UIColor{
+    //(66, 103, 178)
+    UIColor(red: 58/255, green: 85/255, blue: 159/255, alpha: 1)
+}
+
 func BluethemeColor() -> UIColor {
         //198 6 81
         UIColor(red: 28/255, green: 63/255, blue: 148/255, alpha: 1)
@@ -170,7 +175,7 @@ extension UIButton {
 
     func addShadow() {
        // backgroundColor = .clear
-        layer.cornerRadius = 15
+        layer.cornerRadius = 25
         layer.borderWidth = 1.5
         layer.borderColor = UIColor.lightGray.cgColor
         clipsToBounds = true
@@ -180,9 +185,29 @@ extension UIButton {
         
             
             if height > 600 {
-                titleLabel?.font = UIFont(name: "Geomanist-Bold", size: 20)
+                titleLabel?.font = UIFont(name: "Geomanist-Regular", size: 20)
             }else{
-                titleLabel?.font = UIFont(name: "Geomanist-Bold", size: 14)
+                titleLabel?.font = UIFont(name: "Geomanist-Regular", size: 14)
+            }
+        titleLabel?.textColor = UIColor.black
+        titleLabel?.adjustsFontForContentSizeCategory = true
+    }
+    
+    func addShadowRegularTitle() {
+       // backgroundColor = .clear
+        layer.cornerRadius = 25
+        layer.borderWidth = 1.5
+        layer.borderColor = UIColor.lightGray.cgColor
+        clipsToBounds = true
+        
+        let screenBounds = UIScreen.main.bounds
+        let height = screenBounds.height
+        
+            
+            if height > 600 {
+                titleLabel?.font = UIFont(name: "Geomanist-Regular", size: 20)
+            }else{
+                titleLabel?.font = UIFont(name: "Geomanist-Regular", size: 14)
             }
         titleLabel?.textColor = UIColor.black
         titleLabel?.adjustsFontForContentSizeCategory = true
@@ -193,7 +218,7 @@ extension UITextField {
 
     func addShadow() {
         backgroundColor = .clear
-        layer.cornerRadius = 15
+        layer.cornerRadius = 22
         layer.borderWidth = 1.0
         layer.borderColor = UIColor.systemGray.cgColor
         clipsToBounds = true

@@ -8,6 +8,9 @@ target 'Jumbosouq' do
   # Pods for Jumbosouq
    pod "SwiftyJSON"
    pod “Alamofire”
+   pod "GoogleSignIn"
+   pod 'FBSDKLoginKit'
+   
 
   target 'JumbosouqTests' do
     inherit! :search_paths
