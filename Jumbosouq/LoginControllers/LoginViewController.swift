@@ -76,10 +76,6 @@ class LoginViewController: UIViewController {
     @IBAction func didActionSignUp(_ sender: Any) {
        let newViewController = storyBoard.instantiateViewController(withIdentifier: "SignupViewController") as! SignupViewController
         self.present(newViewController, animated: true, completion: nil)
-        
-        /*  let newViewController = storyBoard.instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
-                  self.present(newViewController, animated: true, completion: nil)*/
-        
     }
     
     func doLogin(username: String, password:String) {

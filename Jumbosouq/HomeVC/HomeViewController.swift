@@ -163,9 +163,16 @@ class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataS
     }
 
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 80
+        return 50
     }
+    
+  
     
     
 }
 
+extension WeekDealTableViewCell: UICollectionViewDelegate {
+
+     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    }
+}

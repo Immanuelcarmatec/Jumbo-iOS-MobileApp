@@ -83,4 +83,10 @@ class CategoriesTableViewCell: UITableViewCell, UICollectionViewDataSource, UICo
         return CGSize(width: 120.0, height: 250.0)
        }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let newViewController = storyBoard.instantiateViewController(withIdentifier: "ProductDetailsViewController") as! ProductDetailsViewController
+       self.window?.rootViewController!.present(newViewController, animated: true, completion: nil)
+            }
+        
+    
 }

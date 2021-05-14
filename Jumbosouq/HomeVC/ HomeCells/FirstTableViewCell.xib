@@ -18,31 +18,26 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" bounces="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aQP-Xj-GUr">
-                        <rect key="frame" x="5" y="4" width="344" height="100"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="100" id="NXL-0q-Bia"/>
-                        </constraints>
+                        <rect key="frame" x="0.0" y="0.0" width="355" height="104"/>
                         <viewLayoutGuide key="contentLayoutGuide" id="m8D-Ct-bQE"/>
                         <viewLayoutGuide key="frameLayoutGuide" id="L1h-NY-Qi1"/>
                     </scrollView>
                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" bounces="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lwu-Jx-ola">
-                        <rect key="frame" x="5" y="106" width="344" height="70"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="70" id="eQw-rD-Afh"/>
-                        </constraints>
+                        <rect key="frame" x="0.0" y="106" width="355" height="74"/>
                         <viewLayoutGuide key="contentLayoutGuide" id="C3q-WD-yXr"/>
                         <viewLayoutGuide key="frameLayoutGuide" id="9EN-De-3Yc"/>
                     </scrollView>
                 </subviews>
+                <color key="backgroundColor" red="0.90058741620000005" green="0.1805988174" blue="0.13424156649999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 <constraints>
-                    <constraint firstItem="Lwu-Jx-ola" firstAttribute="top" secondItem="aQP-Xj-GUr" secondAttribute="bottom" constant="2" id="1Wt-wQ-hix"/>
-                    <constraint firstAttribute="trailing" secondItem="aQP-Xj-GUr" secondAttribute="trailing" id="HNk-HQ-cJ2"/>
-                    <constraint firstItem="Lwu-Jx-ola" firstAttribute="top" secondItem="aQP-Xj-GUr" secondAttribute="bottom" constant="2" id="RAB-8n-Stv"/>
-                    <constraint firstAttribute="trailing" secondItem="Lwu-Jx-ola" secondAttribute="trailing" id="YFr-of-swl"/>
-                    <constraint firstItem="Lwu-Jx-ola" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="dKk-m5-7me"/>
-                    <constraint firstItem="aQP-Xj-GUr" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="jTv-T3-Y8y"/>
-                    <constraint firstAttribute="bottom" secondItem="Lwu-Jx-ola" secondAttribute="bottom" constant="4" id="pjn-HJ-g5x"/>
-                    <constraint firstItem="aQP-Xj-GUr" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="4" id="qde-OC-11i"/>
+                    <constraint firstAttribute="trailing" secondItem="Lwu-Jx-ola" secondAttribute="trailing" id="BSJ-DI-10i"/>
+                    <constraint firstAttribute="trailing" secondItem="aQP-Xj-GUr" secondAttribute="trailing" id="GXA-RJ-VKr"/>
+                    <constraint firstItem="Lwu-Jx-ola" firstAttribute="top" secondItem="aQP-Xj-GUr" secondAttribute="bottom" constant="2" id="XoW-1Z-IIm"/>
+                    <constraint firstItem="aQP-Xj-GUr" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="bUP-Ts-MYk"/>
+                    <constraint firstItem="Lwu-Jx-ola" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="bnn-Eq-wR1"/>
+                    <constraint firstAttribute="bottom" secondItem="Lwu-Jx-ola" secondAttribute="bottom" id="dvK-t1-MAj"/>
+                    <constraint firstItem="aQP-Xj-GUr" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="nm2-fp-JWa"/>
+                    <constraint firstItem="Lwu-Jx-ola" firstAttribute="centerX" secondItem="aQP-Xj-GUr" secondAttribute="centerX" id="u7s-wv-cFk"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>

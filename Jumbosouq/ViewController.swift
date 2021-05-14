@@ -109,6 +109,8 @@ class ViewController: UIViewController {
     }
     
     @IBAction func doGuestLogin(_ sender: Any) {
+          let newViewController = storyBoard.instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
+                  self.present(newViewController, animated: true, completion: nil)
     }
     func doLogin(username: String, password:String) {
         let parameters: [String: Any] = [ "username":username, "password":password]

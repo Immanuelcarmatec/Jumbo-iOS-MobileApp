@@ -182,15 +182,13 @@
                         <viewLayoutGuide key="safeArea" id="qRj-Pa-AWm"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="phF-wa-hpX" firstAttribute="leading" secondItem="V6G-9l-QNx" secondAttribute="leading" id="5xA-ej-Llt"/>
-                            <constraint firstItem="V6G-9l-QNx" firstAttribute="top" secondItem="qRj-Pa-AWm" secondAttribute="top" id="Jhf-b7-kN5"/>
-                            <constraint firstItem="V6G-9l-QNx" firstAttribute="trailing" secondItem="qRj-Pa-AWm" secondAttribute="trailing" id="O7O-1B-WJE"/>
-                            <constraint firstItem="V6G-9l-QNx" firstAttribute="leading" secondItem="qRj-Pa-AWm" secondAttribute="leading" id="Ru4-8m-1O2"/>
-                            <constraint firstItem="phF-wa-hpX" firstAttribute="top" secondItem="V6G-9l-QNx" secondAttribute="bottom" id="XKa-wP-99c"/>
+                            <constraint firstItem="phF-wa-hpX" firstAttribute="top" secondItem="V6G-9l-QNx" secondAttribute="bottom" id="3Xr-y5-pch"/>
+                            <constraint firstItem="V6G-9l-QNx" firstAttribute="leading" secondItem="qRj-Pa-AWm" secondAttribute="leading" id="JWf-O4-6cX"/>
                             <constraint firstItem="phF-wa-hpX" firstAttribute="bottom" secondItem="qRj-Pa-AWm" secondAttribute="bottom" id="Zzq-x2-P9z"/>
-                            <constraint firstItem="phF-wa-hpX" firstAttribute="top" secondItem="V6G-9l-QNx" secondAttribute="bottom" id="fT6-V0-5sh"/>
-                            <constraint firstItem="phF-wa-hpX" firstAttribute="trailing" secondItem="V6G-9l-QNx" secondAttribute="trailing" id="nHL-hN-6OT"/>
-                            <constraint firstItem="phF-wa-hpX" firstAttribute="top" secondItem="V6G-9l-QNx" secondAttribute="bottom" id="nm6-wz-HZY"/>
+                            <constraint firstItem="phF-wa-hpX" firstAttribute="leading" secondItem="V6G-9l-QNx" secondAttribute="leading" id="bmQ-Lb-tSS"/>
+                            <constraint firstItem="V6G-9l-QNx" firstAttribute="top" secondItem="qRj-Pa-AWm" secondAttribute="top" id="jv2-FB-Ami"/>
+                            <constraint firstItem="phF-wa-hpX" firstAttribute="trailing" secondItem="V6G-9l-QNx" secondAttribute="trailing" id="lMS-0X-f3d"/>
+                            <constraint firstItem="V6G-9l-QNx" firstAttribute="trailing" secondItem="qRj-Pa-AWm" secondAttribute="trailing" id="y3a-rG-LtI"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="uDx-us-f4M">
@@ -307,6 +305,36 @@
                 </view>
             </objects>
             <point key="canvasLocation" x="1682.608695652174" y="744.64285714285711"/>
+        </scene>
+        <!--Product Details View Controller-->
+        <scene sceneID="bD6-NN-6DA">
+            <objects>
+                <viewController id="It7-uK-P1x" customClass="ProductDetailsViewController" customModule="Jumbosouq" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ZM4-F8-F8S">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MAG-rh-z10">
+                                <rect key="frame" x="0.0" y="44" width="414" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.86898245269999996" green="0.1742609329" blue="0.12953053049999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3Mf-9w-pdS">
+                                <rect key="frame" x="0.0" y="44" width="414" height="774"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="t1U-k4-bgk"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <connections>
+                        <outlet property="tblViewListProductDetails" destination="3Mf-9w-pdS" id="0Tz-UK-DMa"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="09w-XX-Gvm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2362.3188405797105" y="744.64285714285711"/>
         </scene>
         <!--Signup View Controller-->
         <scene sceneID="4Ex-uD-8Y8">

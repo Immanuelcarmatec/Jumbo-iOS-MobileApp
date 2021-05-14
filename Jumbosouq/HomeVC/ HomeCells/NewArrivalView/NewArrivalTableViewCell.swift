@@ -49,12 +49,19 @@ class NewArrivalTableViewCell: UITableViewCell, UICollectionViewDataSource, UICo
         return CGSize(width: 140.0, height: 230.0)
        }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let newViewController = storyBoard.instantiateViewController(withIdentifier: "ProductDetailsViewController") as! ProductDetailsViewController
+       self.window?.rootViewController!.present(newViewController, animated: true, completion: nil)
+            }
+        
+    
     
     func callProducts() {
         
         let parameters: [String: Any] = [ "searchCriteria[filter_groups][0][filters][0][field]":"category_id",
             "searchCriteria[filter_groups][0][filters][0][value]":"417",
-            "searchCriteria[filter_groups][0][filters][0][condition_type]":"eq"]
+            "searchCriteria[filter_groups][0][filters][0][condition_type]":"eq",
+            "searchCriteria[pageSize]":"20"]
         let URLStr = baseURL + "products"
         
         
