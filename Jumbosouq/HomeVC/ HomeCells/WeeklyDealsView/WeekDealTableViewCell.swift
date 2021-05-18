@@ -9,7 +9,7 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
-class WeekDealTableViewCell: UITableViewCell, UICollectionViewDataSource, UICollectionViewDelegate {
+class WeekDealTableViewCell: UITableViewCell, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
 
     @IBOutlet weak var collectionViewShowProducts: UICollectionView!
     var productsArray = [Any]()
@@ -22,9 +22,7 @@ class WeekDealTableViewCell: UITableViewCell, UICollectionViewDataSource, UIColl
         
         self.collectionViewShowProducts.dataSource = self
         self.collectionViewShowProducts.delegate = self
-        self.collectionViewShowProducts.alwaysBounceHorizontal = true
-        self.collectionViewShowProducts.allowsSelection = true
-
+    
         
         self.callProducts()
     }
@@ -85,21 +83,30 @@ class WeekDealTableViewCell: UITableViewCell, UICollectionViewDataSource, UIColl
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.socialViewTapped))
+
         let cell: WeekDealCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "WeekDealCollectionViewCell", for: indexPath) as! WeekDealCollectionViewCell
-        cell.isUserInteractionEnabled = true
+        cell.imgViewLoadPoduct.addGestureRecognizer(tapGestureRecognizer)
+        
         print(self.productsArray[indexPath.item])
         
         return cell
 
     }
-    
   
     
-    /*func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
          let newViewController = storyBoard.instantiateViewController(withIdentifier: "ProductDetailsViewController") as! ProductDetailsViewController
         self.window?.rootViewController!.present(newViewController, animated: true, completion: nil)
-    }*/
+    }
+    
+    @objc func socialViewTapped() {
+         // Which item cell's socialview is clicked
+        DispatchQueue.main.async {
+        let newViewController = storyBoard.instantiateViewController(withIdentifier: "ProductDetailsViewController") as! ProductDetailsViewController
+       self.window?.rootViewController!.present(newViewController, animated: true, completion: nil)
+        }
+    }
     
 }
 

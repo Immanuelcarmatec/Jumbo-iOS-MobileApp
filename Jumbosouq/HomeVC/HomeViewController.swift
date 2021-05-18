@@ -170,9 +170,3 @@ class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataS
     
     
 }
-
-extension WeekDealTableViewCell: UICollectionViewDelegate {
-
-     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-    }
-}

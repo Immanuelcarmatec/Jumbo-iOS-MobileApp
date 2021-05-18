@@ -19,55 +19,44 @@ class FirstTableViewCell: UITableViewCell {
         let banner1 = ["img_banner1","img_banner1","img_banner1"]
         
         let numberOfPages :Int = banner1.count-1
-        let padding : CGFloat = 5
-        
-        var yPostion: CGFloat = 0
 
 
         
         for i in 0...numberOfPages{
-            /*let view: UIView = UIView(frame: CGRect(x: xPostion + padding, y: padding, width: viewWidth, height: viewHeight))
-               view.backgroundColor = UIColor.white
-            let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: view.frame.size.height))
-            imageView.image = UIImage(named:banner1[i])
-            view.addSubview(imageView)
-               firstPagingScroll .addSubview(view)
-            xPostion = view.frame.origin.x + viewWidth + padding*/
+           
+            let imageView = UIImageView();
+                        imageView.contentMode = .scaleToFill;
+                        imageView.image = UIImage(named: banner1[i]);
+                        let xPos = CGFloat(i) * firstPagingScroll.bounds.size.width;
+                        imageView.contentMode = .scaleAspectFill
             
+                        imageView.frame = CGRect(x: xPos, y: 0, width: firstPagingScroll.bounds.size.width, height: firstPagingScroll.bounds.size.height);
+            firstPagingScroll.contentSize.width = firstPagingScroll.frame.size.width * CGFloat(i+1);
+            firstPagingScroll.contentSize.height = firstPagingScroll.frame.size.height;
+            firstPagingScroll.addSubview(imageView);
             
-                let imageView = UIImageView()
-                let x = self.frame.size.width * CGFloat(i)
-                imageView.frame = CGRect(x: x, y: 0, width: self.frame.width, height: self.frame.height)
-                imageView.contentMode = .scaleAspectFit
-                imageView.image = UIImage(named:banner1[i])
-                        
-            firstPagingScroll.contentSize.width = firstPagingScroll.frame.size.width * CGFloat(i + 1)
-            firstPagingScroll.addSubview(imageView)
+              
            }
-        //firstPagingScroll.contentSize = CGSize(width:xPostion+padding, height:firstPagingScroll.frame.size.height)
+      
         
         let banner2 = ["img_banner2","img_banner2","img_banner2"]
         let secondnumberOfPages :Int = banner2.count-1
         
         for i in 0...secondnumberOfPages{
-             /*  let view: UIView = UIView(frame: CGRect(x: yPostion + padding, y: padding, width: secondviewWidth, height: secondviewHeight))
-               view.backgroundColor = UIColor.white
-            let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: view.frame.size.height))
-            imageView.image = UIImage(named:banner2[i])
-            view.addSubview(imageView)
-            secondPagingScroll .addSubview(view)
-            yPostion = view.frame.origin.x + secondviewWidth + padding*/
-            
-            let imageView = UIImageView()
-            let x = self.frame.size.width * CGFloat(i)
-            imageView.frame = CGRect(x: x, y: 0, width: self.frame.width, height: self.frame.height)
-            imageView.contentMode = .scaleAspectFit
-            imageView.image = UIImage(named:banner2[i])
-                    
-            secondPagingScroll.contentSize.width = secondPagingScroll.frame.size.width * CGFloat(i + 1)
-            secondPagingScroll.addSubview(imageView)
+            let imageView = UIImageView();
+                        imageView.contentMode = .scaleToFill;
+                        imageView.image = UIImage(named: banner2[i]);
+                        imageView.contentMode = .scaleAspectFill
+
+                        let xPos = CGFloat(i) * secondPagingScroll.bounds.size.width;
+                        imageView.frame = CGRect(x: xPos, y: 0, width: secondPagingScroll.bounds.size.width, height: secondPagingScroll.bounds.size.height);
+            secondPagingScroll.contentSize.width = secondPagingScroll.frame.size.width * CGFloat(i+1);
+            secondPagingScroll.contentSize.height = secondPagingScroll.frame.size.height;
+            secondPagingScroll.addSubview(imageView);
            }
-      //  secondPagingScroll.contentSize = CGSize(width:yPostion+padding, height:secondPagingScroll.frame.size.height)
+        
+
+     
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

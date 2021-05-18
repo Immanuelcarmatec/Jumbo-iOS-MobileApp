@@ -30,6 +30,9 @@
                 <constraint firstAttribute="bottom" secondItem="5J8-UI-0aU" secondAttribute="bottom" id="ae9-Fg-yFZ"/>
             </constraints>
             <size key="customSize" width="130" height="180"/>
+            <connections>
+                <outlet property="imgViewLoadPoduct" destination="5J8-UI-0aU" id="qrk-FU-Rct"/>
+            </connections>
             <point key="canvasLocation" x="134.78260869565219" y="103.125"/>
         </collectionViewCell>
     </objects>

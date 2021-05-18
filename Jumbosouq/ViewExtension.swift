@@ -31,19 +31,22 @@ let baseURL = "https://www.jumbosouq.com/rest/default/V1/"
 
 let headers:HTTPHeaders = [
     "Content-Type": "application/json",
-    "Authorization": "Bearer 4h2yza7q0ctm3uvfhj1a4s6flqnx02dp"
+    "Authorization": "Bearer hr0pevsjatc9bl39e752ywnhb33cj3cb"
    ]
 
 func getAuthorisationToken(){
     
     //AF.request(baseURL, method: .post).authenticate(user: "username", password: "pwd").responseJSON{
-    let parameters: [String: Any] = [ "username":"carmatec", "password":"ABCD@1234"]
+    let parameters: [String: Any] = [ "username":"carmatec", "password":"SHAHID@12345"]
     let URLStr = baseURL + "integration/admin/token"
+    let header:HTTPHeaders = [
+        "Content-Type": "application/json",
+       ]
     
-    AF.request(URLStr, method: .post).authenticate(username: "carmatec", password: "ABCD@1234")
+    AF.request(URLStr, method: .post, parameters: parameters, headers: header).authenticate(username: "carmatec", password: "SHAHID@12345")
         .responseJSON{
         response in
-            print(response.result)
+            print(response.value!)
     }
 
     /*

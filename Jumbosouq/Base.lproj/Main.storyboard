@@ -309,7 +309,7 @@
         <!--Product Details View Controller-->
         <scene sceneID="bD6-NN-6DA">
             <objects>
-                <viewController id="It7-uK-P1x" customClass="ProductDetailsViewController" customModule="Jumbosouq" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProductDetailsViewController" id="It7-uK-P1x" customClass="ProductDetailsViewController" customModule="Jumbosouq" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZM4-F8-F8S">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

@@ -9,9 +9,12 @@ import UIKit
 
 class WeekDealCollectionViewCell: UICollectionViewCell {
 
+    @IBOutlet weak var imgViewLoadPoduct: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        //self.contentView.isUserInteractionEnabled = true
+        
     }
 
 }

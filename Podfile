@@ -10,6 +10,8 @@ target 'Jumbosouq' do
    pod “Alamofire”
    pod "GoogleSignIn"
    pod 'FBSDKLoginKit'
+   pod 'Networking'
+   pod 'AlamofireURLCache5'
    
 
   target 'JumbosouqTests' do
