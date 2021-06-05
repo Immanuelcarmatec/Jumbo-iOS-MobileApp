@@ -47,7 +47,11 @@ class ForgotPasswordVC: UIViewController {
         let parameters: [String: Any] = [ "email":txtEmail.text!, "template":"email_reset"]
         let URLStr = baseURL + "customers/password"
         
-       
+        let headers:HTTPHeaders = [
+            "Content-Type": "application/json",
+            "Authorization": "Bearer " +  Singleton.sharedManager.bearertoken
+           ]
+
         
         AF.request(URLStr, method: .put, parameters:parameters, headers:headers)
                    .responseJSON { response in

@@ -8,11 +8,25 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
+import AlamofireURLCache5
+
+
+protocol WeekDealCellDelegate: class {
+    func showProductPressed(index: Int)
+}
 
 class WeekDealTableViewCell: UITableViewCell, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+   
+    var delegate: WeekDealCellDelegate?
+    
+    class MyTapGesture: UITapGestureRecognizer {
+        var indexValue = 0
+    }
+
 
     @IBOutlet weak var collectionViewShowProducts: UICollectionView!
     var productsArray = [Any]()
+    var productItems = Array<Any>()
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -22,9 +36,9 @@ class WeekDealTableViewCell: UITableViewCell, UICollectionViewDataSource, UIColl
         
         self.collectionViewShowProducts.dataSource = self
         self.collectionViewShowProducts.delegate = self
-    
         
-        self.callProducts()
+        self.getAuthorisationToken()
+
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -33,14 +47,37 @@ class WeekDealTableViewCell: UITableViewCell, UICollectionViewDataSource, UIColl
         // Configure the view for the selected state
     }
     
-    func callProducts() {
+    func getAuthorisationToken(){
+        
+        //AF.request(baseURL, method: .post).authenticate(user: "username", password: "pwd").responseJSON{
+        let parameters: [String: Any] = [ "username":bearreUSername, "password":bearerPassword]
+        let URLStr = baseURL + "integration/admin/token"
+        let header:HTTPHeaders = [
+            "Content-Type": "application/json",
+           ]
+        
+        AF.request(URLStr, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: header) .responseJSON{
+                response in
+            Singleton.sharedManager.bearertoken = response.value! as! String
+            self.callProducts()
 
+        }
+        
+    }
+    
+    func callProducts() {
         let parameters: [String: Any] = [ "searchCriteria[filter_groups][0][filters][0][field]":"category_id",
             "searchCriteria[filter_groups][0][filters][0][value]":"494",
             "searchCriteria[filter_groups][0][filters][0][condition_type]":"eq",
             "searchCriteria[pageSize]":"20"
         ]
         let URLStr = baseURL + "products"
+        
+        let headers:HTTPHeaders = [
+            "Content-Type": "application/json",
+            "Authorization": "Bearer " +  Singleton.sharedManager.bearertoken
+           ]
+
         
         DispatchQueue.global(qos: .background).async {
         let request = AF.request(URLStr, parameters: parameters, headers: headers)
@@ -56,8 +93,6 @@ class WeekDealTableViewCell: UITableViewCell, UICollectionViewDataSource, UIColl
                                 print(jsonDict?.object(forKey: "items") ?? NSDictionary())
                                 self.productsArray = jsonDict?.object(forKey: "items") as! [Any]
                                 self.collectionViewShowProducts.reloadData()
-                                //self.tableViewArray = jsonDict?.mutableCopy() as! NSMutableArray
-                               // self.tableView.reloadData()
                             }
                         }
                       }
@@ -72,7 +107,7 @@ class WeekDealTableViewCell: UITableViewCell, UICollectionViewDataSource, UIColl
 
              }
 
-          }
+           }.cache(maxAge: 10)
 
         }
         
@@ -83,13 +118,35 @@ class WeekDealTableViewCell: UITableViewCell, UICollectionViewDataSource, UIColl
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.socialViewTapped))
+      
 
         let cell: WeekDealCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "WeekDealCollectionViewCell", for: indexPath) as! WeekDealCollectionViewCell
-        cell.imgViewLoadPoduct.addGestureRecognizer(tapGestureRecognizer)
         
-        print(self.productsArray[indexPath.item])
+        productItems = iterateProducts()
+        cell.tag = indexPath.item
+        let currentProduct = productItems[indexPath.item] as! NSDictionary
+        let imagevalue = currentProduct.value(forKey: "small_image") as! String
+        var imageURL = "https://www.jumbosouq.com/pub/media/catalog/product" + imagevalue
+        imageURL = imageURL.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+        let fileUrl = NSURL(string:imageURL)
         
+        DispatchQueue.global().async {
+            let task = URLSession.shared.dataTask(with: fileUrl! as URL) { data, response, error in
+                guard let data = data, error == nil else { return }
+                DispatchQueue.main.async() {
+                    if cell.tag == indexPath.row{
+                        cell.imgViewLoadPoduct.image = UIImage(data: data)
+                    }
+                }
+            }
+            task.resume()
+        }
+     
+        let tapGesture = MyTapGesture(target: self, action: #selector(productViewTapped(sender:)))
+        tapGesture.indexValue = indexPath.item
+        cell.imgViewLoadPoduct.addGestureRecognizer(tapGesture)
+        cell.imgViewLoadPoduct.layer.borderWidth = 0.2
+        cell.imgViewLoadPoduct.layer.borderColor = UIColor.lightGray.cgColor
         return cell
 
     }
@@ -100,12 +157,40 @@ class WeekDealTableViewCell: UITableViewCell, UICollectionViewDataSource, UIColl
         self.window?.rootViewController!.present(newViewController, animated: true, completion: nil)
     }
     
-    @objc func socialViewTapped() {
-         // Which item cell's socialview is clicked
-        DispatchQueue.main.async {
-        let newViewController = storyBoard.instantiateViewController(withIdentifier: "ProductDetailsViewController") as! ProductDetailsViewController
-       self.window?.rootViewController!.present(newViewController, animated: true, completion: nil)
+    @objc func productViewTapped(sender: MyTapGesture) {
+        Singleton.sharedManager.selectedProduct = productItems[sender.indexValue] as! NSDictionary
+        delegate?.showProductPressed(index: sender.indexValue)
+    }
+    
+    func iterateProducts() -> Array<Any> {
+        
+        var arrayofIteratedProducts :Array = Array<Any>()
+        let countofproducts = self.productsArray.count - 1
+        
+        for products in 0...countofproducts {
+            let productDict = self.productsArray[products] as! NSDictionary
+            print(productDict)
+            let customDict = productDict.object(forKey: "custom_attributes") as! NSArray
+            print(customDict.count)
+            
+            let finaldic :NSMutableDictionary = NSMutableDictionary()
+            
+            let name = productDict.value(forKey: "name")
+            let price = productDict.value(forKey: "price")
+
+            finaldic.setValue(name, forKey: "name")
+            finaldic.setValue(price, forKey: "price")
+            for product in customDict {
+                let prod = product as! NSDictionary
+                let keyvalue = prod.object(forKey: "attribute_code") as! String
+                let object = prod.object(forKey: "value") as Any
+                finaldic.setValue(object, forKey: keyvalue)
+            }
+            
+            arrayofIteratedProducts.append(finaldic)
         }
+        
+        return arrayofIteratedProducts
     }
     
 }

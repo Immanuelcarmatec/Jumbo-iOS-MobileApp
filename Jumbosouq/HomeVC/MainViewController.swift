@@ -7,6 +7,7 @@
 
 import SafariServices
 import UIKit
+import Alamofire
 
 @available(iOS 13.0, *)
 class MainViewController: UIViewController {
@@ -28,6 +29,7 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
        // self.view.backgroundColor = #colorLiteral(red: 0.737254902, green: 0.1294117647, blue: 0.2941176471, alpha: 1)
+        self.getauthorised()
 
         // Shadow Background View
         self.sideMenuShadowView = UIView(frame: self.view.bounds)
@@ -84,6 +86,20 @@ class MainViewController: UIViewController {
         }
     }
 
+    func getauthorised() {
+        let parameters: [String: Any] = [ "username":bearreUSername, "password":bearerPassword]
+        let URLStr = baseURL + "integration/admin/token"
+        let header:HTTPHeaders = [
+            "Content-Type": "application/json",
+           ]
+        AF.request(URLStr, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: header) .responseJSON{
+                response in
+            Singleton.sharedManager.bearertoken = response.value! as! String
+           
+        }
+    }
+    
+    
     func animateShadow(targetPosition: CGFloat) {
         UIView.animate(withDuration: 0.5) {
             // When targetPosition is 0, which means side menu is expanded, the shadow opacity is 0.6

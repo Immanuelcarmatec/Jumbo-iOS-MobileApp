@@ -7,12 +7,24 @@
 
 import UIKit
 
+class BottomView: UIView {
+    
+    var view: UIView!
+
+    override func addSubview(_ view: UIView) {
+        let bottomview = UIView(frame: CGRect(x: 0, y: 35, width: 100, height: 2))
+        bottomview.backgroundColor = UIColor.red
+        addSubview(bottomview)
+    }    
+}
 class CategoriesTableViewCell: UITableViewCell, UICollectionViewDataSource, UICollectionViewDelegate,UICollectionViewDelegateFlowLayout {
     
     
     
     @IBOutlet weak var scrollView: UIScrollView!
-
+    
+    var lineView  = UIView()
+    
     @IBOutlet weak var collectionViewShowProducts: UICollectionView!
     
     
@@ -55,6 +67,17 @@ class CategoriesTableViewCell: UITableViewCell, UICollectionViewDataSource, UICo
             button.addTarget(self, action: #selector(selectCategory), for: .touchUpInside)
             button.setTitle(teamsCategory[i], for: .normal)
             button.setTitleColor(.black, for: .normal)
+            
+            lineView = BottomView()
+            lineView.backgroundColor=UIColor.red
+            button.addSubview(lineView)
+            
+            if button.tag == 0 {
+                lineView.isHidden = false
+            }else{
+                lineView.isHidden = true
+            }
+            
             scrollView.addSubview(button)
         }
 
@@ -63,9 +86,31 @@ class CategoriesTableViewCell: UITableViewCell, UICollectionViewDataSource, UICo
             //self.view.addSubview(scrollView)
         }
 
-        @objc func selectCategory() {
-
+    @objc func selectCategory(sender: UIButton) {
+    
+        for views in scrollView.subviews{
+             
+            if views.isKind(of: UIButton.self) {
+                
+                if views.tag == sender.tag {
+                    
+                    for subviews in views.subviews {
+                        if subviews .isKind(of: BottomView.self) {
+                            subviews.isHidden = false
+                        }
+                    }
+                   
+                }else{
+                    for subviews in views.subviews {
+                        if subviews .isKind(of: BottomView.self) {
+                            subviews.isHidden = true
+                        }
+                    }
+                }
+                
+            }
         }
+    }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 4

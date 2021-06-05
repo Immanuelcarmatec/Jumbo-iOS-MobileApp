@@ -29,69 +29,19 @@ func BluethemeColor() -> UIColor {
 //Constant Declarations
 let baseURL = "https://www.jumbosouq.com/rest/default/V1/"
 
-let headers:HTTPHeaders = [
-    "Content-Type": "application/json",
-    "Authorization": "Bearer hr0pevsjatc9bl39e752ywnhb33cj3cb"
-   ]
-
-func getAuthorisationToken(){
-    
-    //AF.request(baseURL, method: .post).authenticate(user: "username", password: "pwd").responseJSON{
-    let parameters: [String: Any] = [ "username":"carmatec", "password":"SHAHID@12345"]
-    let URLStr = baseURL + "integration/admin/token"
-    let header:HTTPHeaders = [
-        "Content-Type": "application/json",
-       ]
-    
-    AF.request(URLStr, method: .post, parameters: parameters, headers: header).authenticate(username: "carmatec", password: "SHAHID@12345")
-        .responseJSON{
-        response in
-            print(response.value!)
-    }
-
-    /*
-    let request = AF.request(URLStr, method: .post,parameters: parameters, headers: headers).authenticate(username: "carmatec", password: "ABCD@1234")
-     request.responseJSON { response in
-      switch response.result {
-      case .success:
-        if let json = response.data {
-               do{
-                  let data = try JSON(data: json)
-                  print(data)
-                //  CustomActivityIndicator.shared.hide(uiView: self.view, delay: 1.5)
-
-                  let jsonData: Data = response.data!
-                  let jsonDict = try JSONSerialization.jsonObject(with: jsonData) as? NSArray
-                  
-                  if((jsonDict) != nil){
-                      //self.tableViewArray = jsonDict?.mutableCopy() as! NSMutableArray
-                     // self.tableView.reloadData()
-                  }
-                   
-               }
-               catch{
-               print("JSON Error")
-                  //CustomActivityIndicator.shared.hide(uiView: self.view, delay: 1.5)
-
-               }
-
-           }
-      
-      case .failure(let error):
-        print(error)
-          //CustomActivityIndicator.shared.hide(uiView: self.view, delay: 1.5)
-
-      }
-
-  }*/
-    
-}
-    
 
 
+let bearreUSername = "carmatec"
+let bearerPassword = "SHAHID@12345"
 
-
-
+func loadImage(url: URL) -> UIImage{
+    if let data = try? Data(contentsOf: url) {
+              if let image = UIImage(data: data) {
+                return image
+              }
+          }
+    return UIImage(named: "img_sample")!
+  }
 
 let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
 var validation = Validation()
@@ -106,6 +56,8 @@ func userAlreadyExist() -> Bool {
 
     return false
 }
+
+
 
 
 //Input Validation
@@ -235,6 +187,14 @@ extension UITextField {
 }
 
 extension UIViewController {
+    
+    func addNavBarImage() {
+            let image = UIImage(named: "img_logo") //Your logo url here
+            let imageView = UIImageView(image: image)
+            imageView.contentMode = .scaleAspectFill
+           navigationItem.titleView = imageView
+        
+    }
 
     func alert(message: String, title: String = "") {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
@@ -276,6 +236,10 @@ extension UIViewController {
     @objc func dismissKeyboardView() {
             view.endEditing(true)
         }
+    
+    func navigationBarDesign() {
+        
+    }
 }
 
 

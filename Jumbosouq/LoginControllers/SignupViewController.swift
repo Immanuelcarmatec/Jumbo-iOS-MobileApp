@@ -89,6 +89,12 @@ class SignupViewController: UIViewController {
         let URLStr = baseURL + "customers"
         let dic:[String: Any] = ["customer":parameters,"password":txtPassword.text!]
         
+        let headers:HTTPHeaders = [
+            "Content-Type": "application/json",
+            "Authorization": "Bearer " +  Singleton.sharedManager.bearertoken
+           ]
+
+        
         AF.request(URLStr, method: .post,  parameters: dic, encoding: JSONEncoding.default, headers:headers)
             .responseJSON { response in
                 switch response.result {

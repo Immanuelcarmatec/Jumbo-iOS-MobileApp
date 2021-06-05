@@ -9,6 +9,12 @@ import UIKit
 
 class NewArrivalCollectionViewCell: UICollectionViewCell {
 
+    @IBOutlet weak var lblProductName: UILabel!
+    
+    @IBOutlet weak var lblShoeRegularPrice: UILabel!
+    @IBOutlet weak var lblShowSplPrice: UILabel!
+    @IBOutlet weak var imgViewLoadPoduct: UIImageView!
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -25,5 +31,11 @@ class NewArrivalCollectionViewCell: UICollectionViewCell {
         self.layer.masksToBounds = false
         self.layer.shadowPath = UIBezierPath(roundedRect: self.bounds, cornerRadius: self.contentView.layer.cornerRadius).cgPath
     }
-
+    
+    
+    @IBAction func didActionCart(_ sender: Any) {
+    }
+    
+    @IBAction func didActionFavourite(_ sender: Any) {
+    }
 }

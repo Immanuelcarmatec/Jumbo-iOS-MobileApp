@@ -27,9 +27,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        
-        getAuthorisationToken()
-        
+      
+                
         if userAlreadyExist() {
             
             btnFBlogin.isHidden = true
@@ -41,7 +40,9 @@ class ViewController: UIViewController {
             
             let username:String = defaults.object(forKey: "username")! as! String
             let password:String = defaults.object(forKey: "password") as! String
-            doLogin(username: username, password: password)
+            self.doLogin(username: username, password: password)
+
+            
         }
         
         if let token = AccessToken.current,
@@ -100,14 +101,14 @@ class ViewController: UIViewController {
     
     
     @IBAction func doFBLogin(_ sender: Any) {
-        Singleton.shared.isFBLogin = true
+        Singleton.sharedManager.isFBLogin = true
         let loginButton = FBLoginButton()
         loginButton.sendActions(for:.touchUpInside)
     }
     
     
     @IBAction func doGoogleLogin(_ sender: Any) {
-        Singleton.shared.isGoogleLogin = true
+        Singleton.sharedManager.isGoogleLogin = true
     }
     
     @IBAction func doGuestLogin(_ sender: Any) {
@@ -120,11 +121,17 @@ class ViewController: UIViewController {
         
         CustomActivityIndicator.shared.show(uiView: self.view, labelText: "Authenticating  existing credentials...")
         
+        let headers:HTTPHeaders = [
+            "Content-Type": "application/json",
+            "Authorization": "Bearer " +  Singleton.sharedManager.bearertoken
+           ]
+
+        
         AF.request(URLStr, method: .post,  parameters: parameters, encoding: JSONEncoding.default, headers:headers)
             .responseJSON { response in
                 switch response.result {
                 case .success(let value):
-                    CustomActivityIndicator.shared.hide(uiView: self.view, delay: 1.5)
+                    CustomActivityIndicator.shared.hide(uiView: self.view, delay: 0)
                     if (response.response?.statusCode  == 200){
                         
                         defaults.set(username, forKey: "username")

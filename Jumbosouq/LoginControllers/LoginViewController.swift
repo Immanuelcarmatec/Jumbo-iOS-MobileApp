@@ -84,6 +84,12 @@ class LoginViewController: UIViewController {
         
         CustomActivityIndicator.shared.show(uiView: self.view, labelText: "Logging in...")
         
+        let headers:HTTPHeaders = [
+            "Content-Type": "application/json",
+            "Authorization": "Bearer " +  Singleton.sharedManager.bearertoken
+           ]
+
+        
         AF.request(URLStr, method: .post,  parameters: parameters, encoding: JSONEncoding.default, headers:headers)
             .responseJSON { response in
                 switch response.result {

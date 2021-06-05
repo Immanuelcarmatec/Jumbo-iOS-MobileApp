@@ -11,7 +11,11 @@ class ProductDetailsViewController: UIViewController,UITableViewDelegate, UITabl
   
     @IBOutlet weak var tblViewListProductDetails: UITableView!
     @IBOutlet var viewHeader: UIView!
+    @IBOutlet weak var navBar: UINavigationBar!
 
+    class tapGestureBanner: UITapGestureRecognizer {
+        
+    }
 
 
     override func viewDidLoad() {
@@ -21,10 +25,29 @@ class ProductDetailsViewController: UIViewController,UITableViewDelegate, UITabl
         self.tblViewListProductDetails.backgroundColor = UIColor.white
         self.tblViewListProductDetails.delegate = self
         self.tblViewListProductDetails.dataSource = self
+        
+        let tapGesture = tapGestureBanner(target: self, action: #selector(bannerViewTapped))
+        viewHeader.addGestureRecognizer(tapGesture)
+        //addNavBarImage()
+        
+        let image = UIImage(named: "img_logo") //Your logo url here
+        let imageView = UIImageView(image: image)
+        imageView.contentMode = .scaleAspectFill
+        imageView.frame = CGRect(x: self.navBar.frame.size.width-50, y: 0, width: 100, height: 44)
+        self.navBar.addSubview(imageView)
     }
+    
+    @objc func bannerViewTapped() {
+        self.dismiss(animated: true, completion: nil)
+    }
+    @IBOutlet weak var bannerView: UIView!
     
     // number of rows in table view
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        if (Singleton.sharedManager.selectedProduct.value(forKey: "description") != nil) {
+           return 2
+        }
         return 1
     }
     
@@ -40,32 +63,47 @@ class ProductDetailsViewController: UIViewController,UITableViewDelegate, UITabl
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         let identifier = "ProductDetailTableViewCell"
-        let cell: ProductDetailTableViewCell! = tableView.dequeueReusableCell(withIdentifier: identifier) as? ProductDetailTableViewCell
+        let cell: UITableViewCell! = tableView.dequeueReusableCell(withIdentifier: identifier)
         
        if indexPath.row == 0 {
-                   tableView.register(UINib(nibName: "ProductDetailTableViewCell", bundle: nil), forCellReuseIdentifier: identifier)
-                   let firstcell = tableView.dequeueReusableCell(withIdentifier: "ProductDetailTableViewCell") as? ProductDetailTableViewCell
-                   return firstcell!
-                }
-        else if indexPath.row == 1 {
-            let identifier = "WeekDealTableViewCell"
-            var weekdealcell: WeekDealTableViewCell! = tableView.dequeueReusableCell(withIdentifier: identifier) as? WeekDealTableViewCell
-          tableView.register(UINib(nibName: "WeekDealTableViewCell", bundle: nil), forCellReuseIdentifier: identifier)
-            weekdealcell = tableView.dequeueReusableCell(withIdentifier: "WeekDealTableViewCell") as? WeekDealTableViewCell
-            return weekdealcell!
-        }else if indexPath.row == 2 {
-            let identifier = "NewArrivalTableViewCell"
-            var newarrivalcell: NewArrivalTableViewCell! = tableView.dequeueReusableCell(withIdentifier: identifier) as? NewArrivalTableViewCell
-           tableView.register(UINib(nibName: "NewArrivalTableViewCell", bundle: nil), forCellReuseIdentifier: identifier)
-            newarrivalcell = tableView.dequeueReusableCell(withIdentifier: "NewArrivalTableViewCell") as? NewArrivalTableViewCell
-            return newarrivalcell!
-        }else if indexPath.row == 3{
-            let identifier = "CategoriesTableViewCell"
-            var weekdealcell: CategoriesTableViewCell! = tableView.dequeueReusableCell(withIdentifier: identifier) as? CategoriesTableViewCell
-           tableView.register(UINib(nibName: "CategoriesTableViewCell", bundle: nil), forCellReuseIdentifier: identifier)
-            weekdealcell = tableView.dequeueReusableCell(withIdentifier: "CategoriesTableViewCell") as? CategoriesTableViewCell
-            return weekdealcell!
+        
+       tableView.register(UINib(nibName: "ProductDetailTableViewCell", bundle: nil), forCellReuseIdentifier: identifier)
+        let firstcell = tableView.dequeueReusableCell(withIdentifier: "ProductDetailTableViewCell") as? ProductDetailTableViewCell
+        firstcell!.layer.anchorPointZ = CGFloat(indexPath.row);
+        
+        if (Singleton.sharedManager.selectedProduct.value(forKey: "short_description") != nil) {
+            let shortdeschtmlString =   Singleton.sharedManager.selectedProduct.value(forKey: "short_description") as! String
+              firstcell!.webViewShowShortDescription.loadHTMLString(shortdeschtmlString, baseURL: nil)
         }
+     
+        firstcell!.lblProductName.text = Singleton.sharedManager.selectedProduct.value(forKey: "name") as? String
+        
+        let imagevalue = Singleton.sharedManager.selectedProduct.value(forKey: "image") as! String
+        var imageURL = "https://www.jumbosouq.com/pub/media/catalog/product" + imagevalue
+        imageURL = imageURL.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+        let fileUrl = NSURL(string:imageURL)
+        
+        DispatchQueue.global().async {
+            let task = URLSession.shared.dataTask(with: fileUrl! as URL) { data, response, error in
+                guard let data = data, error == nil else { return }
+                DispatchQueue.main.async() {
+                    if firstcell!.tag == indexPath.row{
+                        firstcell!.imgViewLoadProductImage.image = UIImage(data: data)
+                    }
+                }
+            }
+            task.resume()
+        }
+                   return firstcell!
+    }
+        
+       else if indexPath.row == 1 {
+           let identifier = "ProductMoreDetailsTableViewCell"
+           var weekdealcell: ProductMoreDetailsTableViewCell! = tableView.dequeueReusableCell(withIdentifier: identifier) as? ProductMoreDetailsTableViewCell
+          tableView.register(UINib(nibName: "ProductMoreDetailsTableViewCell", bundle: nil), forCellReuseIdentifier: identifier)
+           weekdealcell = tableView.dequeueReusableCell(withIdentifier: "ProductMoreDetailsTableViewCell") as? ProductMoreDetailsTableViewCell
+           return weekdealcell!
+       }
         
     
      return cell
@@ -77,7 +115,11 @@ class ProductDetailsViewController: UIViewController,UITableViewDelegate, UITabl
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-            return 600.0;//Choose your custom row height
+        
+        if indexPath.row == 0 {
+            return 550//Choose your custom row height
+        }
+        return 200//Choose your custom row height
     }
     /*
     // MARK: - Navigation

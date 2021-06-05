@@ -17,7 +17,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="150" height="100"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_sample" translatesAutoresizingMaskIntoConstraints="NO" id="5J8-UI-0aU">
+                    <imageView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_dummy_placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="5J8-UI-0aU">
                         <rect key="frame" x="0.0" y="0.0" width="150" height="100"/>
                     </imageView>
                 </subviews>
@@ -37,6 +37,6 @@
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="img_sample" width="600" height="380"/>
+        <image name="img_dummy_placeholder" width="275" height="183"/>
     </resources>
 </document>

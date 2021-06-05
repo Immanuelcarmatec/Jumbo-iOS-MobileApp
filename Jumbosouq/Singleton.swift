@@ -7,16 +7,19 @@
 
 import UIKit
 
-class Singleton {
+class Singleton:NSObject {
     
-    static let shared = Singleton()
-    private init(){
-        
-    }
+    private static let shared = Singleton()
+    class var sharedManager : Singleton {
+            return shared
+        }
+
     
     var isFBLogin:Bool = false
     var isGoogleLogin:Bool = false
     var isGuestLogin:Bool = false
+    var selectedProduct:NSDictionary = NSDictionary()
+    var bearertoken = ""
+    var searchitem = ""
     
-
 }

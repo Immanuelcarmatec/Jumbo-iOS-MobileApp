@@ -9,9 +9,23 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
+
+protocol NewArrivalTableViewCellDelegate: class {
+    func showProductPressed(index: Int)
+}
+
 class NewArrivalTableViewCell: UITableViewCell, UICollectionViewDataSource, UICollectionViewDelegate,UICollectionViewDelegateFlowLayout {
     
     @IBOutlet weak var collectionViewShowProducts: UICollectionView!
+    
+    var productsArray = [Any]()
+    var productItems = Array<Any>()
+    
+    var delegate: NewArrivalTableViewCellDelegate?
+    
+    class newarrivalTG: UITapGestureRecognizer {
+        var indexValue = 0
+    }
 
 
     override func awakeFromNib() {
@@ -22,7 +36,7 @@ class NewArrivalTableViewCell: UITableViewCell, UICollectionViewDataSource, UICo
         self.collectionViewShowProducts.delegate = self
         self.collectionViewShowProducts.alwaysBounceHorizontal = true
         
-        self.callProducts()
+       self.getAuthorisationToken()
 
     
     }
@@ -33,14 +47,66 @@ class NewArrivalTableViewCell: UITableViewCell, UICollectionViewDataSource, UICo
         // Configure the view for the selected state
     }
     
+    func getAuthorisationToken(){
+        
+        //AF.request(baseURL, method: .post).authenticate(user: "username", password: "pwd").responseJSON{
+        let parameters: [String: Any] = [ "username":bearreUSername, "password":bearerPassword]
+        let URLStr = baseURL + "integration/admin/token"
+        let header:HTTPHeaders = [
+            "Content-Type": "application/json",
+           ]
+        
+        AF.request(URLStr, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: header) .responseJSON{
+                response in
+            Singleton.sharedManager.bearertoken = response.value! as! String
+            self.callProducts()
+
+        }
+        
+    }
+    
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 4
+        return self.productsArray.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell: NewArrivalCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "NewArrivalCollectionViewCell", for: indexPath) as! NewArrivalCollectionViewCell
+      
+        productItems = iterateProducts()
+        cell.tag = indexPath.item
+        let currentProduct = productItems[indexPath.item] as! NSDictionary
+        let imagevalue = currentProduct.value(forKey: "small_image") as! String
+        var imageURL = "https://www.jumbosouq.com/pub/media/catalog/product" + imagevalue
+        imageURL = imageURL.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+        let fileUrl = NSURL(string:imageURL)
         
+        DispatchQueue.global().async {
+            let task = URLSession.shared.dataTask(with: fileUrl! as URL) { data, response, error in
+                guard let data = data, error == nil else { return }
+                DispatchQueue.main.async() {
+                    if cell.tag == indexPath.row{
+                        cell.imgViewLoadPoduct.image = UIImage(data: data)
+                    }
+                }
+            }
+            task.resume()
+        }
+     
+        let tapGesture = newarrivalTG(target: self, action: #selector(productViewTapped(sender:)))
+        tapGesture.indexValue = indexPath.item
+        cell.imgViewLoadPoduct.addGestureRecognizer(tapGesture)
+        
+        
+        cell.lblProductName.text = currentProduct.value(forKey: "name") as? String  //name
+        let splPrice = currentProduct.value(forKey: "special_price") as? String
+        cell.lblShowSplPrice.text = "Special price: QAR " + splPrice! //special_price
+        let priceString = currentProduct.value(forKey: "price") as! NSNumber
+        let normalprice = "Actual Price:QAR " + priceString.stringValue
+        let attributeString: NSMutableAttributedString =  NSMutableAttributedString(string:normalprice)
+        attributeString.addAttribute(NSAttributedString.Key.strikethroughStyle, value: 2, range: NSMakeRange(0, attributeString.length))
+        cell.lblShoeRegularPrice.attributedText = attributeString
         return cell
 
     }
@@ -55,6 +121,40 @@ class NewArrivalTableViewCell: UITableViewCell, UICollectionViewDataSource, UICo
             }
         
     
+    @objc func productViewTapped(sender: newarrivalTG) {
+        Singleton.sharedManager.selectedProduct = productItems[sender.indexValue] as! NSDictionary
+        delegate?.showProductPressed(index: sender.indexValue)
+    }
+    
+    func iterateProducts() -> Array<Any> {
+        
+        var arrayofIteratedProducts :Array = Array<Any>()
+        let countofproducts = self.productsArray.count - 1
+        
+        for products in 0...countofproducts {
+            let productDict = self.productsArray[products] as! NSDictionary
+            let customDict = productDict.object(forKey: "custom_attributes") as! NSArray
+            
+            let finaldic :NSMutableDictionary = NSMutableDictionary()
+            
+            let name = productDict.value(forKey: "name")
+            let price = productDict.value(forKey: "price")
+
+            finaldic.setValue(name, forKey: "name")
+            finaldic.setValue(price, forKey: "price")
+            for product in customDict {
+                let prod = product as! NSDictionary
+                let keyvalue = prod.object(forKey: "attribute_code") as! String
+                let object = prod.object(forKey: "value") as Any
+                finaldic.setValue(object, forKey: keyvalue)
+            }
+            
+            arrayofIteratedProducts.append(finaldic)
+        }
+        
+        return arrayofIteratedProducts
+    }
+    
     
     func callProducts() {
         
@@ -64,7 +164,11 @@ class NewArrivalTableViewCell: UITableViewCell, UICollectionViewDataSource, UICo
             "searchCriteria[pageSize]":"20"]
         let URLStr = baseURL + "products"
         
-        
+        let headers:HTTPHeaders = [
+            "Content-Type": "application/json",
+            "Authorization": "Bearer " +  Singleton.sharedManager.bearertoken
+           ]
+
         DispatchQueue.global(qos: .background).async {
             let request = AF.request(URLStr, parameters: parameters, headers: headers)
             request.responseJSON { response in
@@ -72,16 +176,15 @@ class NewArrivalTableViewCell: UITableViewCell, UICollectionViewDataSource, UICo
              case .success:
                if let json = response.data {
                       do{
-                         let data = try JSON(data: json)
-                         print(data)
-                         let jsonData: Data = response.data!
-                         let jsonDict = try JSONSerialization.jsonObject(with: jsonData) as? NSArray
+                        let jsonDict = try JSONSerialization.jsonObject(with: json) as? NSDictionary
+                        
                         DispatchQueue.main.async {
                             if((jsonDict) != nil){
-                                
+                                print(jsonDict?.object(forKey: "items") ?? NSDictionary())
+                                self.productsArray = jsonDict?.object(forKey: "items") as! [Any]
+                                self.collectionViewShowProducts.reloadData()
                             }
                         }
-                       
                       }
                       catch{
                       print("JSON Error")
@@ -96,7 +199,7 @@ class NewArrivalTableViewCell: UITableViewCell, UICollectionViewDataSource, UICo
 
              }
 
-         }
+            }.cache(maxAge: 10)
         }
         
         
