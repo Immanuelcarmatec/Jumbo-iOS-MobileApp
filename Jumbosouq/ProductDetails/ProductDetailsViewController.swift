@@ -33,8 +33,9 @@ class ProductDetailsViewController: UIViewController,UITableViewDelegate, UITabl
         let image = UIImage(named: "img_logo") //Your logo url here
         let imageView = UIImageView(image: image)
         imageView.contentMode = .scaleAspectFill
-        imageView.frame = CGRect(x: self.navBar.frame.size.width-50, y: 0, width: 100, height: 44)
+        imageView.frame = CGRect(x: 50, y: 0, width: 150, height: 50)
         self.navBar.addSubview(imageView)
+        
     }
     
     @objc func bannerViewTapped() {

@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -18,45 +17,39 @@
                 <rect key="frame" x="0.0" y="0.0" width="343" height="320"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bcT-B5-scY">
-                        <rect key="frame" x="0.0" y="0.0" width="343" height="50"/>
-                        <color key="backgroundColor" red="0.90058741620000005" green="0.1805988174" blue="0.13424156649999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <viewLayoutGuide key="contentLayoutGuide" id="3Bn-3e-Ta8"/>
-                        <viewLayoutGuide key="frameLayoutGuide" id="GuL-0T-Um9"/>
-                    </scrollView>
-                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="NpG-Fc-zDo">
-                        <rect key="frame" x="0.0" y="49" width="343" height="271"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="mp1-MT-Vge">
-                            <size key="itemSize" width="128" height="128"/>
+                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="jAh-gJ-7wa">
+                        <rect key="frame" x="0.0" y="50" width="343" height="270"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="NRE-4U-cTL">
+                            <size key="itemSize" width="128" height="120"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                     </collectionView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="beP-7l-RsX">
+                        <rect key="frame" x="0.0" y="0.0" width="343" height="49"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="NpG-Fc-zDo" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="49" id="0eW-QO-ieY"/>
-                    <constraint firstAttribute="bottom" secondItem="NpG-Fc-zDo" secondAttribute="bottom" id="2ct-Ha-LFc"/>
-                    <constraint firstAttribute="bottom" secondItem="bcT-B5-scY" secondAttribute="bottom" constant="270" id="EOJ-hc-xvP"/>
-                    <constraint firstAttribute="trailing" secondItem="NpG-Fc-zDo" secondAttribute="trailing" id="NVU-fl-OLK"/>
-                    <constraint firstItem="bcT-B5-scY" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="OUd-S7-cF2"/>
-                    <constraint firstAttribute="trailing" secondItem="bcT-B5-scY" secondAttribute="trailing" id="PGZ-7T-PZF"/>
-                    <constraint firstItem="NpG-Fc-zDo" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="gc2-lb-oL6"/>
-                    <constraint firstItem="bcT-B5-scY" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="qZJ-Y1-Q81"/>
+                    <constraint firstItem="jAh-gJ-7wa" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="0j3-Ew-fs2"/>
+                    <constraint firstAttribute="trailing" secondItem="jAh-gJ-7wa" secondAttribute="trailing" id="8If-eO-TxP"/>
+                    <constraint firstItem="jAh-gJ-7wa" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="50" id="CuQ-q5-K9h"/>
+                    <constraint firstItem="beP-7l-RsX" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="T6p-vz-xJq"/>
+                    <constraint firstItem="jAh-gJ-7wa" firstAttribute="top" secondItem="beP-7l-RsX" secondAttribute="bottom" constant="1" id="UYb-3C-EB0"/>
+                    <constraint firstItem="beP-7l-RsX" firstAttribute="trailing" secondItem="jAh-gJ-7wa" secondAttribute="trailing" id="hfO-ij-nCC"/>
+                    <constraint firstItem="beP-7l-RsX" firstAttribute="leading" secondItem="jAh-gJ-7wa" secondAttribute="leading" id="rcP-in-aeF"/>
+                    <constraint firstAttribute="bottom" secondItem="jAh-gJ-7wa" secondAttribute="bottom" id="ulH-cP-Jku"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="collectionViewShowProducts" destination="NpG-Fc-zDo" id="L3X-Qw-v4P"/>
-                <outlet property="scrollView" destination="bcT-B5-scY" id="4gd-DC-QLJ"/>
+                <outlet property="collectionViewShowProducts" destination="jAh-gJ-7wa" id="K3X-uX-6as"/>
+                <outlet property="scrollView" destination="beP-7l-RsX" id="q5G-5e-XHb"/>
             </connections>
             <point key="canvasLocation" x="87.681159420289859" y="150.66964285714286"/>
         </tableViewCell>
     </objects>
-    <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-    </resources>
 </document>

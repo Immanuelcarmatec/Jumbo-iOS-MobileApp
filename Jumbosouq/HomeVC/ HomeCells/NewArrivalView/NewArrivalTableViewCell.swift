@@ -10,7 +10,7 @@ import Alamofire
 import SwiftyJSON
 
 
-protocol NewArrivalTableViewCellDelegate: class {
+protocol NewArrivalTableViewCellDelegate: AnyObject {
     func showProductPressed(index: Int)
 }
 
@@ -98,10 +98,13 @@ class NewArrivalTableViewCell: UITableViewCell, UICollectionViewDataSource, UICo
         tapGesture.indexValue = indexPath.item
         cell.imgViewLoadPoduct.addGestureRecognizer(tapGesture)
         
-        
+        cell.lblProductName.addFont10()
         cell.lblProductName.text = currentProduct.value(forKey: "name") as? String  //name
-        let splPrice = currentProduct.value(forKey: "special_price") as? String
-        cell.lblShowSplPrice.text = "Special price: QAR " + splPrice! //special_price
+        let splPrice = Double(currentProduct.value(forKey: "special_price") as! String)!
+        let roundedPrice =  String(splPrice.rounded())
+        cell.lblShowSplPrice.text = "Special price: QAR " + roundedPrice //special_price
+        cell.lblShowSplPrice.addBoldFont10()
+        cell.lblShoeRegularPrice.addFont8()
         let priceString = currentProduct.value(forKey: "price") as! NSNumber
         let normalprice = "Actual Price:QAR " + priceString.stringValue
         let attributeString: NSMutableAttributedString =  NSMutableAttributedString(string:normalprice)

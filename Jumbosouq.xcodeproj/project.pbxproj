@@ -7,7 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1D1B99D962164E1FF9A0C789 /* Pods_Jumbosouq.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C15B68E92518A3D861AF7EF /* Pods_Jumbosouq.framework */; };
+		04BCBAA05F80656C6F22B57F /* Pods_JumbosouqTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A8DBEB73B127D9D97A0A218 /* Pods_JumbosouqTests.framework */; };
+		18FFCF63266F65B000832144 /* HeadingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FFCF61266F65B000832144 /* HeadingTableViewCell.swift */; };
+		18FFCF64266F65B000832144 /* HeadingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18FFCF62266F65B000832144 /* HeadingTableViewCell.xib */; };
+		18FFCF932670B11700832144 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FFCF912670B11700832144 /* Theme.swift */; };
 		3534DFC4261CAC7200A5A9CC /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3534DFC3261CAC7200A5A9CC /* HomeViewController.swift */; };
 		355B2A7D26209CA60032567B /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355B2A7826209CA60032567B /* SideMenuViewController.swift */; };
 		355B2A7E26209CA60032567B /* SideMenuModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355B2A7926209CA60032567B /* SideMenuModel.swift */; };
@@ -55,13 +58,88 @@
 		35D608AF2628924E00E8A066 /* WeekDealCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 35D608AD2628924E00E8A066 /* WeekDealCollectionViewCell.xib */; };
 		35E4513D266797E2003DBE3F /* SearchProductTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E4513B266797E2003DBE3F /* SearchProductTableViewCell.swift */; };
 		35E4513E266797E2003DBE3F /* SearchProductTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 35E4513C266797E2003DBE3F /* SearchProductTableViewCell.xib */; };
-		35E451442667A856003DBE3F /* HeadingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E451422667A856003DBE3F /* HeadingTableViewCell.swift */; };
-		35E451452667A856003DBE3F /* HeadingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 35E451432667A856003DBE3F /* HeadingTableViewCell.xib */; };
-		6C9F4EBB1D386920A2EA551E /* Pods_Jumbosouq_JumbosouqUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DB8FF221D26357C0A52EEE3 /* Pods_Jumbosouq_JumbosouqUITests.framework */; };
-		AF8D3046178C619F464E20C7 /* Pods_JumbosouqTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23DD20956508BA9D6FE93256 /* Pods_JumbosouqTests.framework */; };
+		5CAEC24D517876F8E540681F /* Pods_Jumbosouq.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EEE1B2A9E824E957CF879C9F /* Pods_Jumbosouq.framework */; };
+		72629769BD38C108174D9336 /* Pods_Jumbosouq_JumbosouqUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F58CAF5C419A150ADE9DDF3 /* Pods_Jumbosouq_JumbosouqUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		18FFCFA32670D38800832144 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 18FFCF952670D38800832144 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 5D797E9A5C5782CE845840781FA1CC81;
+			remoteInfo = Alamofire;
+		};
+		18FFCFA52670D38800832144 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 18FFCF952670D38800832144 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C224DA6B0D8EE1E4C0F0D8BF54BCA5E5;
+			remoteInfo = AlamofireURLCache5;
+		};
+		18FFCFA72670D38800832144 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 18FFCF952670D38800832144 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 857D0B90490FD8083F79B97597566B28;
+			remoteInfo = CarbonKit;
+		};
+		18FFCFA92670D38800832144 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 18FFCF952670D38800832144 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EC8F4D0BE3B0C192EBA4A93F8887D89F;
+			remoteInfo = FBSDKCoreKit;
+		};
+		18FFCFAB2670D38800832144 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 18FFCF952670D38800832144 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = B65A065AB8123E828A0FD4002F687A71;
+			remoteInfo = "FBSDKCoreKit-FacebookSDKStrings";
+		};
+		18FFCFAD2670D38800832144 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 18FFCF952670D38800832144 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 5DE0FEFC3995E740EC1AE2611D0AEFB0;
+			remoteInfo = FBSDKLoginKit;
+		};
+		18FFCFAF2670D38800832144 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 18FFCF952670D38800832144 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 108430133E58C8C5277789702DE64400;
+			remoteInfo = Networking;
+		};
+		18FFCFB12670D38800832144 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 18FFCF952670D38800832144 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C23E723A8AAED7DD0724C3FCDEAA1AF5;
+			remoteInfo = "Pods-Jumbosouq";
+		};
+		18FFCFB32670D38800832144 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 18FFCF952670D38800832144 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 70A7BB443B9E20DC2E25CC7389AFC347;
+			remoteInfo = "Pods-Jumbosouq-JumbosouqUITests";
+		};
+		18FFCFB52670D38800832144 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 18FFCF952670D38800832144 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 9C92CD5B94EE827B8E9985669B35654F;
+			remoteInfo = "Pods-JumbosouqTests";
+		};
+		18FFCFB72670D38800832144 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 18FFCF952670D38800832144 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = E23C076BA70925415F490FEDB215DA92;
+			remoteInfo = SwiftyJSON;
+		};
 		358DFDD82611DD3C0037221F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 358DFDB92611DD3B0037221F /* Project object */;
@@ -79,7 +157,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		23DD20956508BA9D6FE93256 /* Pods_JumbosouqTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JumbosouqTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0A78E7609173B1B222742479 /* Pods-Jumbosouq-JumbosouqUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Jumbosouq-JumbosouqUITests.debug.xcconfig"; path = "Target Support Files/Pods-Jumbosouq-JumbosouqUITests/Pods-Jumbosouq-JumbosouqUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		18FFCF61266F65B000832144 /* HeadingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadingTableViewCell.swift; sourceTree = "<group>"; };
+		18FFCF62266F65B000832144 /* HeadingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeadingTableViewCell.xib; sourceTree = "<group>"; };
+		18FFCF912670B11700832144 /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		18FFCF952670D38800832144 /* Pods.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Pods.xcodeproj; path = ../Pods/Pods.xcodeproj; sourceTree = "<group>"; };
 		3534DFC3261CAC7200A5A9CC /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		355B2A7826209CA60032567B /* SideMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
 		355B2A7926209CA60032567B /* SideMenuModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuModel.swift; sourceTree = "<group>"; };
@@ -133,16 +215,14 @@
 		35D608AD2628924E00E8A066 /* WeekDealCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WeekDealCollectionViewCell.xib; sourceTree = "<group>"; };
 		35E4513B266797E2003DBE3F /* SearchProductTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchProductTableViewCell.swift; sourceTree = "<group>"; };
 		35E4513C266797E2003DBE3F /* SearchProductTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchProductTableViewCell.xib; sourceTree = "<group>"; };
-		35E451422667A856003DBE3F /* HeadingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadingTableViewCell.swift; sourceTree = "<group>"; };
-		35E451432667A856003DBE3F /* HeadingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeadingTableViewCell.xib; sourceTree = "<group>"; };
-		3C15B68E92518A3D861AF7EF /* Pods_Jumbosouq.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Jumbosouq.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		3DB8FF221D26357C0A52EEE3 /* Pods_Jumbosouq_JumbosouqUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Jumbosouq_JumbosouqUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		46E8AF089AB6D41822C12538 /* Pods-Jumbosouq-JumbosouqUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Jumbosouq-JumbosouqUITests.release.xcconfig"; path = "Target Support Files/Pods-Jumbosouq-JumbosouqUITests/Pods-Jumbosouq-JumbosouqUITests.release.xcconfig"; sourceTree = "<group>"; };
-		5FEE0AD3E68C262AA31C5D9F /* Pods-Jumbosouq.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Jumbosouq.release.xcconfig"; path = "Target Support Files/Pods-Jumbosouq/Pods-Jumbosouq.release.xcconfig"; sourceTree = "<group>"; };
-		73082ED7DEFF66FB1DB30655 /* Pods-JumbosouqTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JumbosouqTests.release.xcconfig"; path = "Target Support Files/Pods-JumbosouqTests/Pods-JumbosouqTests.release.xcconfig"; sourceTree = "<group>"; };
-		82366CB43B78CBF8E241EDD3 /* Pods-Jumbosouq-JumbosouqUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Jumbosouq-JumbosouqUITests.debug.xcconfig"; path = "Target Support Files/Pods-Jumbosouq-JumbosouqUITests/Pods-Jumbosouq-JumbosouqUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		A57728BD306E368BEFAE2774 /* Pods-Jumbosouq.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Jumbosouq.debug.xcconfig"; path = "Target Support Files/Pods-Jumbosouq/Pods-Jumbosouq.debug.xcconfig"; sourceTree = "<group>"; };
-		CC7CE8F2F61C46B9D00C5DA6 /* Pods-JumbosouqTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JumbosouqTests.debug.xcconfig"; path = "Target Support Files/Pods-JumbosouqTests/Pods-JumbosouqTests.debug.xcconfig"; sourceTree = "<group>"; };
+		5A8DBEB73B127D9D97A0A218 /* Pods_JumbosouqTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JumbosouqTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6F58CAF5C419A150ADE9DDF3 /* Pods_Jumbosouq_JumbosouqUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Jumbosouq_JumbosouqUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8FC5F162EDD8FB6324949CCC /* Pods-Jumbosouq-JumbosouqUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Jumbosouq-JumbosouqUITests.release.xcconfig"; path = "Target Support Files/Pods-Jumbosouq-JumbosouqUITests/Pods-Jumbosouq-JumbosouqUITests.release.xcconfig"; sourceTree = "<group>"; };
+		A8C502B0344FF97F9E15B3E8 /* Pods-JumbosouqTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JumbosouqTests.debug.xcconfig"; path = "Target Support Files/Pods-JumbosouqTests/Pods-JumbosouqTests.debug.xcconfig"; sourceTree = "<group>"; };
+		A9A61513B45A1C3F2F3188B4 /* Pods-Jumbosouq.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Jumbosouq.debug.xcconfig"; path = "Target Support Files/Pods-Jumbosouq/Pods-Jumbosouq.debug.xcconfig"; sourceTree = "<group>"; };
+		BB92259CA5434C332BFA90B8 /* Pods-Jumbosouq.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Jumbosouq.release.xcconfig"; path = "Target Support Files/Pods-Jumbosouq/Pods-Jumbosouq.release.xcconfig"; sourceTree = "<group>"; };
+		EEE1B2A9E824E957CF879C9F /* Pods_Jumbosouq.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Jumbosouq.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F5BAA8E5C06D02B6BCC746E6 /* Pods-JumbosouqTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JumbosouqTests.release.xcconfig"; path = "Target Support Files/Pods-JumbosouqTests/Pods-JumbosouqTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,7 +230,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1D1B99D962164E1FF9A0C789 /* Pods_Jumbosouq.framework in Frameworks */,
+				5CAEC24D517876F8E540681F /* Pods_Jumbosouq.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -158,7 +238,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AF8D3046178C619F464E20C7 /* Pods_JumbosouqTests.framework in Frameworks */,
+				04BCBAA05F80656C6F22B57F /* Pods_JumbosouqTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -166,22 +246,48 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6C9F4EBB1D386920A2EA551E /* Pods_Jumbosouq_JumbosouqUITests.framework in Frameworks */,
+				72629769BD38C108174D9336 /* Pods_Jumbosouq_JumbosouqUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		18FFCF7B2670895200832144 /* PageMenu */ = {
+			isa = PBXGroup;
+			children = (
+				18FFCF912670B11700832144 /* Theme.swift */,
+			);
+			path = PageMenu;
+			sourceTree = "<group>";
+		};
+		18FFCF962670D38800832144 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				18FFCFA42670D38800832144 /* Alamofire.framework */,
+				18FFCFA62670D38800832144 /* AlamofireURLCache5.framework */,
+				18FFCFA82670D38800832144 /* CarbonKit.framework */,
+				18FFCFAA2670D38800832144 /* FBSDKCoreKit.framework */,
+				18FFCFAC2670D38800832144 /* FacebookSDKStrings.bundle */,
+				18FFCFAE2670D38800832144 /* FBSDKLoginKit.framework */,
+				18FFCFB02670D38800832144 /* Networking.framework */,
+				18FFCFB22670D38800832144 /* Pods_Jumbosouq.framework */,
+				18FFCFB42670D38800832144 /* Pods_Jumbosouq_JumbosouqUITests.framework */,
+				18FFCFB62670D38800832144 /* Pods_JumbosouqTests.framework */,
+				18FFCFB82670D38800832144 /* SwiftyJSON.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		2038F07BBB902517DFD78678 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				A57728BD306E368BEFAE2774 /* Pods-Jumbosouq.debug.xcconfig */,
-				5FEE0AD3E68C262AA31C5D9F /* Pods-Jumbosouq.release.xcconfig */,
-				82366CB43B78CBF8E241EDD3 /* Pods-Jumbosouq-JumbosouqUITests.debug.xcconfig */,
-				46E8AF089AB6D41822C12538 /* Pods-Jumbosouq-JumbosouqUITests.release.xcconfig */,
-				CC7CE8F2F61C46B9D00C5DA6 /* Pods-JumbosouqTests.debug.xcconfig */,
-				73082ED7DEFF66FB1DB30655 /* Pods-JumbosouqTests.release.xcconfig */,
+				A9A61513B45A1C3F2F3188B4 /* Pods-Jumbosouq.debug.xcconfig */,
+				BB92259CA5434C332BFA90B8 /* Pods-Jumbosouq.release.xcconfig */,
+				0A78E7609173B1B222742479 /* Pods-Jumbosouq-JumbosouqUITests.debug.xcconfig */,
+				8FC5F162EDD8FB6324949CCC /* Pods-Jumbosouq-JumbosouqUITests.release.xcconfig */,
+				A8C502B0344FF97F9E15B3E8 /* Pods-JumbosouqTests.debug.xcconfig */,
+				F5BAA8E5C06D02B6BCC746E6 /* Pods-JumbosouqTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -189,6 +295,7 @@
 		35569D8C2614373200CFCD17 /* HomeVC */ = {
 			isa = PBXGroup;
 			children = (
+				18FFCF7B2670895200832144 /* PageMenu */,
 				35D6089C262884F800E8A066 /*  HomeCells */,
 				355B2A842620A39F0032567B /* MainViewController.swift */,
 				3534DFC3261CAC7200A5A9CC /* HomeViewController.swift */,
@@ -221,8 +328,8 @@
 				3566F9512666700700C0CA34 /* SearchProductsViewController.swift */,
 				35E4513B266797E2003DBE3F /* SearchProductTableViewCell.swift */,
 				35E4513C266797E2003DBE3F /* SearchProductTableViewCell.xib */,
-				35E451422667A856003DBE3F /* HeadingTableViewCell.swift */,
-				35E451432667A856003DBE3F /* HeadingTableViewCell.xib */,
+				18FFCF61266F65B000832144 /* HeadingTableViewCell.swift */,
+				18FFCF62266F65B000832144 /* HeadingTableViewCell.xib */,
 			);
 			path = "Search and Filter";
 			sourceTree = "<group>";
@@ -277,7 +384,7 @@
 				358DFDE52611DD3C0037221F /* JumbosouqUITests */,
 				358DFDC22611DD3B0037221F /* Products */,
 				2038F07BBB902517DFD78678 /* Pods */,
-				F561A47D4460D9E0DDC7C33C /* Frameworks */,
+				51686DB6F8587F5B50320F4D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -305,6 +412,7 @@
 				35569D8C2614373200CFCD17 /* HomeVC */,
 				358DFE0F2611ECFD0037221F /* Fonts */,
 				358DFDC42611DD3B0037221F /* AppDelegate.swift */,
+				18FFCF952670D38800832144 /* Pods.xcodeproj */,
 				358DFDC62611DD3B0037221F /* SceneDelegate.swift */,
 				358DFDC82611DD3B0037221F /* ViewController.swift */,
 				358DFDCA2611DD3B0037221F /* Main.storyboard */,
@@ -377,12 +485,12 @@
 			path = WeeklyDealsView;
 			sourceTree = "<group>";
 		};
-		F561A47D4460D9E0DDC7C33C /* Frameworks */ = {
+		51686DB6F8587F5B50320F4D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				3C15B68E92518A3D861AF7EF /* Pods_Jumbosouq.framework */,
-				3DB8FF221D26357C0A52EEE3 /* Pods_Jumbosouq_JumbosouqUITests.framework */,
-				23DD20956508BA9D6FE93256 /* Pods_JumbosouqTests.framework */,
+				EEE1B2A9E824E957CF879C9F /* Pods_Jumbosouq.framework */,
+				6F58CAF5C419A150ADE9DDF3 /* Pods_Jumbosouq_JumbosouqUITests.framework */,
+				5A8DBEB73B127D9D97A0A218 /* Pods_JumbosouqTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -394,12 +502,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 358DFDEB2611DD3C0037221F /* Build configuration list for PBXNativeTarget "Jumbosouq" */;
 			buildPhases = (
-				9E1EA2BFF1D933DAC44CAF6F /* [CP] Check Pods Manifest.lock */,
+				69CD4681BD43513EE000169C /* [CP] Check Pods Manifest.lock */,
 				358DFDBD2611DD3B0037221F /* Sources */,
 				358DFDBE2611DD3B0037221F /* Frameworks */,
 				358DFDBF2611DD3B0037221F /* Resources */,
-				785BB94CE37C9D65D34A0C9B /* [CP] Embed Pods Frameworks */,
-				D895DBD57319B7304A05D112 /* [CP] Copy Pods Resources */,
+				5331E24B5A4280B30E9A114A /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -414,7 +521,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 358DFDEE2611DD3C0037221F /* Build configuration list for PBXNativeTarget "JumbosouqTests" */;
 			buildPhases = (
-				CC637C40DB01EE28E06E7A35 /* [CP] Check Pods Manifest.lock */,
+				4A6626780794A973F554F7BA /* [CP] Check Pods Manifest.lock */,
 				358DFDD32611DD3C0037221F /* Sources */,
 				358DFDD42611DD3C0037221F /* Frameworks */,
 				358DFDD52611DD3C0037221F /* Resources */,
@@ -433,12 +540,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 358DFDF12611DD3C0037221F /* Build configuration list for PBXNativeTarget "JumbosouqUITests" */;
 			buildPhases = (
-				21448A638EE1793CA8EDD5FB /* [CP] Check Pods Manifest.lock */,
+				CB77E29A0AE2A460508DF339 /* [CP] Check Pods Manifest.lock */,
 				358DFDDE2611DD3C0037221F /* Sources */,
 				358DFDDF2611DD3C0037221F /* Frameworks */,
 				358DFDE02611DD3C0037221F /* Resources */,
-				DB2F0834A408F39365928D34 /* [CP] Embed Pods Frameworks */,
-				053C6E7FE0DBF0314B147FEE /* [CP] Copy Pods Resources */,
+				7BED63D02C774BC2138319A0 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -483,6 +589,12 @@
 			mainGroup = 358DFDB82611DD3B0037221F;
 			productRefGroup = 358DFDC22611DD3B0037221F /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 18FFCF962670D38800832144 /* Products */;
+					ProjectRef = 18FFCF952670D38800832144 /* Pods.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				358DFDC02611DD3B0037221F /* Jumbosouq */,
@@ -491,6 +603,86 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		18FFCFA42670D38800832144 /* Alamofire.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Alamofire.framework;
+			remoteRef = 18FFCFA32670D38800832144 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		18FFCFA62670D38800832144 /* AlamofireURLCache5.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = AlamofireURLCache5.framework;
+			remoteRef = 18FFCFA52670D38800832144 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		18FFCFA82670D38800832144 /* CarbonKit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = CarbonKit.framework;
+			remoteRef = 18FFCFA72670D38800832144 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		18FFCFAA2670D38800832144 /* FBSDKCoreKit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = FBSDKCoreKit.framework;
+			remoteRef = 18FFCFA92670D38800832144 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		18FFCFAC2670D38800832144 /* FacebookSDKStrings.bundle */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = FacebookSDKStrings.bundle;
+			remoteRef = 18FFCFAB2670D38800832144 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		18FFCFAE2670D38800832144 /* FBSDKLoginKit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = FBSDKLoginKit.framework;
+			remoteRef = 18FFCFAD2670D38800832144 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		18FFCFB02670D38800832144 /* Networking.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Networking.framework;
+			remoteRef = 18FFCFAF2670D38800832144 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		18FFCFB22670D38800832144 /* Pods_Jumbosouq.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Pods_Jumbosouq.framework;
+			remoteRef = 18FFCFB12670D38800832144 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		18FFCFB42670D38800832144 /* Pods_Jumbosouq_JumbosouqUITests.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Pods_Jumbosouq_JumbosouqUITests.framework;
+			remoteRef = 18FFCFB32670D38800832144 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		18FFCFB62670D38800832144 /* Pods_JumbosouqTests.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Pods_JumbosouqTests.framework;
+			remoteRef = 18FFCFB52670D38800832144 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		18FFCFB82670D38800832144 /* SwiftyJSON.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SwiftyJSON.framework;
+			remoteRef = 18FFCFB72670D38800832144 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		358DFDBF2611DD3B0037221F /* Resources */ = {
@@ -514,7 +706,7 @@
 				3571B6E426396AF7007D12F6 /* CategoriesCollectionViewCell.xib in Resources */,
 				358DFE172611ED0F0037221F /* Geomanist-Regular.otf in Resources */,
 				35735A77262DBC5A001C2971 /* NewArrivalCollectionViewCell.xib in Resources */,
-				35E451452667A856003DBE3F /* HeadingTableViewCell.xib in Resources */,
+				18FFCF64266F65B000832144 /* HeadingTableViewCell.xib in Resources */,
 				35D608AF2628924E00E8A066 /* WeekDealCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -536,85 +728,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		053C6E7FE0DBF0314B147FEE /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Jumbosouq-JumbosouqUITests/Pods-Jumbosouq-JumbosouqUITests-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Jumbosouq-JumbosouqUITests/Pods-Jumbosouq-JumbosouqUITests-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Jumbosouq-JumbosouqUITests/Pods-Jumbosouq-JumbosouqUITests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		21448A638EE1793CA8EDD5FB /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Jumbosouq-JumbosouqUITests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		785BB94CE37C9D65D34A0C9B /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Jumbosouq/Pods-Jumbosouq-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Jumbosouq/Pods-Jumbosouq-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Jumbosouq/Pods-Jumbosouq-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		9E1EA2BFF1D933DAC44CAF6F /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Jumbosouq-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		CC637C40DB01EE28E06E7A35 /* [CP] Check Pods Manifest.lock */ = {
+		4A6626780794A973F554F7BA /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -636,24 +750,46 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		D895DBD57319B7304A05D112 /* [CP] Copy Pods Resources */ = {
+		5331E24B5A4280B30E9A114A /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Jumbosouq/Pods-Jumbosouq-resources-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Jumbosouq/Pods-Jumbosouq-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			name = "[CP] Copy Pods Resources";
+			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Jumbosouq/Pods-Jumbosouq-resources-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Jumbosouq/Pods-Jumbosouq-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Jumbosouq/Pods-Jumbosouq-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Jumbosouq/Pods-Jumbosouq-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		DB2F0834A408F39365928D34 /* [CP] Embed Pods Frameworks */ = {
+		69CD4681BD43513EE000169C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Jumbosouq-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7BED63D02C774BC2138319A0 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -670,6 +806,28 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Jumbosouq-JumbosouqUITests/Pods-Jumbosouq-JumbosouqUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		CB77E29A0AE2A460508DF339 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Jumbosouq-JumbosouqUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -677,7 +835,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				35E451442667A856003DBE3F /* HeadingTableViewCell.swift in Sources */,
+				18FFCF63266F65B000832144 /* HeadingTableViewCell.swift in Sources */,
 				358DFDF82611E21A0037221F /* LoginViewController.swift in Sources */,
 				358DFDC92611DD3B0037221F /* ViewController.swift in Sources */,
 				358DFE022611E2810037221F /* ForgotPasswordVC.swift in Sources */,
@@ -699,6 +857,7 @@
 				355B2A7D26209CA60032567B /* SideMenuViewController.swift in Sources */,
 				35A8CA41264BE7BD000A2632 /* Singleton.swift in Sources */,
 				35D608A7262891EA00E8A066 /* WeekDealTableViewCell.swift in Sources */,
+				18FFCF932670B11700832144 /* Theme.swift in Sources */,
 				358DFDC72611DD3B0037221F /* SceneDelegate.swift in Sources */,
 				356BFD6B264E2DC0001CFBA4 /* ProductDetailTableViewCell.swift in Sources */,
 				355B2A7E26209CA60032567B /* SideMenuModel.swift in Sources */,
@@ -877,7 +1036,7 @@
 		};
 		358DFDEC2611DD3C0037221F /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A57728BD306E368BEFAE2774 /* Pods-Jumbosouq.debug.xcconfig */;
+			baseConfigurationReference = A9A61513B45A1C3F2F3188B4 /* Pods-Jumbosouq.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -889,7 +1048,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.05;
+				MARKETING_VERSION = 1.06;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jumbosouq.shop;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "Jumbosouq Shop";
@@ -900,7 +1059,7 @@
 		};
 		358DFDED2611DD3C0037221F /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5FEE0AD3E68C262AA31C5D9F /* Pods-Jumbosouq.release.xcconfig */;
+			baseConfigurationReference = BB92259CA5434C332BFA90B8 /* Pods-Jumbosouq.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -912,7 +1071,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.05;
+				MARKETING_VERSION = 1.06;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jumbosouq.shop;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "Jumbosouq Shop";
@@ -923,7 +1082,7 @@
 		};
 		358DFDEF2611DD3C0037221F /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CC7CE8F2F61C46B9D00C5DA6 /* Pods-JumbosouqTests.debug.xcconfig */;
+			baseConfigurationReference = A8C502B0344FF97F9E15B3E8 /* Pods-JumbosouqTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -946,7 +1105,7 @@
 		};
 		358DFDF02611DD3C0037221F /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 73082ED7DEFF66FB1DB30655 /* Pods-JumbosouqTests.release.xcconfig */;
+			baseConfigurationReference = F5BAA8E5C06D02B6BCC746E6 /* Pods-JumbosouqTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -969,7 +1128,7 @@
 		};
 		358DFDF22611DD3C0037221F /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 82366CB43B78CBF8E241EDD3 /* Pods-Jumbosouq-JumbosouqUITests.debug.xcconfig */;
+			baseConfigurationReference = 0A78E7609173B1B222742479 /* Pods-Jumbosouq-JumbosouqUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -989,7 +1148,7 @@
 		};
 		358DFDF32611DD3C0037221F /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 46E8AF089AB6D41822C12538 /* Pods-Jumbosouq-JumbosouqUITests.release.xcconfig */;
+			baseConfigurationReference = 8FC5F162EDD8FB6324949CCC /* Pods-Jumbosouq-JumbosouqUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

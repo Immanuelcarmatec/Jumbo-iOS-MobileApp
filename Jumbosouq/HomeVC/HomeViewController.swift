@@ -28,6 +28,7 @@ class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataS
     @IBOutlet weak var imgViewSecondBanner: UIImageView!
     @IBOutlet weak var tblViewSearchProducts: UITableView!
     @IBOutlet weak var collviewWeeklyDeals: UICollectionView!
+    @IBOutlet weak var tabBar: UITabBar!
     var timer = Timer()
     
     class removeSearch: UITapGestureRecognizer {
@@ -43,11 +44,24 @@ class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataS
         sideMenuBtn.target = revealViewController()
         sideMenuBtn.action = #selector(revealViewController()?.revealSideMenu)
         txtFieldSearch.addShadow()
-        addNavBarImage()
+        
+        
+        let logoimage = UIImage(named: "img_logo") //Your logo url here
+        let logoimageView = UIImageView(image: logoimage)
+        logoimageView.contentMode = .scaleAspectFill
+        logoimageView.frame = CGRect(x: 50, y: 45, width: 150, height: 50)
+        self.navigationController?.view.addSubview(logoimageView)
+        
+        
+        let appearance = UITabBarAppearance()
+           appearance.stackedLayoutAppearance.selected.titleTextAttributes = [NSAttributedString.Key.foregroundColor: themeColor()]
+           tabBar.standardAppearance = appearance
+        tabBar.selectedItem = tabBar.items?.first
+        
         
         let button = UIButton(type: .custom)
        // button.setImage(UIImage(named: "img_search"), for: .normal)
-        let imageView = UIImageView(frame: CGRect(x: txtFieldSearch.frame.size.width - 100 , y: 5, width: 50, height: txtFieldSearch.frame.size.height-10))
+        let imageView = UIImageView(frame: CGRect(x: txtFieldSearch.frame.size.width - 95 , y: 10, width: 35, height: txtFieldSearch.frame.size.height-20))
         imageView.backgroundColor = themeColor()
         let image = UIImage(named: "Search_white")
         imageView.image = image
@@ -70,9 +84,9 @@ class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataS
         self.tblViewListProducts.delegate = self
         self.tblViewListProducts.dataSource = self
         
-        self.tblViewListProducts.backgroundColor = UIColor.white
-        tblViewSearchProducts.delegate = self
-        tblViewSearchProducts.dataSource = self
+        self.tblViewSearchProducts.backgroundColor = UIColor.white
+        self.tblViewSearchProducts.delegate = self
+        self.tblViewSearchProducts.dataSource = self
         
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(named: ""), for: UIBarMetrics.default)
         self.navigationController?.navigationBar.shadowImage = UIImage(named: "")
@@ -82,6 +96,9 @@ class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataS
 
         CustomActivityIndicator.shared.show(uiView: self.view, labelText: "Fetching favourites for you")
         self.tblViewListProducts.isHidden = true
+        
+        self.tabBarController?.selectedIndex = 0
+        
         
         
         self.hideKeyboardWhenTappedAround()
@@ -100,6 +117,7 @@ class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataS
     
     @objc func search() {
         tblViewSearchProducts.isHidden = false
+        Singleton.sharedManager.searchitem = txtFieldSearch.text!
         let tapGesture = removeSearch(target: self, action: #selector(removeSearchTapped))
         tblViewSearchProducts.addGestureRecognizer(tapGesture)
         tblViewSearchProducts.reloadData()
@@ -166,10 +184,11 @@ class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataS
                 cell!.textLabel?.font = UIFont(name: "Geomanist-Regular", size: 20)
                 if indexPath.row == 0 {
                     
-                    let identifier = "HeadingTableViewCell"
+                   let identifier = "HeadingTableViewCell"
                     var weekdealcell: HeadingTableViewCell! = tableView.dequeueReusableCell(withIdentifier: identifier) as? HeadingTableViewCell
                    tableView.register(UINib(nibName: "HeadingTableViewCell", bundle: nil), forCellReuseIdentifier: identifier)
                     weekdealcell = tableView.dequeueReusableCell(withIdentifier: "HeadingTableViewCell") as? HeadingTableViewCell
+                    weekdealcell.delegate = self
                     return weekdealcell!
              
                 }else{
@@ -264,7 +283,7 @@ class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataS
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         
         if tableView == tblViewListProducts {
-            return 50
+            return 80
         }
         return 0
     }
@@ -274,10 +293,15 @@ class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataS
 extension HomeViewController : WeekDealCellDelegate, NewArrivalTableViewCellDelegate{
     
     func showProductPressed(index: Int) {
-        print(index)
         let newViewController = storyBoard.instantiateViewController(withIdentifier: "ProductDetailsViewController") as! ProductDetailsViewController
           self.present(newViewController, animated: false, completion: nil)
-       // self.navigationController?.pushViewController(newViewController, animated: true)
     }
     
+}
+
+extension HomeViewController: HeadingCellDelegate{
+    func showAllProductPressed() {
+        let newViewController = storyBoard.instantiateViewController(withIdentifier: "SearchProductsViewController") as! SearchProductsViewController
+          self.present(newViewController, animated: false, completion: nil)
+    }
 }

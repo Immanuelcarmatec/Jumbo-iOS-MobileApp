@@ -78,6 +78,12 @@ class LoginViewController: UIViewController {
         self.present(newViewController, animated: true, completion: nil)
     }
     
+    
+    @IBAction func didActionBack(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    
     func doLogin(username: String, password:String) {
         let parameters: [String: Any] = [ "username":username, "password":password]
         let URLStr = baseURL + "integration/customer/token"
@@ -96,16 +102,12 @@ class LoginViewController: UIViewController {
                 case .success:
                     CustomActivityIndicator.shared.hide(uiView: self.view, delay: 1.5)
                     if (response.response?.statusCode  == 200){
-                        
                         defaults.set(username, forKey: "username")
                         defaults.set(password, forKey: "password")
-                        
-                        print(response)
-                        
-                      //  User.init(id: <#T##Int?#>, name: <#T##String?#>)
-
                          let newViewController = storyBoard.instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
                                    self.present(newViewController, animated: true, completion: nil)
+                    }else{
+                        self.alert(message: "Login Unsuccessful", title: "Invalid Credentials")
                     }
                 case .failure(let error):
                  CustomActivityIndicator.shared.hide(uiView: self.view, delay: 1.5)

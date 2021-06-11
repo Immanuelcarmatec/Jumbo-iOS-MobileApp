@@ -38,7 +38,6 @@ class ForgotPasswordVC: UIViewController {
     }
     @IBAction func didActionResetPwd(_ sender: Any) {
         
-        
         let isValidateName = validation.validateEmailId(emailID: txtEmail.text!)
               if (isValidateName == false) {
                 alert(message: "Enter valid Email ID")
@@ -49,14 +48,12 @@ class ForgotPasswordVC: UIViewController {
         
         let headers:HTTPHeaders = [
             "Content-Type": "application/json",
-            "Authorization": "Bearer " +  Singleton.sharedManager.bearertoken
            ]
 
         
-        AF.request(URLStr, method: .put, parameters:parameters, headers:headers)
+        AF.request(URLStr,method: .put, parameters:parameters, headers: headers)
                    .responseJSON { response in
                        if let data = response.data {
-                           print("Result PUT Request:")
                            print(String(data: data, encoding: .utf8)!)
                         self.viewConfirmation.isHidden = false
                         self.lblResetDescpn.text = "If there is an account associated with " + self.txtEmail.text! + " you will receive an email with the link to reset password"

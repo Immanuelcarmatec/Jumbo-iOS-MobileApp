@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CarbonKit
 
 class BottomView: UIView {
     
@@ -17,18 +18,18 @@ class BottomView: UIView {
         addSubview(bottomview)
     }    
 }
-class CategoriesTableViewCell: UITableViewCell, UICollectionViewDataSource, UICollectionViewDelegate,UICollectionViewDelegateFlowLayout {
-    
-    
-    
-    @IBOutlet weak var scrollView: UIScrollView!
+
+
+class CategoriesTableViewCell: UITableViewCell, UICollectionViewDataSource, UICollectionViewDelegate,UICollectionViewDelegateFlowLayout, CarbonTabSwipeNavigationDelegate {
+  
+
+    @IBOutlet weak var scrollView: UIView!
     
     var lineView  = UIView()
     
     @IBOutlet weak var collectionViewShowProducts: UICollectionView!
     
-    
-
+    let items = ["Smart Phones","Speakers","Headsets","Television"]
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -38,7 +39,13 @@ class CategoriesTableViewCell: UITableViewCell, UICollectionViewDataSource, UICo
         self.collectionViewShowProducts.delegate = self
         self.collectionViewShowProducts.alwaysBounceHorizontal = true
         
-        addHorizontalTeamList()
+        let setitem = CarbonTabSwipeNavigation.init(items: items, delegate:self)
+        setitem.delegate = self
+        setitem.setSelectedColor(themeColor(), font: UIFont(name: "Geomanist-Regular", size: 15)!)
+        setitem.setNormalColor(UIColor.black, font:UIFont(name: "Geomanist-Regular", size: 15)!)
+        setitem.setIndicatorColor(themeColor())
+        setitem.setTabExtraWidth(self.frame.width/10)
+        self.scrollView.addSubview(setitem.view)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -46,74 +53,9 @@ class CategoriesTableViewCell: UITableViewCell, UICollectionViewDataSource, UICo
 
         // Configure the view for the selected state
     }
-    
-    func addHorizontalTeamList() {
 
-        //let scrollView = UIScrollView(frame: CGRect(x: 0,y: 0, width: self.view.frame.width, height: 60))
-        var frame : CGRect?
-        
-        let teamsCategory = ["Smartphones","Speakers","Headsets","Televisions","Refrigirator","Washing Machiones"]
-        for i in 0..<teamsCategory.count {
-            let button = UIButton(type: .custom)
-            if i == 0 {
-                frame = CGRect(x: 10, y: 10, width: 130, height: 40)
-            }else{
-                frame = CGRect(x: CGFloat(i * 140), y: 10, width: 130, height: 40)
-            }
-
-            button.frame = frame!
-            button.tag = i
-            button.backgroundColor = .white
-            button.addTarget(self, action: #selector(selectCategory), for: .touchUpInside)
-            button.setTitle(teamsCategory[i], for: .normal)
-            button.setTitleColor(.black, for: .normal)
-            
-            lineView = BottomView()
-            lineView.backgroundColor=UIColor.red
-            button.addSubview(lineView)
-            
-            if button.tag == 0 {
-                lineView.isHidden = false
-            }else{
-                lineView.isHidden = true
-            }
-            
-            scrollView.addSubview(button)
-        }
-
-            scrollView.contentSize = CGSize( width: 840, height: scrollView.frame.size.height)
-            scrollView.backgroundColor = .white
-            //self.view.addSubview(scrollView)
-        }
-
-    @objc func selectCategory(sender: UIButton) {
-    
-        for views in scrollView.subviews{
-             
-            if views.isKind(of: UIButton.self) {
-                
-                if views.tag == sender.tag {
-                    
-                    for subviews in views.subviews {
-                        if subviews .isKind(of: BottomView.self) {
-                            subviews.isHidden = false
-                        }
-                    }
-                   
-                }else{
-                    for subviews in views.subviews {
-                        if subviews .isKind(of: BottomView.self) {
-                            subviews.isHidden = true
-                        }
-                    }
-                }
-                
-            }
-        }
-    }
-    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 4
+        return 6
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -132,6 +74,29 @@ class CategoriesTableViewCell: UITableViewCell, UICollectionViewDataSource, UICo
         let newViewController = storyBoard.instantiateViewController(withIdentifier: "ProductDetailsViewController") as! ProductDetailsViewController
        self.window?.rootViewController!.present(newViewController, animated: true, completion: nil)
             }
-        
+     
+    func carbonTabSwipeNavigation(_ carbonTabSwipeNavigation: CarbonTabSwipeNavigation, willMoveAt index: UInt) {
+        print(index)
+    }
     
+    func carbonTabSwipeNavigation(_ carbonTabSwipeNavigation: CarbonTabSwipeNavigation, didMoveAt index: UInt) {
+        print(index)
+    }
+    
+    func carbonTabSwipeNavigation(_ carbonTabSwipeNavigation: CarbonTabSwipeNavigation, viewControllerAt index: UInt) -> UIViewController{
+        
+        print(index)
+        let page = UIViewController()
+        return page
+    }
+    
+    func carbonTabSwipeNavigation(_ carbonTabSwipeNavigation: CarbonTabSwipeNavigation, didFinishTransitionTo index: UInt) {
+        print(index)
+    }
+    
+    
+    func carbonTabSwipeNavigation(_ carbonTabSwipeNavigation: CarbonTabSwipeNavigation, willBeginTransitionFrom index: UInt) {
+        print(index)
+    }
+        
 }

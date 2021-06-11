@@ -121,6 +121,16 @@ extension UILabel{
        font =  UIFont(name: "Geomanist-Regular", size: 20)
     }
     
+    func addFont10() {
+       font =  UIFont(name: "Geomanist-Regular", size: 10)
+    }
+    func addBoldFont10() {
+       font =  UIFont(name: "Geomanist-Bold", size: 10)
+    }
+    func addFont8() {
+       font =  UIFont(name: "Geomanist-Regular", size: 9)
+    }
+    
     func addFont18() {
        font =  UIFont(name: "Geomanist-Regular", size: 18)
     }
@@ -147,6 +157,28 @@ extension UIButton {
         titleLabel?.textColor = UIColor.black
         titleLabel?.adjustsFontForContentSizeCategory = true
     }
+    
+    
+    func addShadow30() {
+       // backgroundColor = .clear
+        layer.cornerRadius = 15
+        layer.borderWidth = 1.5
+        layer.borderColor = UIColor.lightGray.cgColor
+        clipsToBounds = true
+        
+        let screenBounds = UIScreen.main.bounds
+        let height = screenBounds.height
+        
+            
+            if height > 600 {
+                titleLabel?.font = UIFont(name: "Geomanist-Regular", size: 15)
+            }else{
+                titleLabel?.font = UIFont(name: "Geomanist-Regular", size: 10)
+            }
+        titleLabel?.textColor = UIColor.black
+        titleLabel?.adjustsFontForContentSizeCategory = true
+    }
+    
     
     func addShadowRegularTitle() {
        // backgroundColor = .clear

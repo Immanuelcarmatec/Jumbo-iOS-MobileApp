@@ -8,10 +8,12 @@ target 'Jumbosouq' do
   # Pods for Jumbosouq
    pod "SwiftyJSON"
    pod “Alamofire”
-   pod "GoogleSignIn"
    pod 'FBSDKLoginKit'
    pod 'Networking'
    pod 'AlamofireURLCache5'
+   pod 'CarbonKit'
+
+
    
 
   target 'JumbosouqTests' do

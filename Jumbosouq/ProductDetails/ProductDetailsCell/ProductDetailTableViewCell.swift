@@ -29,6 +29,8 @@ class ProductDetailTableViewCell: UITableViewCell, UIPickerViewDelegate, UIPicke
     
     @IBOutlet weak var imgViewLoadProductImage: UIImageView!
     @IBOutlet weak var lblProductName: UILabel!
+    @IBOutlet weak var lblQunatity: UILabel!
+
     @IBOutlet weak var webViewShowShortDescription: WKWebView!
     @IBOutlet weak var lblShowPrice: UILabel!
     
@@ -44,6 +46,12 @@ class ProductDetailTableViewCell: UITableViewCell, UIPickerViewDelegate, UIPicke
         pickerSelectQuantity.delegate = self
         pickerSelectQuantity.dataSource = self
         btnAddCart.addShadow()
+        
+        lblShowCode.font = UIFont(name: "Geomanist-Regular", size: 17.0)
+        lblProductName.font = UIFont(name: "Geomanist-Regular", size: 17.0)
+        lblShowPrice.font = UIFont(name: "Geomanist-Bold", size: 17.0)
+        lblStockStatus.font = UIFont(name: "Geomanist-Regular", size: 17.0)
+        lblQunatity.font = UIFont(name: "Geomanist-Bold", size: 17.0)
        // btnAddCart.layer.cornerRadius = 20
     }
 
