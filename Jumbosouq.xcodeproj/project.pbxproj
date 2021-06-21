@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		04BCBAA05F80656C6F22B57F /* Pods_JumbosouqTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A8DBEB73B127D9D97A0A218 /* Pods_JumbosouqTests.framework */; };
+		18300B732677B4B1003A020F /* CategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18300B722677B4B1003A020F /* CategoriesViewController.swift */; };
 		18FFCF63266F65B000832144 /* HeadingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FFCF61266F65B000832144 /* HeadingTableViewCell.swift */; };
 		18FFCF64266F65B000832144 /* HeadingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18FFCF62266F65B000832144 /* HeadingTableViewCell.xib */; };
 		18FFCF932670B11700832144 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FFCF912670B11700832144 /* Theme.swift */; };
@@ -158,6 +159,7 @@
 
 /* Begin PBXFileReference section */
 		0A78E7609173B1B222742479 /* Pods-Jumbosouq-JumbosouqUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Jumbosouq-JumbosouqUITests.debug.xcconfig"; path = "Target Support Files/Pods-Jumbosouq-JumbosouqUITests/Pods-Jumbosouq-JumbosouqUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		18300B722677B4B1003A020F /* CategoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesViewController.swift; sourceTree = "<group>"; };
 		18FFCF61266F65B000832144 /* HeadingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadingTableViewCell.swift; sourceTree = "<group>"; };
 		18FFCF62266F65B000832144 /* HeadingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeadingTableViewCell.xib; sourceTree = "<group>"; };
 		18FFCF912670B11700832144 /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
@@ -253,6 +255,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		18300B662677B49E003A020F /* CategoriesView */ = {
+			isa = PBXGroup;
+			children = (
+				18300B722677B4B1003A020F /* CategoriesViewController.swift */,
+			);
+			path = CategoriesView;
+			sourceTree = "<group>";
+		};
 		18FFCF7B2670895200832144 /* PageMenu */ = {
 			isa = PBXGroup;
 			children = (
@@ -401,6 +411,7 @@
 		358DFDC32611DD3B0037221F /* Jumbosouq */ = {
 			isa = PBXGroup;
 			children = (
+				18300B662677B49E003A020F /* CategoriesView */,
 				3566F9562666700F00C0CA34 /* Search and Filter */,
 				356BFD62264E2C8A001CFBA4 /* ProductDetails */,
 				35735A7B262DCFB4001C2971 /* CustomActivityIndicator.swift */,
@@ -849,6 +860,7 @@
 				35E4513D266797E2003DBE3F /* SearchProductTableViewCell.swift in Sources */,
 				3571B6DB26396AC8007D12F6 /* CategoriesTableViewCell.swift in Sources */,
 				35D6089F2628853700E8A066 /* FirstTableViewCell.swift in Sources */,
+				18300B732677B4B1003A020F /* CategoriesViewController.swift in Sources */,
 				355B2A8026209CA60032567B /* SideMenuCell.swift in Sources */,
 				358DFE0B2611E9B40037221F /* ViewExtension.swift in Sources */,
 				358DFDFD2611E2490037221F /* SignupViewController.swift in Sources */,

@@ -65,10 +65,13 @@ class ProductDetailsViewController: UIViewController,UITableViewDelegate, UITabl
 
         let identifier = "ProductDetailTableViewCell"
         let cell: UITableViewCell! = tableView.dequeueReusableCell(withIdentifier: identifier)
+
         
        if indexPath.row == 0 {
         
        tableView.register(UINib(nibName: "ProductDetailTableViewCell", bundle: nil), forCellReuseIdentifier: identifier)
+        tableView.rowHeight = 550
+        tableView.estimatedRowHeight = 550
         let firstcell = tableView.dequeueReusableCell(withIdentifier: "ProductDetailTableViewCell") as? ProductDetailTableViewCell
         firstcell!.layer.anchorPointZ = CGFloat(indexPath.row);
         
@@ -100,9 +103,10 @@ class ProductDetailsViewController: UIViewController,UITableViewDelegate, UITabl
         
        else if indexPath.row == 1 {
            let identifier = "ProductMoreDetailsTableViewCell"
-           var weekdealcell: ProductMoreDetailsTableViewCell! = tableView.dequeueReusableCell(withIdentifier: identifier) as? ProductMoreDetailsTableViewCell
-          tableView.register(UINib(nibName: "ProductMoreDetailsTableViewCell", bundle: nil), forCellReuseIdentifier: identifier)
-           weekdealcell = tableView.dequeueReusableCell(withIdentifier: "ProductMoreDetailsTableViewCell") as? ProductMoreDetailsTableViewCell
+        tableView.register(UINib(nibName: "ProductMoreDetailsTableViewCell", bundle: nil), forCellReuseIdentifier: identifier)
+        tableView.rowHeight = 550
+        tableView.estimatedRowHeight = 550
+        let weekdealcell: ProductMoreDetailsTableViewCell! = tableView.dequeueReusableCell(withIdentifier: identifier) as? ProductMoreDetailsTableViewCell
            return weekdealcell!
        }
         
@@ -119,8 +123,11 @@ class ProductDetailsViewController: UIViewController,UITableViewDelegate, UITabl
         
         if indexPath.row == 0 {
             return 550//Choose your custom row height
+        }else if indexPath.row == 1{
+            return 200//Choose your custom row height
         }
-        return 200//Choose your custom row height
+        
+        return 0
     }
     /*
     // MARK: - Navigation

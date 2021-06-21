@@ -31,8 +31,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                didFinishLaunchingWithOptions: launchOptions
            )
         
-        UINavigationBar.appearance().shadowImage = UIImage()
-        UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
+      //  UINavigationBar.appearance().shadowImage = UIImage()
+       // UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
+        
 
            return true
        }
