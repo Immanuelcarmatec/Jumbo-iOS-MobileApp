@@ -20,41 +20,35 @@ class FirstTableViewCell: UITableViewCell {
         
         let numberOfPages :Int = banner1.count-1
 
+        firstPagingScroll.isPagingEnabled = true
+        secondPagingScroll.isPagingEnabled = true
+        
+        var frame = CGRect(x: 0, y: 0, width: 0, height: 0)
 
         
         for i in 0...numberOfPages{
-           
-            let imageView = UIImageView();
-                        imageView.contentMode = .scaleToFill;
-                        imageView.image = UIImage(named: banner1[i]);
-                        let xPos = CGFloat(i) * firstPagingScroll.bounds.size.width;
-                        imageView.contentMode = .scaleAspectFill
-            
-                        imageView.frame = CGRect(x: xPos, y: 0, width: firstPagingScroll.bounds.size.width, height: firstPagingScroll.bounds.size.height);
-            firstPagingScroll.contentSize.width = firstPagingScroll.frame.size.width * CGFloat(i+1);
-            firstPagingScroll.contentSize.height = firstPagingScroll.frame.size.height;
-            firstPagingScroll.addSubview(imageView);
-            
-              
+            frame.origin.x = self.firstPagingScroll.frame.size.width * CGFloat(i)
+            frame.size = self.firstPagingScroll.frame.size
+            let imageViewBanner = UIImageView(frame: frame)
+            imageViewBanner.image = UIImage(named: banner1[i]);
+            imageViewBanner.contentMode = .scaleAspectFit
+            self.firstPagingScroll.addSubview(imageViewBanner)
            }
-      
+        firstPagingScroll.contentSize = CGSize(width: firstPagingScroll.frame.size.width * CGFloat(banner1.count), height: firstPagingScroll.frame.size.height)
         
         let banner2 = ["img_banner2","img_banner2","img_banner2"]
         let secondnumberOfPages :Int = banner2.count-1
         
-        for i in 0...secondnumberOfPages{
-            let imageView = UIImageView();
-                        imageView.contentMode = .scaleToFill;
-                        imageView.image = UIImage(named: banner2[i]);
-                        imageView.contentMode = .scaleAspectFill
+        var imageframe = CGRect(x: 0, y: 0, width: 0, height: 0)
 
-                        let xPos = CGFloat(i) * secondPagingScroll.bounds.size.width;
-                        imageView.frame = CGRect(x: xPos, y: 0, width: secondPagingScroll.bounds.size.width, height: secondPagingScroll.bounds.size.height);
-            secondPagingScroll.contentSize.width = secondPagingScroll.frame.size.width * CGFloat(i+1);
-            secondPagingScroll.contentSize.height = secondPagingScroll.frame.size.height;
-            secondPagingScroll.addSubview(imageView);
+        for i in 0...secondnumberOfPages{
+            imageframe.origin.x = self.secondPagingScroll.frame.size.width * CGFloat(i)
+            imageframe.size = self.secondPagingScroll.frame.size
+            let imageViewBanner = UIImageView(frame: imageframe)
+            imageViewBanner.image = UIImage(named: banner2[i]);
+            self.secondPagingScroll.addSubview(imageViewBanner)
            }
-        
+        secondPagingScroll.contentSize = CGSize(width: secondPagingScroll.frame.size.width * CGFloat(banner2.count), height: secondPagingScroll.frame.size.height)
 
      
     }

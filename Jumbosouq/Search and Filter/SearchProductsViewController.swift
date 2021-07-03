@@ -9,6 +9,7 @@ import UIKit
 
 class SearchProductsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
    
+    @IBOutlet weak var navBar: UINavigationBar!
     @IBOutlet weak var txtFieldSearch: UITextField!
     @IBOutlet weak var tblViewListProducts: UITableView!
     @IBOutlet var viewSearchbar: UIView!
@@ -17,9 +18,7 @@ class SearchProductsViewController: UIViewController, UITableViewDelegate, UITab
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(Singleton.sharedManager.searchitem )
-        print(Singleton.sharedManager.bearertoken )
-
+    
         txtFieldSearch.text = Singleton.sharedManager.searchitem
         // Do any additional setup after loading the view.
         
@@ -29,10 +28,27 @@ class SearchProductsViewController: UIViewController, UITableViewDelegate, UITab
         self.tblViewListProducts.rowHeight = 150.0
         
         txtFieldSearch.addShadow()
+        
+        let firstFrame = CGRect(x: 50, y: 0, width: navBar.frame.width/2, height: navBar.frame.height)
+        let firstLabel = UILabel(frame: firstFrame)
+            firstLabel.text = "Search Results"
+        firstLabel.font =  UIFont(name: "Geomanist-Regular", size: 18)
+        navBar.addSubview(firstLabel)
+
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        tblViewListProducts.reloadData()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+       
         let image = UIImage(named: "Search_white-1")
         let button = UIButton(type: .custom)
         button.setImage(image, for: .normal)
-        let imageViewBackground = UIImageView(frame: CGRect(x: txtFieldSearch.frame.size.width-50 , y:0, width: 80, height: txtFieldSearch.frame.size.height))
+                
+        let imageViewBackground = UIImageView(frame: CGRect(x: txtFieldSearch.frame.size.width - 60 , y:0, width:60, height: txtFieldSearch.frame.size.height))
         imageViewBackground.backgroundColor = themeColor()
         
         button.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 3)
@@ -42,6 +58,15 @@ class SearchProductsViewController: UIViewController, UITableViewDelegate, UITab
         imageViewBackground.isMultipleTouchEnabled = true
         button.addTarget(self, action: #selector(self.search), for: .touchUpInside)
         txtFieldSearch .addSubview(imageViewBackground)//img_search_white
+        
+    }
+    
+    
+    @IBOutlet weak var didActionCloseSearch: UIBarButtonItem!
+    
+    @IBAction func didActionclose(_ sender: Any) {
+        
+        self.dismiss(animated: true, completion: nil)
     }
     
     
@@ -65,6 +90,7 @@ class SearchProductsViewController: UIViewController, UITableViewDelegate, UITab
        tableView.register(UINib(nibName: "SearchProductTableViewCell", bundle: nil), forCellReuseIdentifier: identifier)
         weekdealcell = tableView.dequeueReusableCell(withIdentifier: "SearchProductTableViewCell") as? SearchProductTableViewCell
         weekdealcell.tag = indexPath.row
+        weekdealcell.btnAddCart.isHidden = false
         let currentProduct = searchproductItems[indexPath.row] as! NSDictionary
         let imagevalue = currentProduct.value(forKey: "small_image") as! String
         var imageURL = "https://www.jumbosouq.com/pub/media/catalog/product" + imagevalue

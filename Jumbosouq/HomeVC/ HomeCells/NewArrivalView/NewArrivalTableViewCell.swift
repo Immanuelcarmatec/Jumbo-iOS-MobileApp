@@ -18,6 +18,24 @@ class NewArrivalTableViewCell: UITableViewCell, UICollectionViewDataSource, UICo
     
     @IBOutlet weak var collectionViewShowProducts: UICollectionView!
     
+    private let cache = NSCache<NSNumber, UIImage>()
+    private let utilityQueue = DispatchQueue.global(qos: .utility)
+
+
+    // MARK: - Image Loading
+    private func loadImage(url:String, completion: @escaping (UIImage?) -> ()) {
+        utilityQueue.async {
+            let url = URL(string: url)!
+            
+            guard let data = try? Data(contentsOf: url) else { return }
+            let image = UIImage(data: data)
+            
+            DispatchQueue.main.async {
+                completion(image)
+            }
+        }
+    }
+    
     var productsArray = [Any]()
     var productItems = Array<Any>()
     
@@ -80,18 +98,16 @@ class NewArrivalTableViewCell: UITableViewCell, UICollectionViewDataSource, UICo
         let imagevalue = currentProduct.value(forKey: "small_image") as! String
         var imageURL = "https://www.jumbosouq.com/pub/media/catalog/product" + imagevalue
         imageURL = imageURL.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
-        let fileUrl = NSURL(string:imageURL)
         
-        DispatchQueue.global().async {
-            let task = URLSession.shared.dataTask(with: fileUrl! as URL) { data, response, error in
-                guard let data = data, error == nil else { return }
-                DispatchQueue.main.async() {
-                    if cell.tag == indexPath.row{
-                        cell.imgViewLoadPoduct.image = UIImage(data: data)
-                    }
-                }
+        let itemNumber = NSNumber(nonretainedObject: currentProduct.value(forKey: "sku"))
+        if let cachedImage = self.cache.object(forKey: itemNumber) {
+            cell.imgViewLoadPoduct.image = cachedImage
+        } else {
+            loadImage(url:imageURL){ [weak self] (image) in
+                guard let self = self, let image = image else { return }
+                cell.imgViewLoadPoduct.image = image
+                self.cache.setObject(image, forKey: itemNumber)
             }
-            task.resume()
         }
      
         let tapGesture = newarrivalTG(target: self, action: #selector(productViewTapped(sender:)))
@@ -102,7 +118,7 @@ class NewArrivalTableViewCell: UITableViewCell, UICollectionViewDataSource, UICo
         cell.lblProductName.text = currentProduct.value(forKey: "name") as? String  //name
         let splPrice = Double(currentProduct.value(forKey: "special_price") as! String)!
         let roundedPrice =  String(splPrice.rounded())
-        cell.lblShowSplPrice.text = "Special price: QAR " + roundedPrice //special_price
+        cell.lblShowSplPrice.text = "Special price: QAR " + roundedPrice + "0" //special_price
         cell.lblShowSplPrice.addBoldFont10()
         cell.lblShoeRegularPrice.addFont8()
         let priceString = currentProduct.value(forKey: "price") as! NSNumber
@@ -142,9 +158,11 @@ class NewArrivalTableViewCell: UITableViewCell, UICollectionViewDataSource, UICo
             
             let name = productDict.value(forKey: "name")
             let price = productDict.value(forKey: "price")
-
+            let sku = productDict.value(forKey: "sku")
             finaldic.setValue(name, forKey: "name")
             finaldic.setValue(price, forKey: "price")
+            finaldic.setValue(sku, forKey: "sku")
+           
             for product in customDict {
                 let prod = product as! NSDictionary
                 let keyvalue = prod.object(forKey: "attribute_code") as! String
@@ -183,7 +201,6 @@ class NewArrivalTableViewCell: UITableViewCell, UICollectionViewDataSource, UICo
                         
                         DispatchQueue.main.async {
                             if((jsonDict) != nil){
-                                print(jsonDict?.object(forKey: "items") ?? NSDictionary())
                                 self.productsArray = jsonDict?.object(forKey: "items") as! [Any]
                                 self.collectionViewShowProducts.reloadData()
                             }
@@ -193,22 +210,11 @@ class NewArrivalTableViewCell: UITableViewCell, UICollectionViewDataSource, UICo
                       print("JSON Error")
                          //CustomActivityIndicator.shared.hide(uiView: self.view, delay: 1.5)
                       }
-
                   }
-             
              case .failure(let error):
                print(error)
-                 //CustomActivityIndicator.shared.hide(uiView: self.view, delay: 1.5)
-
              }
-
             }.cache(maxAge: 10)
         }
-        
-        
-    
-      
-         
-        
     }
 }

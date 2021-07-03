@@ -11,8 +11,7 @@ target 'Jumbosouq' do
    pod 'FBSDKLoginKit'
    pod 'Networking'
    pod 'AlamofireURLCache5'
-   pod 'CarbonKit'
-
+   pod 'ActivityIndicatorView'
 
    
 

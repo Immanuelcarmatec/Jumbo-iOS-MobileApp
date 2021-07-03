@@ -100,8 +100,7 @@ class SignupViewController: UIViewController {
                 switch response.result {
                 case .success:
                     if (response.response?.statusCode  == 200){
-                         let newViewController = storyBoard.instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
-                                   self.present(newViewController, animated: true, completion: nil)
+                        self.view.window!.rootViewController?.dismiss(animated: false, completion: nil)
                     }else{
                         self.alert(message: "Server error, signup is unsuccessful" )
                     }

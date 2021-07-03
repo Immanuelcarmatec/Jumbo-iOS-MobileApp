@@ -31,7 +31,7 @@ final class CustomActivityIndicator {
     // @parm duration - Length of time for the animation
     //
     func show(uiView: UIView,
-              backgroundColor: UIColor = .darkGray,
+              backgroundColor: UIColor = .white,
               size: Double = 80,
               animated: Bool = false,
               duration: Double = 1.0) {
@@ -55,6 +55,7 @@ final class CustomActivityIndicator {
             UIActivityIndicatorView.Style.large
         activityIndicator.center = CGPoint(x: loadingView.frame.size.width / 2, y: loadingView.frame.size.height / 2)
         activityIndicator.hidesWhenStopped = true
+        activityIndicator.backgroundColor = themeColor()
         
         DispatchQueue.main.async {
             self.loadingView.addSubview(self.activityIndicator)
@@ -77,7 +78,7 @@ final class CustomActivityIndicator {
     //
     func show(uiView: UIView,
               labelText: String,
-              backgroundColor: UIColor = .darkGray,
+              backgroundColor: UIColor = .white,
               textColor: UIColor = .white,
               animated: Bool = false,
               duration: Double = 1.0) {
@@ -117,11 +118,12 @@ final class CustomActivityIndicator {
         loadingView.layer.cornerRadius = 10
         
         label.textAlignment = .center
-        label.textColor = UIColor.white
+        label.textColor = themeColor()
         label.text = labelText
         
         activityIndicator.style = UIActivityIndicatorView.Style.large
         activityIndicator.hidesWhenStopped = true
+        activityIndicator.color = themeColor()
         
         if animated {
             // Set alpha to allow fading in / out

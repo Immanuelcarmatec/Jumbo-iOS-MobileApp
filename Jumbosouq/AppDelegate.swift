@@ -11,7 +11,7 @@ import FBSDKCoreKit
 
 @available(iOS 13.0, *)
 @main
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegate {
 
 
 
@@ -30,11 +30,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                application,
                didFinishLaunchingWithOptions: launchOptions
            )
-        
-      //  UINavigationBar.appearance().shadowImage = UIImage()
-       // UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
-        
-
            return true
        }
     

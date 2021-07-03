@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import WebKit
+
 
 class ProductDetailsViewController: UIViewController,UITableViewDelegate, UITableViewDataSource {
   
@@ -75,29 +77,41 @@ class ProductDetailsViewController: UIViewController,UITableViewDelegate, UITabl
         let firstcell = tableView.dequeueReusableCell(withIdentifier: "ProductDetailTableViewCell") as? ProductDetailTableViewCell
         firstcell!.layer.anchorPointZ = CGFloat(indexPath.row);
         
-        if (Singleton.sharedManager.selectedProduct.value(forKey: "short_description") != nil) {
-            let shortdeschtmlString =   Singleton.sharedManager.selectedProduct.value(forKey: "short_description") as! String
-              firstcell!.webViewShowShortDescription.loadHTMLString(shortdeschtmlString, baseURL: nil)
-        }
-     
-        firstcell!.lblProductName.text = Singleton.sharedManager.selectedProduct.value(forKey: "name") as? String
-        
-        let imagevalue = Singleton.sharedManager.selectedProduct.value(forKey: "image") as! String
-        var imageURL = "https://www.jumbosouq.com/pub/media/catalog/product" + imagevalue
-        imageURL = imageURL.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
-        let fileUrl = NSURL(string:imageURL)
-        
-        DispatchQueue.global().async {
-            let task = URLSession.shared.dataTask(with: fileUrl! as URL) { data, response, error in
-                guard let data = data, error == nil else { return }
-                DispatchQueue.main.async() {
-                    if firstcell!.tag == indexPath.row{
-                        firstcell!.imgViewLoadProductImage.image = UIImage(data: data)
+        if(Singleton.sharedManager.selectedProduct.value(forKey: "name") != nil){
+            DispatchQueue.main.async {
+            if (Singleton.sharedManager.selectedProduct.value(forKey: "short_description") != nil) {
+                let shortdeschtmlString =   Singleton.sharedManager.selectedProduct.value(forKey: "short_description") as! String
+                firstcell!.webViewShowShortDescription.loadHTMLStringWithMagic(content: shortdeschtmlString, baseURL: nil)
+               //   firstcell!.webViewShowShortDescription.loadHTMLString(shortdeschtmlString, baseURL: nil)
+               }
+           }
+            firstcell!.lblProductName.text = Singleton.sharedManager.selectedProduct.value(forKey: "name") as? String
+            
+            let splPrice = Double(Singleton.sharedManager.selectedProduct.value(forKey: "special_price") as! String)!
+            let roundedPrice =  String(splPrice.rounded())
+          
+            firstcell!.lblShowPrice.text = "QAR " + roundedPrice + "0"
+            
+            let sku = Singleton.sharedManager.selectedProduct.value(forKey: "sku") as! String
+            firstcell!.lblShowCode.text = "SKU " + sku
+            let imagevalue = Singleton.sharedManager.selectedProduct.value(forKey: "image") as! String
+            var imageURL = "https://www.jumbosouq.com/pub/media/catalog/product" + imagevalue
+            imageURL = imageURL.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+            let fileUrl = NSURL(string:imageURL)
+            
+            DispatchQueue.global().async {
+                let task = URLSession.shared.dataTask(with: fileUrl! as URL) { data, response, error in
+                    guard let data = data, error == nil else { return }
+                    DispatchQueue.main.async() {
+                        if firstcell!.tag == indexPath.row{
+                            firstcell!.imgViewLoadProductImage.image = UIImage(data: data)
+                        }
                     }
                 }
+                task.resume()
             }
-            task.resume()
         }
+       
                    return firstcell!
     }
         
@@ -124,7 +138,7 @@ class ProductDetailsViewController: UIViewController,UITableViewDelegate, UITabl
         if indexPath.row == 0 {
             return 550//Choose your custom row height
         }else if indexPath.row == 1{
-            return 200//Choose your custom row height
+            return 350//Choose your custom row height
         }
         
         return 0
@@ -140,3 +154,4 @@ class ProductDetailsViewController: UIViewController,UITableViewDelegate, UITabl
     */
 
 }
+

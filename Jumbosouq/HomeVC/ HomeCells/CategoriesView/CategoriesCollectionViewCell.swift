@@ -9,6 +9,14 @@ import UIKit
 
 class CategoriesCollectionViewCell: UICollectionViewCell {
 
+    @IBOutlet weak var imgViewShowProduct: UIImageView!
+    
+    @IBOutlet weak var lblProductName: UILabel!
+    
+    @IBOutlet weak var lblSplPrice: UILabel!
+    
+    @IBOutlet weak var lblRegularPrice: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

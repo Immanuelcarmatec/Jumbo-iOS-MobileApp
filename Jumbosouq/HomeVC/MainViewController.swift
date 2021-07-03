@@ -10,7 +10,7 @@ import UIKit
 import Alamofire
 
 @available(iOS 13.0, *)
-class MainViewController: UIViewController {
+class MainViewController: UITabBarController {
     private var sideMenuViewController: SideMenuViewController!
     private var sideMenuShadowView: UIView!
     private var sideMenuRevealWidth: CGFloat = 260
@@ -73,7 +73,7 @@ class MainViewController: UIViewController {
         view.addGestureRecognizer(panGestureRecognizer)
 
         // Default Main View Controller
-        showViewController(viewController: UINavigationController.self, storyboardId: "HomeNavID")
+       // showViewController(viewController: BaseTabViewController.self, storyboardId: "tabBarID")
     }
 
     // Keep the state of the side menu (expanded or collapse) in rotation
@@ -152,23 +152,32 @@ extension MainViewController: SideMenuViewControllerDelegate {
         switch row {
         case 0:
             // Home
-            self.showViewController(viewController: UINavigationController.self, storyboardId: "HomeNavID")
+        print("0")
+        //    self.showViewController(viewController: UINavigationController.self, storyboardId: "HomeNavID")
         case 1:
             // Music
-            self.showViewController(viewController: UINavigationController.self, storyboardId: "MusicNavID")
+            print("0")
+
+        //    self.showViewController(viewController: UINavigationController.self, storyboardId: "MusicNavID")
         case 2:
             // Movies
-            self.showViewController(viewController: UINavigationController.self, storyboardId: "MoviesNavID")
+            print("0")
+
+         //   self.showViewController(viewController: UINavigationController.self, storyboardId: "MoviesNavID")
         case 3:
             // Books
-            self.showViewController(viewController: UINavigationController.self, storyboardId: "MoviesNavID")
+            print("0")
+
+        //    self.showViewController(viewController: UINavigationController.self, storyboardId: "MoviesNavID")
         case 4:
             // Profile
             let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-            self.showViewController(viewController: UINavigationController.self, storyboardId: "MoviesNavID")
+       //     self.showViewController(viewController: UINavigationController.self, storyboardId: "MoviesNavID")
         case 5:
             // Settings
-            self.showViewController(viewController: UINavigationController.self, storyboardId: "SettingsNavID")
+            print("0")
+
+        //    self.showViewController(viewController: UINavigationController.self, storyboardId: "SettingsNavID")
         case 6:
             // Like us on facebook
             let safariVC = SFSafariViewController(url: URL(string: "https://www.facebook.com/johncodeos")!)
@@ -181,7 +190,7 @@ extension MainViewController: SideMenuViewControllerDelegate {
         DispatchQueue.main.async { self.sideMenuState(expanded: false) }
     }
 
-    func showViewController<T: UIViewController>(viewController: T.Type, storyboardId: String) -> () {
+  /*  func showViewController<T: UIViewController>(viewController: T.Type, storyboardId: String) -> () {
         // Remove the previous View
         for subview in view.subviews {
             if subview.tag == 99 {
@@ -202,7 +211,7 @@ extension MainViewController: SideMenuViewControllerDelegate {
             }
         }
         vc.didMove(toParent: self)
-    }
+    }*/
 }
 
 @available(iOS 13.0, *)

@@ -104,8 +104,7 @@ class LoginViewController: UIViewController {
                     if (response.response?.statusCode  == 200){
                         defaults.set(username, forKey: "username")
                         defaults.set(password, forKey: "password")
-                         let newViewController = storyBoard.instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
-                                   self.present(newViewController, animated: true, completion: nil)
+                        self.view.window!.rootViewController?.dismiss(animated: false, completion: nil)
                     }else{
                         self.alert(message: "Login Unsuccessful", title: "Invalid Credentials")
                     }

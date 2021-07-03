@@ -24,7 +24,7 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="752" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AOQ-gf-HZq">
+                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="752" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AOQ-gf-HZq">
                         <rect key="frame" x="74" y="195" width="46" height="30"/>
                         <state key="normal" title="Favorite" image="img_fav_plain"/>
                         <connections>
@@ -54,7 +54,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </imageView>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yQd-2p-jRs">
-                        <rect key="frame" x="26" y="195" width="30" height="30"/>
+                        <rect key="frame" x="55" y="195" width="30" height="30"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="30" id="GPk-kc-o8e"/>
                         </constraints>
@@ -74,12 +74,12 @@
                 <constraint firstItem="CE5-aN-tgD" firstAttribute="centerX" secondItem="PiN-IO-JpD" secondAttribute="centerX" id="6dI-Z3-p7Z"/>
                 <constraint firstItem="kch-TU-X6E" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="EV2-dC-Z60"/>
                 <constraint firstItem="CE5-aN-tgD" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="JDQ-ql-j4A"/>
-                <constraint firstItem="yQd-2p-jRs" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="26" id="JwL-JA-8aR"/>
+                <constraint firstItem="yQd-2p-jRs" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="55" id="JwL-JA-8aR"/>
                 <constraint firstItem="PiN-IO-JpD" firstAttribute="centerX" secondItem="HYn-a7-dXa" secondAttribute="centerX" id="OaE-DD-u2l"/>
                 <constraint firstAttribute="trailing" secondItem="AOQ-gf-HZq" secondAttribute="trailing" constant="20" id="PdI-PJ-a5I"/>
                 <constraint firstItem="PiN-IO-JpD" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="RZp-TA-OoQ"/>
                 <constraint firstItem="yQd-2p-jRs" firstAttribute="top" secondItem="PiN-IO-JpD" secondAttribute="bottom" constant="13" id="S2b-g2-N3f"/>
-                <constraint firstItem="AOQ-gf-HZq" firstAttribute="leading" secondItem="yQd-2p-jRs" secondAttribute="trailing" constant="18" id="dkF-ig-fTX"/>
+                <constraint firstItem="AOQ-gf-HZq" firstAttribute="leading" secondItem="yQd-2p-jRs" secondAttribute="trailing" constant="-11" id="dkF-ig-fTX"/>
                 <constraint firstAttribute="bottom" secondItem="HYn-a7-dXa" secondAttribute="bottom" constant="32" id="eDi-Gn-tct"/>
                 <constraint firstItem="kch-TU-X6E" firstAttribute="centerX" secondItem="CE5-aN-tgD" secondAttribute="centerX" id="f5s-tE-KWU"/>
                 <constraint firstItem="CE5-aN-tgD" firstAttribute="top" secondItem="kch-TU-X6E" secondAttribute="bottom" constant="4" id="fWn-Kt-g5b"/>

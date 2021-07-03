@@ -8,7 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		04BCBAA05F80656C6F22B57F /* Pods_JumbosouqTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A8DBEB73B127D9D97A0A218 /* Pods_JumbosouqTests.framework */; };
+		181C553E268C871300121E38 /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181C553D268C871300121E38 /* CartViewController.swift */; };
+		181C554C268C872900121E38 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181C554B268C872900121E38 /* ProfileViewController.swift */; };
+		181C554E268C8B8F00121E38 /* BaseNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181C554D268C8B8F00121E38 /* BaseNavigationViewController.swift */; };
+		181C5550268C8C9300121E38 /* BaseTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181C554F268C8C9300121E38 /* BaseTabViewController.swift */; };
+		181C5552268F7DAA00121E38 /* CollapsibleTableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181C5551268F7DAA00121E38 /* CollapsibleTableViewHeader.swift */; };
+		181C5554268F7DE600121E38 /* CollapsibleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181C5553268F7DE600121E38 /* CollapsibleTableViewCell.swift */; };
+		182AC53926902B5500240BBC /* CollapsibleTableViewHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 182AC53826902B5500240BBC /* CollapsibleTableViewHeader.xib */; };
 		18300B732677B4B1003A020F /* CategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18300B722677B4B1003A020F /* CategoriesViewController.swift */; };
+		183608D1268369E10005182E /* CustomSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183608C5268369E00005182E /* CustomSegmentedControl.swift */; };
+		18DF98C02689CB1900F5F17B /* DUIActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DF98AF2689CB1900F5F17B /* DUIActivityIndicator.swift */; };
 		18FFCF63266F65B000832144 /* HeadingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FFCF61266F65B000832144 /* HeadingTableViewCell.swift */; };
 		18FFCF64266F65B000832144 /* HeadingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18FFCF62266F65B000832144 /* HeadingTableViewCell.xib */; };
 		18FFCF932670B11700832144 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FFCF912670B11700832144 /* Theme.swift */; };
@@ -64,6 +73,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		18DF98BC2689CB1900F5F17B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 18FFCF952670D38800832144 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = E38C46596A7BA8AF58D81EBC139B4B6F;
+			remoteInfo = ActivityIndicatorView;
+		};
+		18DF98BE2689CB1900F5F17B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 18FFCF952670D38800832144 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 2B028859CCD1084F75DE35E17848423D;
+			remoteInfo = FBSDKCoreKit_Basics;
+		};
 		18FFCFA32670D38800832144 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 18FFCF952670D38800832144 /* Pods.xcodeproj */;
@@ -77,13 +100,6 @@
 			proxyType = 2;
 			remoteGlobalIDString = C224DA6B0D8EE1E4C0F0D8BF54BCA5E5;
 			remoteInfo = AlamofireURLCache5;
-		};
-		18FFCFA72670D38800832144 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 18FFCF952670D38800832144 /* Pods.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 857D0B90490FD8083F79B97597566B28;
-			remoteInfo = CarbonKit;
 		};
 		18FFCFA92670D38800832144 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -159,7 +175,16 @@
 
 /* Begin PBXFileReference section */
 		0A78E7609173B1B222742479 /* Pods-Jumbosouq-JumbosouqUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Jumbosouq-JumbosouqUITests.debug.xcconfig"; path = "Target Support Files/Pods-Jumbosouq-JumbosouqUITests/Pods-Jumbosouq-JumbosouqUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		181C553D268C871300121E38 /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
+		181C554B268C872900121E38 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		181C554D268C8B8F00121E38 /* BaseNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationViewController.swift; sourceTree = "<group>"; };
+		181C554F268C8C9300121E38 /* BaseTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTabViewController.swift; sourceTree = "<group>"; };
+		181C5551268F7DAA00121E38 /* CollapsibleTableViewHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollapsibleTableViewHeader.swift; sourceTree = "<group>"; };
+		181C5553268F7DE600121E38 /* CollapsibleTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollapsibleTableViewCell.swift; sourceTree = "<group>"; };
+		182AC53826902B5500240BBC /* CollapsibleTableViewHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollapsibleTableViewHeader.xib; sourceTree = "<group>"; };
 		18300B722677B4B1003A020F /* CategoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesViewController.swift; sourceTree = "<group>"; };
+		183608C5268369E00005182E /* CustomSegmentedControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSegmentedControl.swift; sourceTree = "<group>"; };
+		18DF98AF2689CB1900F5F17B /* DUIActivityIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DUIActivityIndicator.swift; sourceTree = "<group>"; };
 		18FFCF61266F65B000832144 /* HeadingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadingTableViewCell.swift; sourceTree = "<group>"; };
 		18FFCF62266F65B000832144 /* HeadingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeadingTableViewCell.xib; sourceTree = "<group>"; };
 		18FFCF912670B11700832144 /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
@@ -258,7 +283,10 @@
 		18300B662677B49E003A020F /* CategoriesView */ = {
 			isa = PBXGroup;
 			children = (
+				181C5551268F7DAA00121E38 /* CollapsibleTableViewHeader.swift */,
+				181C5553268F7DE600121E38 /* CollapsibleTableViewCell.swift */,
 				18300B722677B4B1003A020F /* CategoriesViewController.swift */,
+				182AC53826902B5500240BBC /* CollapsibleTableViewHeader.xib */,
 			);
 			path = CategoriesView;
 			sourceTree = "<group>";
@@ -274,11 +302,12 @@
 		18FFCF962670D38800832144 /* Products */ = {
 			isa = PBXGroup;
 			children = (
+				18DF98BD2689CB1900F5F17B /* ActivityIndicatorView.framework */,
 				18FFCFA42670D38800832144 /* Alamofire.framework */,
 				18FFCFA62670D38800832144 /* AlamofireURLCache5.framework */,
-				18FFCFA82670D38800832144 /* CarbonKit.framework */,
 				18FFCFAA2670D38800832144 /* FBSDKCoreKit.framework */,
 				18FFCFAC2670D38800832144 /* FacebookSDKStrings.bundle */,
+				18DF98BF2689CB1900F5F17B /* FBSDKCoreKit_Basics.framework */,
 				18FFCFAE2670D38800832144 /* FBSDKLoginKit.framework */,
 				18FFCFB02670D38800832144 /* Networking.framework */,
 				18FFCFB22670D38800832144 /* Pods_Jumbosouq.framework */,
@@ -347,8 +376,10 @@
 		356BFD62264E2C8A001CFBA4 /* ProductDetails */ = {
 			isa = PBXGroup;
 			children = (
+				181C554D268C8B8F00121E38 /* BaseNavigationViewController.swift */,
 				356BFD68264E2D77001CFBA4 /* ProductDetailsCell */,
 				356BFD63264E2CA6001CFBA4 /* ProductDetailsViewController.swift */,
+				181C554F268C8C9300121E38 /* BaseTabViewController.swift */,
 			);
 			path = ProductDetails;
 			sourceTree = "<group>";
@@ -367,6 +398,7 @@
 		3571B6E026396AD2007D12F6 /* CategoriesView */ = {
 			isa = PBXGroup;
 			children = (
+				183608C5268369E00005182E /* CustomSegmentedControl.swift */,
 				3571B6D926396AC8007D12F6 /* CategoriesTableViewCell.swift */,
 				3571B6DA26396AC8007D12F6 /* CategoriesTableViewCell.xib */,
 				3571B6E126396AF7007D12F6 /* CategoriesCollectionViewCell.swift */,
@@ -416,6 +448,7 @@
 				356BFD62264E2C8A001CFBA4 /* ProductDetails */,
 				35735A7B262DCFB4001C2971 /* CustomActivityIndicator.swift */,
 				358DFE0A2611E9B40037221F /* ViewExtension.swift */,
+				18DF98AF2689CB1900F5F17B /* DUIActivityIndicator.swift */,
 				35A8CA40264BE7BD000A2632 /* Singleton.swift */,
 				35674DBC2631C84D004D648B /* User.swift */,
 				358DFE062611E2890037221F /* LoginControllers */,
@@ -430,6 +463,8 @@
 				358DFDCD2611DD3C0037221F /* Assets.xcassets */,
 				358DFDCF2611DD3C0037221F /* LaunchScreen.storyboard */,
 				358DFDD22611DD3C0037221F /* Info.plist */,
+				181C553D268C871300121E38 /* CartViewController.swift */,
+				181C554B268C872900121E38 /* ProfileViewController.swift */,
 			);
 			path = Jumbosouq;
 			sourceTree = "<group>";
@@ -616,6 +651,20 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		18DF98BD2689CB1900F5F17B /* ActivityIndicatorView.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = ActivityIndicatorView.framework;
+			remoteRef = 18DF98BC2689CB1900F5F17B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		18DF98BF2689CB1900F5F17B /* FBSDKCoreKit_Basics.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = FBSDKCoreKit_Basics.framework;
+			remoteRef = 18DF98BE2689CB1900F5F17B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		18FFCFA42670D38800832144 /* Alamofire.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
@@ -628,13 +677,6 @@
 			fileType = wrapper.framework;
 			path = AlamofireURLCache5.framework;
 			remoteRef = 18FFCFA52670D38800832144 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		18FFCFA82670D38800832144 /* CarbonKit.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = CarbonKit.framework;
-			remoteRef = 18FFCFA72670D38800832144 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		18FFCFAA2670D38800832144 /* FBSDKCoreKit.framework */ = {
@@ -705,6 +747,7 @@
 				358DFE162611ED0F0037221F /* Geomanist-Bold.otf in Resources */,
 				3571B6DC26396AC8007D12F6 /* CategoriesTableViewCell.xib in Resources */,
 				35D608A02628853700E8A066 /* FirstTableViewCell.xib in Resources */,
+				182AC53926902B5500240BBC /* CollapsibleTableViewHeader.xib in Resources */,
 				358DFE152611ED0F0037221F /* Geomanist-Medium.otf in Resources */,
 				35D608A8262891EA00E8A066 /* WeekDealTableViewCell.xib in Resources */,
 				358DFDD12611DD3C0037221F /* LaunchScreen.storyboard in Resources */,
@@ -847,16 +890,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				18FFCF63266F65B000832144 /* HeadingTableViewCell.swift in Sources */,
+				18DF98C02689CB1900F5F17B /* DUIActivityIndicator.swift in Sources */,
 				358DFDF82611E21A0037221F /* LoginViewController.swift in Sources */,
+				181C5550268C8C9300121E38 /* BaseTabViewController.swift in Sources */,
 				358DFDC92611DD3B0037221F /* ViewController.swift in Sources */,
 				358DFE022611E2810037221F /* ForgotPasswordVC.swift in Sources */,
 				355B2A852620A39F0032567B /* MainViewController.swift in Sources */,
 				35D608AE2628924E00E8A066 /* WeekDealCollectionViewCell.swift in Sources */,
+				181C553E268C871300121E38 /* CartViewController.swift in Sources */,
 				35A44E1726612E5E00F514DD /* ProductMoreDetailsTableViewCell.swift in Sources */,
 				35735A7C262DCFB4001C2971 /* CustomActivityIndicator.swift in Sources */,
 				3534DFC4261CAC7200A5A9CC /* HomeViewController.swift in Sources */,
 				35735A6A262DBC14001C2971 /* NewArrivalTableViewCell.swift in Sources */,
+				183608D1268369E10005182E /* CustomSegmentedControl.swift in Sources */,
 				35735A76262DBC5A001C2971 /* NewArrivalCollectionViewCell.swift in Sources */,
+				181C5552268F7DAA00121E38 /* CollapsibleTableViewHeader.swift in Sources */,
 				35E4513D266797E2003DBE3F /* SearchProductTableViewCell.swift in Sources */,
 				3571B6DB26396AC8007D12F6 /* CategoriesTableViewCell.swift in Sources */,
 				35D6089F2628853700E8A066 /* FirstTableViewCell.swift in Sources */,
@@ -865,8 +913,10 @@
 				358DFE0B2611E9B40037221F /* ViewExtension.swift in Sources */,
 				358DFDFD2611E2490037221F /* SignupViewController.swift in Sources */,
 				358DFDC52611DD3B0037221F /* AppDelegate.swift in Sources */,
+				181C5554268F7DE600121E38 /* CollapsibleTableViewCell.swift in Sources */,
 				3571B6E326396AF7007D12F6 /* CategoriesCollectionViewCell.swift in Sources */,
 				355B2A7D26209CA60032567B /* SideMenuViewController.swift in Sources */,
+				181C554C268C872900121E38 /* ProfileViewController.swift in Sources */,
 				35A8CA41264BE7BD000A2632 /* Singleton.swift in Sources */,
 				35D608A7262891EA00E8A066 /* WeekDealTableViewCell.swift in Sources */,
 				18FFCF932670B11700832144 /* Theme.swift in Sources */,
@@ -875,6 +925,7 @@
 				355B2A7E26209CA60032567B /* SideMenuModel.swift in Sources */,
 				35674DBD2631C84D004D648B /* User.swift in Sources */,
 				3566F9522666700700C0CA34 /* SearchProductsViewController.swift in Sources */,
+				181C554E268C8B8F00121E38 /* BaseNavigationViewController.swift in Sources */,
 				356BFD64264E2CA6001CFBA4 /* ProductDetailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1060,7 +1111,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.06;
+				MARKETING_VERSION = 1.10;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jumbosouq.shop;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "Jumbosouq Shop";
@@ -1083,7 +1134,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.06;
+				MARKETING_VERSION = 1.10;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jumbosouq.shop;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "Jumbosouq Shop";

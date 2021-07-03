@@ -1,8 +1,9 @@
 ${PODS_ROOT}/Target Support Files/Pods-Jumbosouq/Pods-Jumbosouq-frameworks.sh
+${BUILT_PRODUCTS_DIR}/ActivityIndicatorView/ActivityIndicatorView.framework
 ${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework
 ${BUILT_PRODUCTS_DIR}/AlamofireURLCache5/AlamofireURLCache5.framework
-${BUILT_PRODUCTS_DIR}/CarbonKit/CarbonKit.framework
 ${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework
+${BUILT_PRODUCTS_DIR}/FBSDKCoreKit_Basics/FBSDKCoreKit_Basics.framework
 ${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework
 ${BUILT_PRODUCTS_DIR}/Networking/Networking.framework
 ${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework

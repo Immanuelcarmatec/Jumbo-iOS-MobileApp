@@ -8,6 +8,9 @@
 import Foundation
 import UIKit
 import Alamofire
+import ActivityIndicatorView
+import SwiftUI
+
 
 @available(iOS 13.0, *)
 class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataSource , UITextFieldDelegate {
@@ -19,7 +22,8 @@ class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataS
     @IBOutlet var viewSearchbar: UIView!
     @IBOutlet var footerView: UIView!
     @IBOutlet var searchView: UIView!
-
+    @IBOutlet weak var navBar: UINavigationBar!
+    
     
     @IBOutlet weak var tblViewListProducts: UITableView!
     @IBOutlet weak var navigationHomeItem: UINavigationItem!
@@ -33,54 +37,30 @@ class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataS
     @IBOutlet weak var collviewWeeklyDeals: UICollectionView!
     @IBOutlet weak var tabBar: UITabBar!
     var timer = Timer()
+    var animationTimer = Timer()
+
     var searchproductsArray = [Any]()
     var searchproductItems = Array<Any>()
-    class removeSearch: UITapGestureRecognizer {
-        
-    }
+    class removeSearch: UITapGestureRecognizer{}
+    class addSearch: UITapGestureRecognizer {}
     
-    class addSearch: UITapGestureRecognizer {
-        
-    }
-
    
-    
+    lazy var activityIndicator : DUIActivityIndicatorView = {
+        return DUIActivityIndicatorView()
+        }()
+
+
     override func viewDidLoad() {
         super.viewDidLoad()
-                
-        sideMenuBtn.target = revealViewController()
-        sideMenuBtn.action = #selector(revealViewController()?.revealSideMenu)
         txtFieldSearch.addShadow()
-        
-        
+
         let logoimage = UIImage(named: "img_logo") //Your logo url here
         let logoimageView = UIImageView(image: logoimage)
         logoimageView.contentMode = .scaleAspectFill
         logoimageView.frame = CGRect(x: 50, y: 45, width: 150, height: 50)
         self.navigationController?.view.addSubview(logoimageView)
-        
-       /* let button1 = UIBarButtonItem(image: UIImage(named: "img_menu"), style: .plain, target: revealViewController(), action: #selector(revealViewController()?.revealSideMenu))*/
-
-        
-          let appearance = UITabBarAppearance()
-           appearance.stackedLayoutAppearance.selected.titleTextAttributes = [NSAttributedString.Key.foregroundColor: themeColor()]
-         self.tabBarController?.tabBar.standardAppearance = appearance
-        
-        let image = UIImage(named: "Search_white-1")
-        let button = UIButton(type: .custom)
-        button.setImage(image, for: .normal)
-        let imageViewBackground = UIImageView(frame: CGRect(x: txtFieldSearch.frame.size.width-80 , y:0, width: 80, height: txtFieldSearch.frame.size.height))
-        imageViewBackground.backgroundColor = themeColor()
-        
-        button.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 3)
-        button.frame = CGRect(x: CGFloat(8) , y: CGFloat(3), width: CGFloat(40), height: CGFloat(txtFieldSearch.frame.size.height-5))
-        imageViewBackground.addSubview(button)
-        imageViewBackground.isUserInteractionEnabled = true
-        imageViewBackground.isMultipleTouchEnabled = true
-        button.addTarget(self, action: #selector(self.search), for: .touchUpInside)
-        txtFieldSearch .addSubview(imageViewBackground)//img_search_white
+                
         txtFieldSearch.delegate = self
-
                 
         self.tblViewListProducts.backgroundColor = UIColor.white
         self.tblViewListProducts.delegate = self
@@ -90,33 +70,82 @@ class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataS
         self.tblViewSearchProducts.delegate = self
         self.tblViewSearchProducts.dataSource = self
         
-     //   self.navigationController?.navigationBar.setBackgroundImage(UIImage(named: ""), for: UIBarMetrics.default)
-     //   self.navigationController?.navigationBar.shadowImage = UIImage(named: "")
-        
         timer.invalidate() // just in case this button is tapped multiple times
         timer = Timer.scheduledTimer(timeInterval: 4.0, target: self, selector: #selector(update), userInfo: nil, repeats: true)
-
-        CustomActivityIndicator.shared.show(uiView: self.view, labelText: "Fetching favourites for you")
+        
         self.tblViewListProducts.isHidden = true
         
-        self.tabBarController?.selectedIndex = 0
-                
         self.hideKeyboardWhenTappedAround()
-
         
-       /* NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)*/
+        let appearance = UITabBarAppearance()
+         appearance.stackedLayoutAppearance.selected.titleTextAttributes = [NSAttributedString.Key.foregroundColor: themeColor()]
+         self.tabBarController?.tabBar.standardAppearance = appearance
+        
+        let btnSideMenu = UIButton(type: .custom)
+        btnSideMenu.setImage(UIImage(named: "menu"), for: .normal)
+        btnSideMenu.frame = CGRect(x: 10, y: 45, width: 40, height: 40)
+        btnSideMenu.addTarget(revealViewController(), action: #selector(revealViewController()?.revealSideMenu), for: .touchUpInside)
+        self.navigationController?.view.addSubview(btnSideMenu)
+        
+        let btnWishList = UIButton(type: .custom)
+        btnWishList.setImage(UIImage(named: "img_fav_plain"), for: .normal)
+        btnWishList.frame = CGRect(x:self.view.frame.size.width-120, y: 45, width: 50, height: 40)
+       // btnWishList.addTarget(revealViewController(), action: #selector(revealViewController()?.revealSideMenu), for: .touchUpInside)
+      //  self.navigationController?.view.addSubview(btnWishList)
+        
+        let btnCart = UIButton(type: .custom)
+        btnCart.setImage(UIImage(named: "img_cart"), for: .normal)
+        btnCart.frame = CGRect(x:self.view.frame.size.width-60, y: 45, width: 50, height: 40)
+        //btnCart.addTarget(revealViewController(), action: #selector(revealViewController()?.revealSideMenu), for: .touchUpInside)
+        self.navigationController?.view.addSubview(btnCart)
+        
+        
+        activityIndicator.frame = CGRect(x: self.view.frame.width/2 - 25, y: self.view.frame.height/2 - 25, width: 50.0, height: 50.0)
+        activityIndicator.dotColor = themeColor()
+        activityIndicator.dotSize = 8.0
+        activityIndicator.dotsCount = 10
+        activityIndicator.bgColor = UIColor.clear
+        self.view.addSubview(activityIndicator)
+        activityIndicator.initAnimationLayer()
+        
+        activityIndicator.setupAnimationLayer()
+        activityIndicator.startAnimating()
+        
+        animationTimer.invalidate() // just in case this button is tapped multiple times
+        animationTimer = Timer.scheduledTimer(timeInterval: 6.0, target: self, selector: #selector(stopAnimation), userInfo: nil, repeats: true)
+              
+    }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        let image = UIImage(named: "Search_white-1")
+        let button = UIButton(type: .custom)
+        button.setImage(image, for: .normal)
+                
+        let imageViewBackground = UIImageView(frame: CGRect(x: txtFieldSearch.frame.size.width - 60 , y:0, width:60, height: txtFieldSearch.frame.size.height))
+        imageViewBackground.backgroundColor = themeColor()
+        
+        button.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 3)
+        button.frame = CGRect(x: CGFloat(8) , y: CGFloat(3), width: CGFloat(40), height: CGFloat(txtFieldSearch.frame.size.height-5))
+        imageViewBackground.addSubview(button)
+        imageViewBackground.isUserInteractionEnabled = true
+        imageViewBackground.isMultipleTouchEnabled = true
+        button.addTarget(self, action: #selector(self.search), for: .touchUpInside)
+        txtFieldSearch .addSubview(imageViewBackground)//img_search_white
+
     }
     
     @objc func update() {
-        // Something cool
-        CustomActivityIndicator.shared.hide(uiView: self.view, delay: 0.5)
         self.tblViewListProducts.isHidden = false
     }
     
+    @objc func stopAnimation() {
+        activityIndicator.stopAnimating()
+    }
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        CustomActivityIndicator.shared.show(uiView: self.view.superview!, labelText: "Searching your favourite items...")
+        
         Singleton.sharedManager.searchitem = self.txtFieldSearch.text!
         self.searchProducts()
            textField.resignFirstResponder();
@@ -126,17 +155,17 @@ class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataS
     @objc func search() {
         
         if txtFieldSearch.text!.count > 0 {
-            CustomActivityIndicator.shared.show(uiView: self.view, labelText: "Searching your favourite items...")
             let searchString = "%" + self.txtFieldSearch.text! + "%"
             Singleton.sharedManager.searchitem = searchString
             self.searchProducts()
+            
         }else{
             alert(message: "No data", title: "Search your favourites here")
         }
     }
     @objc func removeSearchTapped(){
         tblViewSearchProducts.isHidden = true
-        self.searchView.isHidden = true
+        self.txtFieldSearch.text = ""
         tblViewListProducts.reloadData()
     }
     
@@ -242,7 +271,6 @@ class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataS
                 }
                 
         }
-          
             
         }else{
             
@@ -270,6 +298,7 @@ class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataS
                 var weekdealcell: CategoriesTableViewCell! = tableView.dequeueReusableCell(withIdentifier: identifier) as? CategoriesTableViewCell
                tableView.register(UINib(nibName: "CategoriesTableViewCell", bundle: nil), forCellReuseIdentifier: identifier)
                 weekdealcell = tableView.dequeueReusableCell(withIdentifier: "CategoriesTableViewCell") as? CategoriesTableViewCell
+                weekdealcell.delegate = self
                 return weekdealcell!
             }
             
@@ -335,7 +364,8 @@ class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataS
         
         let parameters: [String: Any] = [ "searchCriteria[filter_groups][0][filters][0][field]":"name",
             "searchCriteria[filter_groups][0][filters][0][value]":searchString,
-            "searchCriteria[filter_groups][0][filters][0][condition_type]":"like"
+            "searchCriteria[filter_groups][0][filters][0][condition_type]":"like",
+            "searchCriteria[pageSize]":"20"
         ]
         let URLStr = baseURL + "products"
         
@@ -353,36 +383,31 @@ class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataS
                if let json = response.data {
                       do{
                        let jsonDict = try JSONSerialization.jsonObject(with: json) as? NSDictionary
-                        
-                        DispatchQueue.main.async {
                             if((jsonDict) != nil){
                                 self.searchproductsArray = jsonDict?.object(forKey: "items") as! [Any]
                                 self.tblViewSearchProducts.isHidden = false
-                                self.searchView.isHidden = false
                                 let tapGesture = removeSearch(target: self, action: #selector(self.removeSearchTapped))
                                 self.tblViewSearchProducts.addGestureRecognizer(tapGesture)
                                 self.searchproductsArray = jsonDict?.object(forKey: "items") as! [Any]
+                        DispatchQueue.main.async {
                                 self.tblViewSearchProducts.reloadData()
-                                CustomActivityIndicator.shared.hide(uiView: self.view.superview!, delay: 2.5)
+                               // self.indicator.stopAnimating()
 
                             }
                         }
                       }
                       catch{
                       print("JSON Error")
-                         //CustomActivityIndicator.shared.hide(uiView: self.view, delay: 1.5)
                       }
                   }
              case .failure(let error):
                print(error)
-                 //CustomActivityIndicator.shared.hide(uiView: self.view, delay: 1.5)
 
              }
 
            }.cache(maxAge: 10)
 
         }
-        
     }
     
     
@@ -393,9 +418,7 @@ class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataS
         
         for products in 0...countofproducts {
             let productDict = self.searchproductsArray[products] as! NSDictionary
-            print(productDict)
             let customDict = productDict.object(forKey: "custom_attributes") as! NSArray
-            print(customDict.count)
             
             let finaldic :NSMutableDictionary = NSMutableDictionary()
             
@@ -421,7 +444,7 @@ class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataS
 
 }
 
-extension HomeViewController : WeekDealCellDelegate, NewArrivalTableViewCellDelegate{
+extension HomeViewController : WeekDealCellDelegate, NewArrivalTableViewCellDelegate,CategoriesTableViewCellDelegate{
     
     func showProductPressed(index: Int) {
         let newViewController = storyBoard.instantiateViewController(withIdentifier: "ProductDetailsViewController") as! ProductDetailsViewController

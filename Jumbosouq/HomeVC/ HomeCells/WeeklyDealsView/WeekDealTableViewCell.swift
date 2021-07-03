@@ -22,6 +22,25 @@ class WeekDealTableViewCell: UITableViewCell, UICollectionViewDataSource, UIColl
     class MyTapGesture: UITapGestureRecognizer {
         var indexValue = 0
     }
+    
+    private let cache = NSCache<NSNumber, UIImage>()
+    private let utilityQueue = DispatchQueue.global(qos: .utility)
+
+
+    // MARK: - Image Loading
+    private func loadImage(url:String, completion: @escaping (UIImage?) -> ()) {
+        utilityQueue.async {
+            let url = URL(string: url)!
+            
+            guard let data = try? Data(contentsOf: url) else { return }
+            let image = UIImage(data: data)
+            
+            DispatchQueue.main.async {
+                completion(image)
+            }
+        }
+    }
+
 
 
     @IBOutlet weak var collectionViewShowProducts: UICollectionView!
@@ -90,7 +109,6 @@ class WeekDealTableViewCell: UITableViewCell, UICollectionViewDataSource, UIColl
                         
                         DispatchQueue.main.async {
                             if((jsonDict) != nil){
-                                print(jsonDict?.object(forKey: "items") ?? NSDictionary())
                                 self.productsArray = jsonDict?.object(forKey: "items") as! [Any]
                                 self.collectionViewShowProducts.reloadData()
                             }
@@ -126,20 +144,19 @@ class WeekDealTableViewCell: UITableViewCell, UICollectionViewDataSource, UIColl
         cell.tag = indexPath.item
         let currentProduct = productItems[indexPath.item] as! NSDictionary
         let imagevalue = currentProduct.value(forKey: "small_image") as! String
-        var imageURL = "https://www.jumbosouq.com/pub/media/catalog/product" + imagevalue
+        var imageURL = "https://www.jumbosouq.com/pub/media/catalog/product" + imagevalue as String
         imageURL = imageURL.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
-        let fileUrl = NSURL(string:imageURL)
         
-        DispatchQueue.global().async {
-            let task = URLSession.shared.dataTask(with: fileUrl! as URL) { data, response, error in
-                guard let data = data, error == nil else { return }
-                DispatchQueue.main.async() {
-                    if cell.tag == indexPath.row{
-                        cell.imgViewLoadPoduct.image = UIImage(data: data)
-                    }
-                }
+        
+        let itemNumber = NSNumber(nonretainedObject: currentProduct.value(forKey: "sku"))
+        if let cachedImage = self.cache.object(forKey: itemNumber) {
+            cell.imgViewLoadPoduct.image = cachedImage
+        } else {
+            loadImage(url:imageURL){ [weak self] (image) in
+                guard let self = self, let image = image else { return }
+                cell.imgViewLoadPoduct.image = image
+                self.cache.setObject(image, forKey: itemNumber)
             }
-            task.resume()
         }
      
         let tapGesture = MyTapGesture(target: self, action: #selector(productViewTapped(sender:)))
@@ -169,17 +186,17 @@ class WeekDealTableViewCell: UITableViewCell, UICollectionViewDataSource, UIColl
         
         for products in 0...countofproducts {
             let productDict = self.productsArray[products] as! NSDictionary
-            print(productDict)
             let customDict = productDict.object(forKey: "custom_attributes") as! NSArray
-            print(customDict.count)
             
             let finaldic :NSMutableDictionary = NSMutableDictionary()
             
             let name = productDict.value(forKey: "name")
             let price = productDict.value(forKey: "price")
-
+            let sku = productDict.value(forKey: "sku")
             finaldic.setValue(name, forKey: "name")
             finaldic.setValue(price, forKey: "price")
+            finaldic.setValue(sku, forKey: "sku")
+
             for product in customDict {
                 let prod = product as! NSDictionary
                 let keyvalue = prod.object(forKey: "attribute_code") as! String

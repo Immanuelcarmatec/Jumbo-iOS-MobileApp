@@ -29,21 +29,15 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
       
                 
-        if userAlreadyExist() {
+     /*   if userAlreadyExist() {
             
             btnFBlogin.isHidden = true
             btnLoginSignup.isHidden = true
             btnGoogleLogin.isHidden = true
             btnGueestLogin.isHidden = true
             lblOR.isHidden = true
-            
-            
-            let username:String = defaults.object(forKey: "username")! as! String
-            let password:String = defaults.object(forKey: "password") as! String
-            self.doLogin(username: username, password: password)
-
-            
-        }
+    
+        }*/
         
         if let token = AccessToken.current,
                !token.isExpired {
@@ -115,47 +109,9 @@ class ViewController: UIViewController {
           let newViewController = storyBoard.instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
                   self.present(newViewController, animated: true, completion: nil)
     }
-    func doLogin(username: String, password:String) {
-        let parameters: [String: Any] = [ "username":username, "password":password]
-        let URLStr = baseURL + "integration/customer/token"
-        
-        CustomActivityIndicator.shared.show(uiView: self.view, labelText: "Authenticating  existing credentials...")
-        
-        let headers:HTTPHeaders = [
-            "Content-Type": "application/json",
-            "Authorization": "Bearer " +  Singleton.sharedManager.bearertoken
-           ]
+    
+    
 
-        
-        AF.request(URLStr, method: .post,  parameters: parameters, encoding: JSONEncoding.default, headers:headers)
-            .responseJSON { response in
-                switch response.result {
-                case .success(let value):
-                    CustomActivityIndicator.shared.hide(uiView: self.view, delay: 0)
-                    if (response.response?.statusCode  == 200){
-                        
-                        defaults.set(username, forKey: "username")
-                        defaults.set(password, forKey: "password")
-                        
-                        do {
-                            // make sure this JSON is in the format we expect
-                            let json = JSON(value)
-                          //  defaults.set(json, forKey: "uid")
-                            
-                                let newViewController = storyBoard.instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
-                                           self.present(newViewController, animated: true, completion: nil)
-                                
-                        }
-                    }
-                case .failure(let error):
-                 CustomActivityIndicator.shared.hide(uiView: self.view, delay: 1.5)
-                  print(error)
-                    
-                }
-
-        }
-    }
-  
     
     @IBAction func didActionLogin(_ sender: Any) {
         let newViewController = storyBoard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
