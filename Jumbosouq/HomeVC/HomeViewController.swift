@@ -53,11 +53,19 @@ class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataS
     override func viewDidLoad() {
         super.viewDidLoad()
         txtFieldSearch.addShadow()
+        
+        var yValue = 0
+        if UIDevice.current.hasNotch {
+            yValue = 45
+        } else {
+            yValue = 20
+        }
+        
 
         let logoimage = UIImage(named: "img_logo") //Your logo url here
         let logoimageView = UIImageView(image: logoimage)
         logoimageView.contentMode = .scaleAspectFill
-        logoimageView.frame = CGRect(x: 50, y: 45, width: 150, height: 50)
+        logoimageView.frame = CGRect(x: 50, y: yValue, width: 150, height: 50)
         self.navigationController?.view.addSubview(logoimageView)
                 
         txtFieldSearch.delegate = self
@@ -81,21 +89,22 @@ class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataS
          appearance.stackedLayoutAppearance.selected.titleTextAttributes = [NSAttributedString.Key.foregroundColor: themeColor()]
          self.tabBarController?.tabBar.standardAppearance = appearance
         
+       
         let btnSideMenu = UIButton(type: .custom)
         btnSideMenu.setImage(UIImage(named: "menu"), for: .normal)
-        btnSideMenu.frame = CGRect(x: 10, y: 45, width: 40, height: 40)
+        btnSideMenu.frame = CGRect(x: 10, y: yValue, width: 40, height: 40)
         btnSideMenu.addTarget(revealViewController(), action: #selector(revealViewController()?.revealSideMenu), for: .touchUpInside)
         self.navigationController?.view.addSubview(btnSideMenu)
         
         let btnWishList = UIButton(type: .custom)
         btnWishList.setImage(UIImage(named: "img_fav_plain"), for: .normal)
-        btnWishList.frame = CGRect(x:self.view.frame.size.width-120, y: 45, width: 50, height: 40)
+        btnWishList.frame = CGRect(x:Int(self.view.frame.size.width)-120, y: yValue, width: 50, height: 40)
        // btnWishList.addTarget(revealViewController(), action: #selector(revealViewController()?.revealSideMenu), for: .touchUpInside)
       //  self.navigationController?.view.addSubview(btnWishList)
         
         let btnCart = UIButton(type: .custom)
         btnCart.setImage(UIImage(named: "img_cart"), for: .normal)
-        btnCart.frame = CGRect(x:self.view.frame.size.width-60, y: 45, width: 50, height: 40)
+        btnCart.frame = CGRect(x:Int(self.view.frame.size.width)-60, y: yValue, width: 50, height: 40)
         //btnCart.addTarget(revealViewController(), action: #selector(revealViewController()?.revealSideMenu), for: .touchUpInside)
         self.navigationController?.view.addSubview(btnCart)
         
@@ -113,6 +122,8 @@ class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataS
         
         animationTimer.invalidate() // just in case this button is tapped multiple times
         animationTimer = Timer.scheduledTimer(timeInterval: 6.0, target: self, selector: #selector(stopAnimation), userInfo: nil, repeats: true)
+        
+        self.tblViewListProducts.alwaysBounceVertical = false
               
     }
     
@@ -282,22 +293,34 @@ class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataS
             else if indexPath.row == 1 {
                 let identifier = "WeekDealTableViewCell"
                 var weekdealcell: WeekDealTableViewCell! = tableView.dequeueReusableCell(withIdentifier: identifier) as? WeekDealTableViewCell
-              tableView.register(UINib(nibName: "WeekDealTableViewCell", bundle: nil), forCellReuseIdentifier: identifier)
+            if (weekdealcell == nil) {
+               tableView.register(UINib(nibName: "WeekDealTableViewCell", bundle: nil), forCellReuseIdentifier: identifier)
                 weekdealcell = tableView.dequeueReusableCell(withIdentifier: "WeekDealTableViewCell") as? WeekDealTableViewCell
+                }
                 weekdealcell.delegate = self
                 return weekdealcell!
             }else if indexPath.row == 2 {
                 let identifier = "NewArrivalTableViewCell"
                 var newarrivalcell: NewArrivalTableViewCell! = tableView.dequeueReusableCell(withIdentifier: identifier) as? NewArrivalTableViewCell
+            if (newarrivalcell == nil) {
                tableView.register(UINib(nibName: "NewArrivalTableViewCell", bundle: nil), forCellReuseIdentifier: identifier)
                 newarrivalcell = tableView.dequeueReusableCell(withIdentifier: "NewArrivalTableViewCell") as? NewArrivalTableViewCell
+            }
                 newarrivalcell.delegate = self
                 return newarrivalcell!
             }else if indexPath.row == 3{
+               
                 let identifier = "CategoriesTableViewCell"
                 var weekdealcell: CategoriesTableViewCell! = tableView.dequeueReusableCell(withIdentifier: identifier) as? CategoriesTableViewCell
-               tableView.register(UINib(nibName: "CategoriesTableViewCell", bundle: nil), forCellReuseIdentifier: identifier)
-                weekdealcell = tableView.dequeueReusableCell(withIdentifier: "CategoriesTableViewCell") as? CategoriesTableViewCell
+
+                if (weekdealcell == nil) {
+                    tableView.register(UINib(nibName: "CategoriesTableViewCell", bundle: nil), forCellReuseIdentifier: identifier)
+                    weekdealcell = tableView.dequeueReusableCell(withIdentifier: "CategoriesTableViewCell") as? CategoriesTableViewCell
+                   }
+                
+                
+             
+               
                 weekdealcell.delegate = self
                 return weekdealcell!
             }
@@ -374,6 +397,7 @@ class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataS
             "Authorization": "Bearer " +  Singleton.sharedManager.bearertoken
            ]
 
+        CustomActivityIndicator.shared.show(uiView: self.view.superview!, labelText: "Searching your favourites...")
         
         DispatchQueue.global(qos: .background).async {
         let request = AF.request(URLStr, parameters: parameters, headers: headers)
@@ -391,6 +415,8 @@ class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataS
                                 self.searchproductsArray = jsonDict?.object(forKey: "items") as! [Any]
                         DispatchQueue.main.async {
                                 self.tblViewSearchProducts.reloadData()
+                            CustomActivityIndicator.shared.hide(uiView: self.view.superview!, delay: 1.5)
+
                                // self.indicator.stopAnimating()
 
                             }

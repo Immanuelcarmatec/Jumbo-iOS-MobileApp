@@ -106,7 +106,18 @@ class Validation {
 
 
 //ViewExtensions
-
+extension UIDevice {
+    var hasNotch: Bool {
+        let keyWindow = UIApplication.shared.connectedScenes
+                .filter({$0.activationState == .foregroundActive})
+                .map({$0 as? UIWindowScene})
+                .compactMap({$0})
+                .first?.windows
+                .filter({$0.isKeyWindow}).first
+        let bottom = keyWindow?.safeAreaInsets.bottom ?? 0
+        return bottom > 0
+    }
+}
 extension UIImageView {
 
     func addShadow() {

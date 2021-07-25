@@ -32,11 +32,21 @@ class ProductDetailsViewController: UIViewController,UITableViewDelegate, UITabl
         viewHeader.addGestureRecognizer(tapGesture)
         //addNavBarImage()
         
+        if UIDevice.current.hasNotch {
+            self.navBar.frame = CGRect(x: 0, y: 40, width: self.view.frame.width, height: 44)
+        } else {
+            self.navBar.frame = CGRect(x: 0, y: 20, width: self.view.frame.width, height: 44)
+
+        }
+        
+        
         let image = UIImage(named: "img_logo") //Your logo url here
         let imageView = UIImageView(image: image)
         imageView.contentMode = .scaleAspectFill
         imageView.frame = CGRect(x: 50, y: 0, width: 150, height: 50)
         self.navBar.addSubview(imageView)
+        
+       
         
     }
     
@@ -138,7 +148,8 @@ class ProductDetailsViewController: UIViewController,UITableViewDelegate, UITabl
         if indexPath.row == 0 {
             return 550//Choose your custom row height
         }else if indexPath.row == 1{
-            return 350//Choose your custom row height
+            return 1000//Choose your custom row height
+          // return UITableView.automaticDimension
         }
         
         return 0

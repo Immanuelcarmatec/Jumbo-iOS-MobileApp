@@ -16,6 +16,7 @@
 		181C5554268F7DE600121E38 /* CollapsibleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181C5553268F7DE600121E38 /* CollapsibleTableViewCell.swift */; };
 		182AC53926902B5500240BBC /* CollapsibleTableViewHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 182AC53826902B5500240BBC /* CollapsibleTableViewHeader.xib */; };
 		18300B732677B4B1003A020F /* CategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18300B722677B4B1003A020F /* CategoriesViewController.swift */; };
+		1834045B26A07C7400278549 /* CartModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1834045A26A07C7400278549 /* CartModel.swift */; };
 		183608D1268369E10005182E /* CustomSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183608C5268369E00005182E /* CustomSegmentedControl.swift */; };
 		18DF98C02689CB1900F5F17B /* DUIActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DF98AF2689CB1900F5F17B /* DUIActivityIndicator.swift */; };
 		18FFCF63266F65B000832144 /* HeadingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FFCF61266F65B000832144 /* HeadingTableViewCell.swift */; };
@@ -183,6 +184,7 @@
 		181C5553268F7DE600121E38 /* CollapsibleTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollapsibleTableViewCell.swift; sourceTree = "<group>"; };
 		182AC53826902B5500240BBC /* CollapsibleTableViewHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollapsibleTableViewHeader.xib; sourceTree = "<group>"; };
 		18300B722677B4B1003A020F /* CategoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesViewController.swift; sourceTree = "<group>"; };
+		1834045A26A07C7400278549 /* CartModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartModel.swift; sourceTree = "<group>"; };
 		183608C5268369E00005182E /* CustomSegmentedControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSegmentedControl.swift; sourceTree = "<group>"; };
 		18DF98AF2689CB1900F5F17B /* DUIActivityIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DUIActivityIndicator.swift; sourceTree = "<group>"; };
 		18FFCF61266F65B000832144 /* HeadingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadingTableViewCell.swift; sourceTree = "<group>"; };
@@ -465,6 +467,7 @@
 				358DFDD22611DD3C0037221F /* Info.plist */,
 				181C553D268C871300121E38 /* CartViewController.swift */,
 				181C554B268C872900121E38 /* ProfileViewController.swift */,
+				1834045A26A07C7400278549 /* CartModel.swift */,
 			);
 			path = Jumbosouq;
 			sourceTree = "<group>";
@@ -898,6 +901,7 @@
 				355B2A852620A39F0032567B /* MainViewController.swift in Sources */,
 				35D608AE2628924E00E8A066 /* WeekDealCollectionViewCell.swift in Sources */,
 				181C553E268C871300121E38 /* CartViewController.swift in Sources */,
+				1834045B26A07C7400278549 /* CartModel.swift in Sources */,
 				35A44E1726612E5E00F514DD /* ProductMoreDetailsTableViewCell.swift in Sources */,
 				35735A7C262DCFB4001C2971 /* CustomActivityIndicator.swift in Sources */,
 				3534DFC4261CAC7200A5A9CC /* HomeViewController.swift in Sources */,
@@ -1111,7 +1115,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.10;
+				MARKETING_VERSION = 1.11;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jumbosouq.shop;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "Jumbosouq Shop";
@@ -1134,7 +1138,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.10;
+				MARKETING_VERSION = 1.11;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jumbosouq.shop;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "Jumbosouq Shop";

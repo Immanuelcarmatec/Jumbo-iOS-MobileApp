@@ -12,22 +12,26 @@ import FBSDKLoginKit
 
 class BaseTabViewController: UITabBarController {
     
+    var createCarttimer = Timer()
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
                 
         if (defaults.object(forKey: "username") != nil) {
-            
             let username:String = defaults.object(forKey: "username")! as! String
             let password:String = defaults.object(forKey: "password") as! String
             self.doLogin(username: username, password: password)
-           
         }else{
             let newViewController = storyBoard.instantiateViewController(withIdentifier: "ViewController") as! ViewController
                       newViewController.modalPresentationStyle = .overFullScreen
-                      self.present(newViewController, animated: true, completion: nil)
+                      self.present(newViewController, animated: false, completion: nil)
         }
         
+    }
+    
+    func createcart() {
     }
     
     
@@ -42,16 +46,23 @@ class BaseTabViewController: UITabBarController {
             "Authorization": "Bearer " +  Singleton.sharedManager.bearertoken
            ]
 
-        
+        print(Singleton.sharedManager.bearertoken)
+
         AF.request(URLStr, method: .post,  parameters: parameters, encoding: JSONEncoding.default, headers:headers)
             .responseJSON { response in
                 switch response.result {
                 case .success(let value):
+                    print(value)
                     CustomActivityIndicator.shared.hide(uiView: self.view, delay: 0)
-                    if (response.response?.statusCode  != 200){
+                    if (response.response?.statusCode  == 200){
+                        self.createCarttimer = Timer.scheduledTimer(withTimeInterval: 3, repeats: false) { [weak self] _ in
+                                    // do something here
+                                        CartModel().createCart()
+                                }
+                    }else{
                         let newViewController = storyBoard.instantiateViewController(withIdentifier: "ViewController") as! ViewController
                                   newViewController.modalPresentationStyle = .overFullScreen
-                                  self.present(newViewController, animated: true, completion: nil)
+                                  self.present(newViewController, animated: false, completion: nil)
                     }
                 case .failure(let error):
                  CustomActivityIndicator.shared.hide(uiView: self.view, delay: 1.5)

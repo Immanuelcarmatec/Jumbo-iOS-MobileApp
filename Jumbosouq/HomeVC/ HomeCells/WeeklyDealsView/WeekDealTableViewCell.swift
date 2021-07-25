@@ -88,7 +88,7 @@ class WeekDealTableViewCell: UITableViewCell, UICollectionViewDataSource, UIColl
         let parameters: [String: Any] = [ "searchCriteria[filter_groups][0][filters][0][field]":"category_id",
             "searchCriteria[filter_groups][0][filters][0][value]":"494",
             "searchCriteria[filter_groups][0][filters][0][condition_type]":"eq",
-            "searchCriteria[pageSize]":"20"
+            "searchCriteria[pageSize]":"50"
         ]
         let URLStr = baseURL + "products"
         

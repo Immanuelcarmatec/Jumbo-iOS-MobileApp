@@ -54,7 +54,7 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
             defaults.setValue(nil, forKey: "password")
             let newViewController = storyBoard.instantiateViewController(withIdentifier: "ViewController") as! ViewController
                       newViewController.modalPresentationStyle = .overFullScreen
-                      self.present(newViewController, animated: true, completion: nil)
+                      self.present(newViewController, animated: false, completion: nil)
             self.tabBarController?.selectedIndex = 0
             })
         let cancelAction = UIAlertAction(title: "Cancel", style: .destructive, handler: { action in

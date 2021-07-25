@@ -108,7 +108,7 @@ class CategoriesTableViewCell: UITableViewCell, UICollectionViewDataSource, UICo
         let parameters: [String: Any] = [ "searchCriteria[filter_groups][0][filters][0][field]":"name",
             "searchCriteria[filter_groups][0][filters][0][value]":searchString,
             "searchCriteria[filter_groups][0][filters][0][condition_type]":"like",
-            "searchCriteria[pageSize]":"20"
+            "searchCriteria[pageSize]":"50"
         ]
         let URLStr = baseURL + "products"
         
